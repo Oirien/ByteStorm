@@ -10,14 +10,14 @@
 
 #Extensions
 
-+Have multiple levels for the game
-+Have roguelike elements between levels
-+Have modular weapon system
-+Skill system
++ Have multiple levels for the game
++ Have roguelike elements between levels
++ Have modular weapon system
++ Skill system
 
 #Super Extensions
-+Save game system
-+Endlessmode
-+wiki
-+Deploy on steam
-+Community page
++ Save game system
++ Endlessmode
++ wiki
++ Deploy on steam
++ Community page
