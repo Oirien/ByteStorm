@@ -8,14 +8,14 @@
 + Have a playable bullethell 2d game.
 + Have the game able to post data to the database.
 
-#Extensions
+### Extensions
 
 + Have multiple levels for the game
 + Have roguelike elements between levels
 + Have modular weapon system
 + Skill system
 
-#Super Extensions
+### Super Extensions
 + Save game system
 + Endlessmode
 + wiki
