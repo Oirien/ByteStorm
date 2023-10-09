@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjsh5uhvujji1"]
+
+[ext_resource type="Texture2D" uid="uid://xjg2dr8xf0ij" path="res://Assets/Enemy_1.png" id="1_1y7fu"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_rtgy0"]
+[ext_resource type="Script" path="res://Scripts/Spinner.gd" id="2_ojqqi"]
+
+[node name="Enemy" type="Node2D"]
+position = Vector2(500, 300)
+scale = Vector2(1.25, 1.25)
+script = ExtResource("1_rtgy0")
+
+[node name="Spinner" type="Node2D" parent="."]
+rotation = -1.5708
+script = ExtResource("2_ojqqi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 4.71239
+texture = ExtResource("1_1y7fu")

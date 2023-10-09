@@ -11,10 +11,18 @@ config_version=5
 [application]
 
 config/name="Final Project"
-run/main_scene="res://http_requesttest.tscn"
+run/main_scene="res://Scenes/game.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Spawning="*res://addons/BulletUpHell/Spawning.tscn"
 
 [dotnet]
 
 project/assembly_name="Final Project"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/BulletUpHell/plugin.cfg")
