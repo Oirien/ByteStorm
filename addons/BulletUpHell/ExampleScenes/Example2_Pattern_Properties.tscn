@@ -17,6 +17,7 @@ iterations = -1
 follows_parent = false
 forced_angle = 0.0
 forced_target = NodePath("")
+forced_lookat_mouse = false
 forced_pattern_lookat = true
 cooldown_stasis = false
 cooldown_spawn = 5.0
@@ -56,9 +57,9 @@ r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 
 [sub_resource type="Curve2D" id="Curve2D_u3j77"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 701, 125, 0, 0, 0, 0, 753, 91, 0, 0, 0, 0, 799, 123, 0, 0, 0, 0, 787, 73, 0, 0, 0, 0, 832, 48, 0, 0, 0, 0, 777, 39, 0, 0, 0, 0, 758, -13, 0, 0, 0, 0, 731, 36, 0, 0, 0, 0, 686, 41, 0, 0, 0, 0, 723, 71)
+"points": PackedVector2Array(0, 0, 0, 0, 701, 125, 0, 0, 0, 0, 739, 268, 0, 0, 0, 0, 882, 235, 0, 0, 0, 0, 799, 123, 0, 0, 0, 0, 990, 107, 0, 0, 0, 0, 832, 48, 0, 0, 0, 0, 920, -89, 0, 0, 0, 0, 758, -13, 0, 0, 0, 0, 574, -80, 0, 0, 0, 0, 586, 139, 0, 0, 0, 0, 627, 205)
 }
-point_count = 10
+point_count = 11
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iro43"]
 resource_name = "PatternCircle"
@@ -75,6 +76,7 @@ iterations = -1
 follows_parent = false
 forced_angle = 0.0
 forced_target = NodePath("")
+forced_lookat_mouse = false
 forced_pattern_lookat = true
 cooldown_stasis = false
 cooldown_spawn = 5.0
@@ -132,7 +134,8 @@ iterations = -1
 follows_parent = false
 forced_angle = 0.0
 forced_target = NodePath("")
-forced_pattern_lookat = true
+forced_lookat_mouse = false
+forced_pattern_lookat = false
 cooldown_stasis = false
 cooldown_spawn = 5.0
 cooldown_shoot = 0.0
@@ -206,6 +209,8 @@ spec_trail_length = 0.0
 spec_trail_width = 0.0
 spec_trail_modulate = Color(1, 1, 1, 1)
 spec_rotating_speed = 0.0
+spec_angle_no_colliding = null
+spec_angle_no_coll_offset = null
 death_after_time = 30.0
 death_outside_box = Rect2(0, 0, 0, 0)
 death_from_collision = true
@@ -311,14 +316,7 @@ auto_start_on_cam = true
 auto_start_after_time = 0.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
-trigger_id = null
-r_randomisation_chances = 0.0
-r_active_chances = 0.0
-r_shared_area_choice = ""
-r_rotating_variation = Vector3(0, 0, 0)
-r_pattern_choice = ""
-r_start_time_choice = ""
-r_start_time_variation = Vector3(0, 0, 0)
+trigger_container = NodePath("")
 
 [node name="SpawnPoint2" type="Node2D" parent="SpawnPoints"]
 position = Vector2(86, 307)
@@ -332,14 +330,7 @@ auto_start_on_cam = true
 auto_start_after_time = 0.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
-trigger_id = null
-r_randomisation_chances = 0.0
-r_active_chances = 0.0
-r_shared_area_choice = ""
-r_rotating_variation = Vector3(0, 0, 0)
-r_pattern_choice = ""
-r_start_time_choice = ""
-r_start_time_variation = Vector3(0, 0, 0)
+trigger_container = NodePath("")
 
 [node name="SpawnPoint3" type="Node2D" parent="SpawnPoints"]
 position = Vector2(83, 510)
@@ -353,14 +344,7 @@ auto_start_on_cam = true
 auto_start_after_time = 0.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
-trigger_id = null
-r_randomisation_chances = 0.0
-r_active_chances = 0.0
-r_shared_area_choice = ""
-r_rotating_variation = Vector3(0, 0, 0)
-r_pattern_choice = ""
-r_start_time_choice = ""
-r_start_time_variation = Vector3(0, 0, 0)
+trigger_container = NodePath("")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 16
