@@ -94,3 +94,6 @@ position = Vector2(827, 597)
 shape = SubResource("RectangleShape2D_45c86")
 
 [connection signal="area_entered" from="PlayerAreaBottom" to="Player" method="_on_player_area_bottom_area_entered"]
+[connection signal="area_entered" from="PlayerAreaTop" to="Player" method="_on_player_area_top_area_entered"]
+[connection signal="area_entered" from="PlayerAreaLeft" to="Player" method="_on_player_area_left_area_entered"]
+[connection signal="area_entered" from="PlayerAreaRight" to="Player" method="_on_player_area_right_area_entered"]

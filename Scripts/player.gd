@@ -34,4 +34,16 @@ func movement():
 
 
 func _on_player_area_bottom_area_entered(area):
-	self.position.y -= 24
+	self.position.y -= 50
+
+
+func _on_player_area_top_area_entered(area):
+	self.position.y += 50
+
+
+func _on_player_area_left_area_entered(area):
+	self.position.x += 50
+
+
+func _on_player_area_right_area_entered(area):
+	self.position.x -= 50
