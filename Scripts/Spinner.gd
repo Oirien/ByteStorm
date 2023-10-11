@@ -37,7 +37,7 @@ func bullet_pattern1():
 	else:
 		shooting = true
 		self.position = get_parent().position
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.05).timeout
 		spawn_bullet()
 		shooting = false
 	previousRotation = currentRotationValue

@@ -7,7 +7,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.position += Vector2(-1,0).rotated(self.rotation)
+	self.position += Vector2(-10,0).rotated(self.rotation)
 	if ($RayCast2D.is_colliding()): 
 		var player_hit = $RayCast2D.get_collider()
 		player_hit.get_parent().on_hit()
