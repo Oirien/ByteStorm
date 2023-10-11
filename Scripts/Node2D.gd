@@ -1,13 +1,12 @@
 extends Node2D
 
-var speed = 900
+var t = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.position += Vector2(10,0)
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.position += Vector2(speed * delta,0)
-	if ($RayCast2D.is_colliding()): 
-		self.queue_free()
+	t += delta
+	$Path2D/PathFollow2D.progress = t * 200

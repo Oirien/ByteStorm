@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2o4jq8le3qyo"]
+[gd_scene load_steps=19 format=3 uid="uid://d2o4jq8le3qyo"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_58ro4"]
 [ext_resource type="Texture2D" uid="uid://38477encum6x" path="res://Assets/cityblock-1.png" id="2_80kcp"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bjsh5uhvujji1" path="res://Scenes/enemy.tscn" id="3_cuus6"]
 [ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="4_ykyuh"]
 [ext_resource type="Script" path="res://Scripts/PlayerArea.gd" id="6_1vfid"]
+[ext_resource type="Script" path="res://Scripts/Node2D.gd" id="6_6832m"]
+[ext_resource type="Script" path="res://Scripts/Path2D.gd" id="6_evf7c"]
+[ext_resource type="PackedScene" uid="uid://cmymqtikqbrc3" path="res://Scenes/small_enemy_1.tscn" id="6_ucwok"]
+[ext_resource type="Script" path="res://Scripts/SmallEnemyPath.gd" id="9_8x60x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_og23x"]
 texture = ExtResource("2_80kcp")
@@ -31,14 +35,23 @@ size = Vector2(28, 1208)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45c86"]
 size = Vector2(177, 1215)
 
+[sub_resource type="Curve2D" id="Curve2D_oiam2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1410, 465, 0, 0, 0, 0, 1652, 155, 0, 0, 0, 0, 1541, 474, 0, 0, 0, 0, 1609, 764, 0, 0, 0, 0, 1405, 464)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_5fwqq"]
+_data = {
+"points": PackedVector2Array(248.361, 0.690796, -248.361, -0.690796, 1896, 96, 186.979, -0.109671, -186.979, 0.109671, 1469, 305, 229.962, 5.45506, -229.962, -5.45506, 1011, 94, 183.635, 1.89147, -183.635, -1.89147, 584, 306, 213.925, 3.67327, -213.925, -3.67327, 160, 92, 0, 0, 0, 0, -87, 299)
+}
+point_count = 6
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_58ro4")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_r28r2")]
 position = Vector2(207, 593)
-
-[node name="Enemy" parent="." instance=ExtResource("3_cuus6")]
-position = Vector2(1614, 595)
 
 [node name="THE WALL" type="Area2D" parent="."]
 collision_layer = 3
@@ -60,40 +73,80 @@ cell_quadrant_size = 48
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 262145, 0, 0, 196609, 0, 0, 131073, 0, 0, 65537, 0, 0, 1, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 262147, 0, 0, 196611, 0, 0, 131075, 0, 0, 65539, 0, 0, 3, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 262149, 0, 0, 196613, 0, 0, 131077, 0, 0, 65541, 0, 0, 5, 0, 0, 6, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 262151, 0, 0, 196615, 0, 0, 131079, 0, 0, 65543, 0, 0, 7, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 327682, 0, 0, 393218, 0, 0, 458754, 0, 0, 327683, 0, 0, 393219, 0, 0, 458755, 0, 0, 327684, 0, 0, 393220, 0, 0, 458756, 0, 0, 327685, 0, 0, 393221, 0, 0, 458757, 0, 0, 327686, 0, 0, 393222, 0, 0, 458758, 0, 0, 327687, 0, 0, 393223, 0, 0, 458759, 0, 0, 327688, 0, 0, 393224, 0, 0, 458760, 0, 0, 327689, 0, 0, 393225, 0, 0, 458761, 0, 0, 327690, 0, 0, 393226, 0, 0, 458762, 0, 0, 327691, 0, 0, 393227, 0, 0, 458763, 0, 0, 327692, 0, 0, 393228, 0, 0, 458764, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 0, 0, 10, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 0, 0, 11, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 12, 0, 0, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0, 262156, 0, 0)
 
-[node name="PlayerAreaBottom" type="Area2D" parent="." groups=["Player"]]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer2"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.67451)
+
+[node name="PlayerBox" type="Node2D" parent="."]
+
+[node name="PlayerAreaBottom" type="Area2D" parent="PlayerBox" groups=["Player"]]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("6_1vfid")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaBottom" groups=["Player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBox/PlayerAreaBottom" groups=["Player"]]
 position = Vector2(986, 1088)
 shape = SubResource("RectangleShape2D_7ar38")
 
-[node name="PlayerAreaTop" type="Area2D" parent="." groups=["Player"]]
+[node name="PlayerAreaTop" type="Area2D" parent="PlayerBox" groups=["Player"]]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaTop" groups=["Player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBox/PlayerAreaTop" groups=["Player"]]
 position = Vector2(970.5, 2.5)
 shape = SubResource("RectangleShape2D_lvcov")
 
-[node name="PlayerAreaLeft" type="Area2D" parent="." groups=["Player"]]
+[node name="PlayerAreaLeft" type="Area2D" parent="PlayerBox" groups=["Player"]]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaLeft" groups=["Player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBox/PlayerAreaLeft" groups=["Player"]]
 position = Vector2(4, 594)
 shape = SubResource("RectangleShape2D_2wdou")
 
-[node name="PlayerAreaRight" type="Area2D" parent="." groups=["Player"]]
+[node name="PlayerAreaRight" type="Area2D" parent="PlayerBox" groups=["Player"]]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaRight" groups=["Player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBox/PlayerAreaRight" groups=["Player"]]
 position = Vector2(827, 597)
 shape = SubResource("RectangleShape2D_45c86")
 
-[connection signal="area_entered" from="PlayerAreaBottom" to="Player" method="_on_player_area_bottom_area_entered"]
-[connection signal="area_entered" from="PlayerAreaTop" to="Player" method="_on_player_area_top_area_entered"]
-[connection signal="area_entered" from="PlayerAreaLeft" to="Player" method="_on_player_area_left_area_entered"]
-[connection signal="area_entered" from="PlayerAreaRight" to="Player" method="_on_player_area_right_area_entered"]
+[node name="BossPath" type="Node2D" parent="."]
+script = ExtResource("6_6832m")
+
+[node name="Path2D" type="Path2D" parent="BossPath"]
+curve = SubResource("Curve2D_oiam2")
+script = ExtResource("6_evf7c")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="BossPath/Path2D"]
+position = Vector2(1410, 465)
+rotates = false
+
+[node name="Enemy" parent="BossPath/Path2D/PathFollow2D" instance=ExtResource("3_cuus6")]
+position = Vector2(0, 0)
+
+[node name="SmallEnemyPath" type="Node2D" parent="."]
+script = ExtResource("9_8x60x")
+
+[node name="Path2D" type="Path2D" parent="SmallEnemyPath"]
+curve = SubResource("Curve2D_5fwqq")
+script = ExtResource("6_evf7c")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SmallEnemyPath/Path2D"]
+position = Vector2(1896, 96)
+rotation = -3.13881
+rotates = false
+
+[node name="small_enemy1" parent="SmallEnemyPath/Path2D/PathFollow2D" instance=ExtResource("6_ucwok")]
+rotation = 1.56801
+scale = Vector2(0.75, 0.75)
+
+[connection signal="area_entered" from="PlayerBox/PlayerAreaBottom" to="Player" method="_on_player_area_bottom_area_entered"]
+[connection signal="area_entered" from="PlayerBox/PlayerAreaTop" to="Player" method="_on_player_area_top_area_entered"]
+[connection signal="area_entered" from="PlayerBox/PlayerAreaLeft" to="Player" method="_on_player_area_left_area_entered"]
+[connection signal="area_entered" from="PlayerBox/PlayerAreaRight" to="Player" method="_on_player_area_right_area_entered"]

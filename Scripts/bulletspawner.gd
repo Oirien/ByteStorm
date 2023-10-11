@@ -18,28 +18,22 @@ func _process(delta):
 	
 	
 
-func spawn_bullet():
+func spawn_bullet(degrees):
 	var bullet = bullet_scene.instantiate()
 	var base_node = get_node("../../../../../")
-	bullet.rotation = self.rotation
+	bullet.rotation = degrees
 	base_node.add_child(bullet)
 	bullet.position = get_parent().get_parent().position
 	
 	
-func bullet_pattern1():
-	var currentRotationValue = self.rotation
-	if (currentRotationValue > 0.5):
-		currentDirection = shootRight
-	if (currentRotationValue < -0.5):
-		currentDirection = shootLeft
-	self.rotate(currentDirection)
-	
+func bullet_pattern1():	
 	if (shooting):
 		return
 	else:
 		shooting = true
 		self.position = get_parent().position
-		await get_tree().create_timer(0.05).timeout
-		spawn_bullet()
+		await get_tree().create_timer(0.5).timeout
+		spawn_bullet(0.2) 
+		spawn_bullet(0)
+		spawn_bullet(-0.2)
 		shooting = false
-	previousRotation = currentRotationValue

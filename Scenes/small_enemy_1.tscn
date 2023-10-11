@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmymqtikqbrc3"]
+
+[ext_resource type="Script" path="res://Scripts/bulletspawner.gd" id="1_e1gnh"]
+[ext_resource type="Texture2D" uid="uid://knq76xo111ax" path="res://Assets/Enemy_2.png" id="1_ggtqc"]
+
+[node name="small_enemy1" type="Node2D"]
+
+[node name="bulletspawner" type="Node2D" parent="."]
+script = ExtResource("1_e1gnh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ggtqc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, -26, -23, 9, 0, 23, 23, 10)

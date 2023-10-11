@@ -1,13 +1,12 @@
-extends Node2D
+extends Path2D
 
-var speed = 900
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.position += Vector2(10,0)
+	# Generate a random initial Y value within a desired range.
+	var random_initial_y = randi_range(-100, 100)  # Adjust the range as needed.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.position += Vector2(speed * delta,0)
-	if ($RayCast2D.is_colliding()): 
-		self.queue_free()
+	pass
