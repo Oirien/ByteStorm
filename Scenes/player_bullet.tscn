@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://buwqagudyfex6"]
+
+[ext_resource type="Script" path="res://Scripts/player_bullet.gd" id="1_32efp"]
+[ext_resource type="Texture2D" uid="uid://h4has65jpnl7" path="res://Assets/blast1.png" id="1_a7kve"]
+[ext_resource type="Texture2D" uid="uid://68blkjer27x" path="res://Assets/particle_cross.png" id="3_nlhmb"]
+
+[sub_resource type="Curve" id="Curve_vjlgr"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.0274725, -291.79), 0.0, 0.0, 0, 0, Vector2(0.983517, 291.789), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Node2D" type="Node2D"]
+rotation = 1.5708
+script = ExtResource("1_32efp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_a7kve")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Area2D/Sprite2D"]
+show_behind_parent = true
+amount = 5
+lifetime = 0.08
+randomness = 0.1
+texture = ExtResource("3_nlhmb")
+emission_shape = 1
+emission_sphere_radius = 8.0
+direction = Vector2(-1, 0)
+spread = 90.0
+gravity = Vector2(-1000, 0)
+angle_min = -15.0
+angle_max = 15.0
+angle_curve = SubResource("Curve_vjlgr")
+color = Color(0, 0.709804, 0, 1)
+hue_variation_min = 0.3
+hue_variation_max = 0.3
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 10)
+target_position = Vector2(0, -22)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false

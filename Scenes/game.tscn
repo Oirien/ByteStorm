@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2o4jq8le3qyo"]
+[gd_scene load_steps=13 format=3 uid="uid://d2o4jq8le3qyo"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_58ro4"]
 [ext_resource type="Texture2D" uid="uid://38477encum6x" path="res://Assets/cityblock-1.png" id="2_80kcp"]
 [ext_resource type="PackedScene" uid="uid://k0khelvllg4d" path="res://Scenes/player.tscn" id="2_r28r2"]
 [ext_resource type="PackedScene" uid="uid://bjsh5uhvujji1" path="res://Scenes/enemy.tscn" id="3_cuus6"]
-[ext_resource type="PackedScene" uid="uid://cpt0qwiy83tb4" path="res://Scenes/testbuhplugin.tscn" id="4_scbmk"]
+[ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="4_ykyuh"]
+[ext_resource type="Script" path="res://Scripts/PlayerArea.gd" id="6_1vfid"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_og23x"]
 texture = ExtResource("2_80kcp")
@@ -18,19 +19,78 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
 sources/0 = SubResource("TileSetAtlasSource_og23x")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ar38"]
+size = Vector2(1952.5, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvcov"]
+size = Vector2(1961, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wdou"]
+size = Vector2(28, 1208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45c86"]
+size = Vector2(177, 1215)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_58ro4")
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_rjn6o")
-cell_quadrant_size = 48
-format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 262145, 0, 0, 196609, 0, 0, 131073, 0, 0, 65537, 0, 0, 1, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 262147, 0, 0, 196611, 0, 0, 131075, 0, 0, 65539, 0, 0, 3, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 262149, 0, 0, 196613, 0, 0, 131077, 0, 0, 65541, 0, 0, 5, 0, 0, 6, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 262151, 0, 0, 196615, 0, 0, 131079, 0, 0, 65543, 0, 0, 7, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 327682, 0, 0, 393218, 0, 0, 458754, 0, 0, 327683, 0, 0, 393219, 0, 0, 458755, 0, 0, 327684, 0, 0, 393220, 0, 0, 458756, 0, 0, 327685, 0, 0, 393221, 0, 0, 458757, 0, 0, 327686, 0, 0, 393222, 0, 0, 458758, 0, 0, 327687, 0, 0, 393223, 0, 0, 458759, 0, 0, 327688, 0, 0, 393224, 0, 0, 458760, 0, 0, 327689, 0, 0, 393225, 0, 0, 458761, 0, 0, 327690, 0, 0, 393226, 0, 0, 458762, 0, 0, 327691, 0, 0, 393227, 0, 0, 458763, 0, 0, 327692, 0, 0, 393228, 0, 0, 458764, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 0, 0, 10, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 0, 0, 11, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 12, 0, 0, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0, 262156, 0, 0)
-
-[node name="Player" parent="." instance=ExtResource("2_r28r2")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_r28r2")]
 position = Vector2(207, 593)
 
 [node name="Enemy" parent="." instance=ExtResource("3_cuus6")]
 position = Vector2(1614, 595)
 
-[node name="Node2D" parent="Enemy" instance=ExtResource("4_scbmk")]
+[node name="THE WALL" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="THE WALL"]
+polygon = PackedVector2Array(0, 0, -97, 1, -127, 1324, 2056, 1299, 2054, -144, 0, -120, 4, -1, 1949, -1, 1950, 1200, -2, 1203)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(-10, 0)
+script = ExtResource("4_ykyuh")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer"]
+tile_set = SubResource("TileSet_rjn6o")
+cell_quadrant_size = 48
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 262145, 0, 0, 196609, 0, 0, 131073, 0, 0, 65537, 0, 0, 1, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 262147, 0, 0, 196611, 0, 0, 131075, 0, 0, 65539, 0, 0, 3, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 262149, 0, 0, 196613, 0, 0, 131077, 0, 0, 65541, 0, 0, 5, 0, 0, 6, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 262151, 0, 0, 196615, 0, 0, 131079, 0, 0, 65543, 0, 0, 7, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 327682, 0, 0, 393218, 0, 0, 458754, 0, 0, 327683, 0, 0, 393219, 0, 0, 458755, 0, 0, 327684, 0, 0, 393220, 0, 0, 458756, 0, 0, 327685, 0, 0, 393221, 0, 0, 458757, 0, 0, 327686, 0, 0, 393222, 0, 0, 458758, 0, 0, 327687, 0, 0, 393223, 0, 0, 458759, 0, 0, 327688, 0, 0, 393224, 0, 0, 458760, 0, 0, 327689, 0, 0, 393225, 0, 0, 458761, 0, 0, 327690, 0, 0, 393226, 0, 0, 458762, 0, 0, 327691, 0, 0, 393227, 0, 0, 458763, 0, 0, 327692, 0, 0, 393228, 0, 0, 458764, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 0, 0, 10, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 0, 0, 11, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 12, 0, 0, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0, 262156, 0, 0)
+
+[node name="PlayerAreaBottom" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("6_1vfid")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaBottom" groups=["Player"]]
+position = Vector2(979, 1189.5)
+shape = SubResource("RectangleShape2D_7ar38")
+
+[node name="PlayerAreaTop" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaTop" groups=["Player"]]
+position = Vector2(970.5, 2.5)
+shape = SubResource("RectangleShape2D_lvcov")
+
+[node name="PlayerAreaLeft" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaLeft" groups=["Player"]]
+position = Vector2(4, 594)
+shape = SubResource("RectangleShape2D_2wdou")
+
+[node name="PlayerAreaRight" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaRight" groups=["Player"]]
+position = Vector2(827, 597)
+shape = SubResource("RectangleShape2D_45c86")
+
+[connection signal="area_entered" from="PlayerAreaBottom" to="Player" method="_on_player_area_bottom_area_entered"]

@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var health = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -8,15 +8,30 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	movement()
+
+func on_hit():
+	health -= 1
+	if (health == 0):
+		self.queue_free()
+	
+func movement():
 	var xDirection = 0
 	var yDirection = 0
 	
 	if (Input.is_action_pressed("ui_down")):
-		yDirection = 2
+		yDirection = 3
 	if (Input.is_action_pressed("ui_up")):
-		yDirection = -2
+		yDirection = -3
 	if (Input.is_action_pressed("ui_right")):
-		xDirection = 2
+		xDirection = 3
 	if (Input.is_action_pressed("ui_left")):
-		xDirection = -2
+		xDirection = -3
 	self.position += Vector2(xDirection, yDirection)
+
+
+
+
+
+func _on_player_area_bottom_area_entered(area):
+	print("area entered")
