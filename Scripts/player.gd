@@ -3,7 +3,7 @@ extends Node2D
 var health = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,4 +34,4 @@ func movement():
 
 
 func _on_player_area_bottom_area_entered(area):
-	print("area entered")
+	self.position.y -= 24
