@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://byp3ifsnigay0"]
 
-[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_h148b"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_k7n3p"]
 [ext_resource type="Texture2D" uid="uid://dnc24hwwbivb7" path="res://Assets/jank_logo.png" id="2_1oqfp"]
 [ext_resource type="Texture2D" uid="uid://y3jfg6y4fve6" path="res://Assets/jank_start.png.png" id="3_btw6s"]
 [ext_resource type="Texture2D" uid="uid://cc3ukywj1l07b" path="res://Assets/jank_quit.png" id="4_da3u0"]
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_h148b")
+script = ExtResource("1_k7n3p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
