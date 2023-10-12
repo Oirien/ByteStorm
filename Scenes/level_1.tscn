@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/Path2D.gd" id="6_3p3gw"]
 [ext_resource type="PackedScene" uid="uid://bjsh5uhvujji1" path="res://Scenes/enemy.tscn" id="7_kytv3"]
 [ext_resource type="Script" path="res://Scripts/SmallEnemyPath.gd" id="8_5tgv5"]
-[ext_resource type="PackedScene" uid="uid://cmymqtikqbrc3" path="res://Scenes/small_enemy_1.tscn" id="9_d54ms"]
+[ext_resource type="PackedScene" path="res://Scenes/small_enemy_1.tscn" id="9_d54ms"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="11_omqqf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_og23x"]

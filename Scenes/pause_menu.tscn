@@ -14,15 +14,12 @@ grow_vertical = 2
 script = ExtResource("1_4vwlg")
 
 [node name="Popup" type="Popup" parent="."]
-size = Vector2i(900, 735)
+size = Vector2i(1920, 1080)
 visible = true
 
 [node name="Container" type="MarginContainer" parent="Popup"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 388.0
-offset_bottom = 223.0
+offset_right = 900.0
+offset_bottom = 735.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 300
@@ -52,8 +49,6 @@ layout_mode = 2
 text = "Quit to Main Menu"
 
 [node name="ColorRect" type="ColorRect" parent="Popup"]
-offset_right = 1922.0
-offset_bottom = 1086.0
 color = Color(0.537255, 0.537255, 0.537255, 0.537255)
 
 [connection signal="pressed" from="Popup/Container/BoxContainer/VBoxContainer/HBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

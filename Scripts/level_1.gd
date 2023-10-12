@@ -17,9 +17,9 @@ func on_hit():
 
 func start_pause():
 	if (paused):
-		pausemenu.hide()
+		pausemenu.get_child(0).hide()
 		Engine.time_scale = 1
 	else:
-		pausemenu.show()
+		pausemenu.get_child(0).show()
 		Engine.time_scale = 0
 	paused = !paused
