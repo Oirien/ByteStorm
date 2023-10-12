@@ -16,10 +16,6 @@ config/features=PackedStringArray("4.1", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
 
-[autoload]
-
-Spawning="*res://addons/BulletUpHell/Spawning.tscn"
-
 [debug]
 
 settings/stdout/print_fps=true
@@ -37,7 +33,7 @@ project/assembly_name="Final Project"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/BulletUpHell/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

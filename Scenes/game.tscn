@@ -1,14 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2o4jq8le3qyo"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_58ro4"]
-[ext_resource type="PackedScene" uid="uid://c82nfiwxdc1e1" path="res://Scenes/MainMenu.tscn" id="2_6oqmn"]
+[ext_resource type="PackedScene" uid="uid://byp3ifsnigay0" path="res://Scenes/main_menu.tscn" id="2_c7t60"]
 [ext_resource type="PackedScene" uid="uid://duwftjyo7nhq8" path="res://Scenes/player_data.tscn" id="3_ecifo"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_58ro4")
 
-[node name="Control" parent="." instance=ExtResource("2_6oqmn")]
-offset_right = 1920.0
-offset_bottom = 1080.0
+[node name="MainMenu" parent="." instance=ExtResource("2_c7t60")]
 
 [node name="PlayerData" parent="." instance=ExtResource("3_ecifo")]

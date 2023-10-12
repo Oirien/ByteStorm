@@ -12,4 +12,4 @@ func _process(delta):
 
 func on_hit():
 	pass
-a
+

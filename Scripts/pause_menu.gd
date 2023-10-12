@@ -1,5 +1,5 @@
 extends Control
-var main_menu = preload("res://Scenes/MainMenu.tscn").instantiate()
+var main_menu = preload("res://Scenes/main_menu.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
