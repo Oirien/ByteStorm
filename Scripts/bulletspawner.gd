@@ -20,10 +20,11 @@ func _process(delta):
 
 func spawn_bullet(degrees):
 	var bullet = bullet_scene.instantiate()
-	var base_node = get_node("../../../../../")
+	var base_node = get_node("../../../")
 	bullet.rotation = degrees
 	base_node.add_child(bullet)
 	bullet.position = get_parent().get_parent().position
+	bullet.reparent(base_node.get_parent().get_parent().get_parent())
 	
 	
 func bullet_pattern1():	

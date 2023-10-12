@@ -1,9 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmymqtikqbrc3"]
+[gd_scene load_steps=11 format=3 uid="uid://cmymqtikqbrc3"]
 
+[ext_resource type="Script" path="res://Scripts/small_enemy_1.gd" id="1_7xi0p"]
 [ext_resource type="Script" path="res://Scripts/bulletspawner.gd" id="1_e1gnh"]
 [ext_resource type="Texture2D" uid="uid://knq76xo111ax" path="res://Assets/Enemy_2.png" id="1_ggtqc"]
+[ext_resource type="Texture2D" uid="uid://bo27nyiahprsj" path="res://Assets/Explosion1/explosion10.png" id="4_ma8yx"]
+[ext_resource type="Texture2D" uid="uid://brqoattmeb56p" path="res://Assets/Explosion1/explosion11.png" id="5_wq24t"]
+[ext_resource type="Texture2D" uid="uid://hff35flchau0" path="res://Assets/Explosion1/explosion12.png" id="6_w4tvn"]
+[ext_resource type="Texture2D" uid="uid://btqv82u5jvel7" path="res://Assets/Explosion1/explosion13.png" id="7_st6de"]
+[ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="8_ih6au"]
+[ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="9_4yixu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5oen"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ma8yx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wq24t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w4tvn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_st6de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ih6au")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4yixu")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 12.0
+}]
 
 [node name="small_enemy1" type="Node2D"]
+script = ExtResource("1_7xi0p")
 
 [node name="bulletspawner" type="Node2D" parent="."]
 script = ExtResource("1_e1gnh")
@@ -15,3 +54,9 @@ texture = ExtResource("1_ggtqc")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(0, -26, -23, 9, 0, 23, 23, 10)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u5oen")
+animation = &"explosion"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

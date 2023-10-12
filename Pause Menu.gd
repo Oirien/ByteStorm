@@ -10,14 +10,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	pass
-		
-
 
 func _on_resume_button_pressed():
-	get_tree().paused = false
+	$Popup.hide()
+	Engine.time_scale = 1
 
-func unpause():
-	pass
 		

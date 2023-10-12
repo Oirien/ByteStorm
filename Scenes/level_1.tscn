@@ -1,15 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://b11oh1poawx23"]
+[gd_scene load_steps=18 format=3 uid="uid://b11oh1poawx23"]
 
 [ext_resource type="PackedScene" uid="uid://k0khelvllg4d" path="res://Scenes/player.tscn" id="1_23xv1"]
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_hnats"]
 [ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="2_8amhs"]
+[ext_resource type="PackedScene" uid="uid://cll0e1jxgx30t" path="res://Scenes/HUD.tscn" id="3_fns87"]
 [ext_resource type="Texture2D" uid="uid://38477encum6x" path="res://Assets/cityblock-1.png" id="3_wybf0"]
 [ext_resource type="Script" path="res://Scripts/PlayerArea.gd" id="4_y2awf"]
 [ext_resource type="Script" path="res://Scripts/Node2D.gd" id="5_11xp6"]
-[ext_resource type="Script" path="res://Scripts/Path2D.gd" id="6_3p3gw"]
 [ext_resource type="PackedScene" uid="uid://bjsh5uhvujji1" path="res://Scenes/enemy.tscn" id="7_kytv3"]
-[ext_resource type="Script" path="res://Scripts/SmallEnemyPath.gd" id="8_5tgv5"]
-[ext_resource type="PackedScene" path="res://Scenes/small_enemy_1.tscn" id="9_d54ms"]
+[ext_resource type="PackedScene" uid="uid://cwnqgg8l8pob6" path="res://Scenes/small_enemy_spawner.tscn" id="10_7frga"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="11_omqqf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_og23x"]
@@ -42,16 +41,19 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_3u38o"]
-_data = {
-"points": PackedVector2Array(248.361, 0.690796, -248.361, -0.690796, 1896, 96, 186.979, -0.109671, -186.979, 0.109671, 1469, 305, 229.962, 5.45506, -229.962, -5.45506, 1011, 94, 183.635, 1.89147, -183.635, -1.89147, 584, 306, 213.925, 3.67327, -213.925, -3.67327, 160, 92, 0, 0, 0, 0, -87, 299)
-}
-point_count = 6
-
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_hnats")
 
 [node name="Pause Menu" parent="." instance=ExtResource("11_omqqf")]
+z_index = 25
+offset_left = 720.0
+offset_top = 346.0
+offset_right = 720.0
+offset_bottom = 346.0
+scale = Vector2(2, 2)
+
+[node name="Control" parent="." instance=ExtResource("3_fns87")]
+z_index = 20
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_23xv1")]
 position = Vector2(207, 593)
@@ -125,7 +127,6 @@ script = ExtResource("5_11xp6")
 
 [node name="Path2D" type="Path2D" parent="BossPath"]
 curve = SubResource("Curve2D_ibhau")
-script = ExtResource("6_3p3gw")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BossPath/Path2D"]
 position = Vector2(1410, 465)
@@ -134,21 +135,7 @@ rotates = false
 [node name="Enemy" parent="BossPath/Path2D/PathFollow2D" instance=ExtResource("7_kytv3")]
 position = Vector2(0, 0)
 
-[node name="SmallEnemyPath" type="Node2D" parent="."]
-script = ExtResource("8_5tgv5")
-
-[node name="Path2D" type="Path2D" parent="SmallEnemyPath"]
-curve = SubResource("Curve2D_3u38o")
-script = ExtResource("6_3p3gw")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="SmallEnemyPath/Path2D"]
-position = Vector2(1896, 96)
-rotation = -3.13881
-rotates = false
-
-[node name="small_enemy1" parent="SmallEnemyPath/Path2D/PathFollow2D" instance=ExtResource("9_d54ms")]
-rotation = 1.56801
-scale = Vector2(0.75, 0.75)
+[node name="SmallEnemySpawner" parent="." instance=ExtResource("10_7frga")]
 
 [connection signal="area_entered" from="PlayerBox/PlayerAreaBottom" to="Player" method="_on_player_area_bottom_area_entered"]
 [connection signal="area_exited" from="PlayerBox/PlayerAreaTop" to="Player" method="_on_player_area_top_area_exited"]

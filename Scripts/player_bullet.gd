@@ -9,5 +9,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	self.position += Vector2(speed * delta,0)
-	if ($RayCast2D.is_colliding()): 
+	if ($RayCast2D.is_colliding()):
+		var enemy_hit = $RayCast2D.get_collider()
+		enemy_hit.get_parent().on_hit()
 		self.queue_free()

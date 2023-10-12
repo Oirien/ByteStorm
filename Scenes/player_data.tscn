@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://duwftjyo7nhq8"]
+
+[ext_resource type="Script" path="res://Scripts/player_data.gd" id="1_jfvrp"]
+
+[node name="PlayerData" type="Node"]
+script = ExtResource("1_jfvrp")
