@@ -1,5 +1,5 @@
 extends Node2D
-var bullet_scene = load("res://Scenes/bullet.tscn")
+var bullet_scene = load("res://Scenes/boss_bullet.tscn")
 var shooting=false;
 
 # Called when the node enters the scene tree for the first time.
