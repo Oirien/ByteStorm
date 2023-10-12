@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b11oh1poawx23"]
+[gd_scene load_steps=19 format=3 uid="uid://b11oh1poawx23"]
 
 [ext_resource type="PackedScene" uid="uid://k0khelvllg4d" path="res://Scenes/player.tscn" id="1_23xv1"]
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_hnats"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bjsh5uhvujji1" path="res://Scenes/enemy.tscn" id="7_kytv3"]
 [ext_resource type="PackedScene" uid="uid://cwnqgg8l8pob6" path="res://Scenes/small_enemy_spawner.tscn" id="10_7frga"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="11_omqqf"]
+[ext_resource type="AudioStream" uid="uid://bc08nuo42bain" path="res://Assets/Sounds/Music/track3.ogg" id="11_shaba"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_og23x"]
 texture = ExtResource("3_wybf0")
@@ -136,6 +137,10 @@ rotates = false
 position = Vector2(0, 0)
 
 [node name="SmallEnemySpawner" parent="." instance=ExtResource("10_7frga")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_shaba")
+autoplay = true
 
 [connection signal="area_entered" from="PlayerBox/PlayerAreaBottom" to="Player" method="_on_player_area_bottom_area_entered"]
 [connection signal="area_exited" from="PlayerBox/PlayerAreaTop" to="Player" method="_on_player_area_top_area_exited"]

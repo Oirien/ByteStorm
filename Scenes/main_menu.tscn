@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://byp3ifsnigay0"]
+[gd_scene load_steps=6 format=3 uid="uid://byp3ifsnigay0"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_h148b"]
 [ext_resource type="Texture2D" uid="uid://dnc24hwwbivb7" path="res://Assets/jank_logo.png" id="2_1oqfp"]
 [ext_resource type="Texture2D" uid="uid://y3jfg6y4fve6" path="res://Assets/jank_start.png.png" id="3_btw6s"]
 [ext_resource type="Texture2D" uid="uid://cc3ukywj1l07b" path="res://Assets/jank_quit.png" id="4_da3u0"]
+[ext_resource type="AudioStream" uid="uid://bjacxku44b1k2" path="res://Assets/Sounds/Music/track1.ogg" id="5_1c0dy"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -30,6 +31,10 @@ icon = ExtResource("3_btw6s")
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 icon = ExtResource("4_da3u0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1c0dy")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
