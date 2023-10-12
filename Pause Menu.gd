@@ -1,14 +1,23 @@
-extends Node2D
+extends Control
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	process_mode = Node2D.PROCESS_MODE_ALWAYS
+	$Popup.hide()
+	process_mode = Control.PROCESS_MODE_ALWAYS
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	pass
+		
 
-func on_hit():
+
+func _on_resume_button_pressed():
+	get_tree().paused = false
+
+func unpause():
 	pass
+		

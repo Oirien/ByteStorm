@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://c82nfiwxdc1e1"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_psvbq"]
+[ext_resource type="Texture2D" uid="uid://dnc24hwwbivb7" path="res://Assets/jank_logo.png" id="2_vdxvh"]
+[ext_resource type="Texture2D" uid="uid://y3jfg6y4fve6" path="res://Assets/jank_start.png.png" id="3_xi5bm"]
+[ext_resource type="Texture2D" uid="uid://cc3ukywj1l07b" path="res://Assets/jank_quit.png" id="4_yqnpd"]
+
+[node name="Control" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+script = ExtResource("1_psvbq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_vdxvh")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Start" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_xi5bm")
+icon_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+icon = ExtResource("4_yqnpd")
+icon_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]

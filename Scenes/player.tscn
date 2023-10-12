@@ -1,8 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://k0khelvllg4d"]
+[gd_scene load_steps=11 format=3 uid="uid://k0khelvllg4d"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3asme"]
 [ext_resource type="Texture2D" uid="uid://drpnxu0qs7j07" path="res://Assets/SHIP1.png" id="1_446r4"]
 [ext_resource type="Script" path="res://Scripts/playeweapon.gd" id="3_ld0tk"]
+[ext_resource type="Texture2D" uid="uid://bo27nyiahprsj" path="res://Assets/Explosion1/explosion10.png" id="4_5mhc7"]
+[ext_resource type="Texture2D" uid="uid://brqoattmeb56p" path="res://Assets/Explosion1/explosion11.png" id="5_sc8oh"]
+[ext_resource type="Texture2D" uid="uid://hff35flchau0" path="res://Assets/Explosion1/explosion12.png" id="6_t4743"]
+[ext_resource type="Texture2D" uid="uid://btqv82u5jvel7" path="res://Assets/Explosion1/explosion13.png" id="7_l5c8i"]
+[ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="8_ihu5h"]
+[ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="9_ja781"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n6o5v"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5mhc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sc8oh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_t4743")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l5c8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ihu5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ja781")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 12.0
+}]
 
 [node name="Player" type="Node2D"]
 rotation = 1.5708
@@ -22,3 +59,11 @@ polygon = PackedVector2Array(60, 0, 58, 10, 30, 30, 8, 30, -10, 38, -22, 50, -34
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("3_ld0tk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+show_behind_parent = true
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_n6o5v")
+animation = &"explosion"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

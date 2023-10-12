@@ -14,7 +14,7 @@ func _process(delta):
 	else:
 		shooting = true
 		self.position = get_parent().position
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.25).timeout
 		spawn_bullet()
 		shooting = false
 		

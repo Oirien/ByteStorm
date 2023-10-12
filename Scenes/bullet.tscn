@@ -47,6 +47,13 @@ colors = PackedColorArray(1, 1, 1, 0.513726, 1, 1, 1, 0)
 [node name="Bullet" type="Node2D"]
 script = ExtResource("1_aim1j")
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -8)
+target_position = Vector2(0, 16)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("2_g4hf7")
 
@@ -64,10 +71,3 @@ emission_sphere_radius = 1.0
 spread = 0.0
 gravity = Vector2(1000, 0)
 color_ramp = SubResource("Gradient_np07u")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, -8)
-target_position = Vector2(0, 16)
-collision_mask = 2
-collide_with_areas = true
-collide_with_bodies = false

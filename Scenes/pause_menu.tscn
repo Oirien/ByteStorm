@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccuke7yhj4b2o"]
+
+[ext_resource type="Script" path="res://Pause Menu.gd" id="1_4vwlg"]
+[ext_resource type="Texture2D" uid="uid://y3jfg6y4fve6" path="res://Assets/jank_start.png.png" id="2_ar3db"]
+
+[node name="Pause Menu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4vwlg")
+
+[node name="Popup" type="Popup" parent="."]
+size = Vector2i(900, 735)
+visible = true
+
+[node name="Container" type="MarginContainer" parent="Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 388.0
+offset_bottom = 223.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 300
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 300
+
+[node name="BoxContainer" type="BoxContainer" parent="Popup/Container"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/Container/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Popup/Container/BoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ar3db")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup/Container/BoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="Popup/Container/BoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="Popup/Container/BoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit to Main Menu"
+
+[node name="ColorRect" type="ColorRect" parent="Popup"]
+offset_right = 1922.0
+offset_bottom = 1086.0
+color = Color(0.537255, 0.537255, 0.537255, 0.537255)
+
+[connection signal="pressed" from="Popup/Container/BoxContainer/VBoxContainer/HBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
