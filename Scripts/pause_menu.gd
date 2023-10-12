@@ -7,7 +7,7 @@ func _ready():
 	#var main_menu = preload("res://Scenes/main_menu.tscn").instantiate()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 

@@ -7,7 +7,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if (get_children().size() < 5):
 		var enemy_child = preload("res://Scenes/small_enemy_scene.tscn").instantiate()
 		if recently_spawned:
