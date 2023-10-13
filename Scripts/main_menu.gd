@@ -21,3 +21,9 @@ func _on_start_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_settings_pressed():
+	self.hide()
+	var gamescene = get_node("../")
+	gamescene.get_child(2).show()
