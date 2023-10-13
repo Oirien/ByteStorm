@@ -3,9 +3,10 @@ extends RichTextLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.append_text(str(PlayerDataNode._get_score()))
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	self.clear()
+	self.add_text("Score " + str(PlayerDataNode._get_score()))

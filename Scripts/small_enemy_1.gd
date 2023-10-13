@@ -2,15 +2,17 @@ extends Node2D
 var health=2
 @onready var _animated_explosion = $AnimatedSprite2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
+@onready var wallarea = get_tree().get_root().get_node("Game").get_child(2).get_node("THE WALL")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_animated_explosion.hide()
+	print(wallarea)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	end_of_path()
 	
 func on_hit():
 	health -= 1
@@ -31,3 +33,14 @@ func on_hit():
 func _on_animated_sprite_2d_animation_finished():
 #	self.queue_free()
 	get_parent().get_parent().get_parent().queue_free()
+
+
+
+#func hit_wall():
+#	if ($Area2D.overlaps_area(wallarea)):
+#		PlayerDataNode._add_score(5)
+#		get_parent().get_parent().get_parent().queue_free()
+
+func end_of_path():
+	if (get_parent().progress_ratio >= 1):
+		get_parent().get_parent().get_parent().queue_free()

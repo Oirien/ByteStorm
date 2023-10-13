@@ -59,12 +59,12 @@ z_index = 20
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_23xv1")]
 position = Vector2(207, 593)
 
-[node name="THE WALL" type="Area2D" parent="."]
+[node name="THE WALL" type="Area2D" parent="." groups=["THEWALL"]]
 collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="THE WALL"]
-polygon = PackedVector2Array(0, 0, -97, 1, -127, 1324, 2056, 1299, 2054, -144, 0, -120, 4, -1, 1949, -1, 1950, 1200, -2, 1203)
+polygon = PackedVector2Array(0, 0, -233, -120, -241, 1329, 2056, 1299, 2054, -144, 0, -120, 4, -1, 1949, -1, 1950, 1200, -2, 1203)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2(-10, 0)
