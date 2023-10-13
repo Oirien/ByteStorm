@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2ncmdu1tnmm"]
+
+[ext_resource type="Script" path="res://Scripts/DeathPopup.gd" id="1_mio07"]
+[ext_resource type="Script" path="res://Scenes/PlayerStatsDisplay.gd" id="2_fmiic"]
+[ext_resource type="Script" path="res://Scripts/HTTPRequest.gd" id="3_gq7dc"]
+
+[node name="DeathPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mio07")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]You Died[/center]"
+fit_content = true
+
+[node name="PlayerStatsDisplay" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("2_fmiic")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Name:[/center]"
+fit_content = true
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Submit Score" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Submit Score"
+
+[node name="Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource("3_gq7dc")
+
+[connection signal="text_changed" from="VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Submit Score" to="." method="_on_submit_score_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]

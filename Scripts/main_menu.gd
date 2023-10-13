@@ -1,4 +1,5 @@
 extends Control
+@onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 
 
 func _ready():
@@ -12,6 +13,7 @@ func _on_start_pressed():
 
 	var level_1 = preload("res://Scenes/level_1.tscn").instantiate()
 	get_parent().add_child(level_1)
+	PlayerDataNode._reset()
 	self.hide()
 	$AudioStreamPlayer.stop()
 

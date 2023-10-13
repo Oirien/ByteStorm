@@ -1,5 +1,6 @@
 extends Node2D
 @onready var _animated_explosion = $AnimatedSprite2D
+@onready var deathpopup = get_parent().get_node("DeathPopup")
 var health = 5
 var speed = 300
 # Called when the node enters the scene tree for the first time.
@@ -56,6 +57,7 @@ func _on_player_area_right_area_entered(area):
 
 
 func _on_animated_sprite_2d_animation_finished():
+	deathpopup.show()
 	self.queue_free()
 
 
