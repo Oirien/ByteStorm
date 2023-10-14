@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://byp3ifsnigay0"]
+[gd_scene load_steps=42 format=3 uid="uid://byp3ifsnigay0"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_k7n3p"]
 [ext_resource type="Texture2D" uid="uid://co0ij8tkq3fv6" path="res://Assets/Buttons/StartButton/StartButton01.png" id="2_aul4v"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://di7armber7ixx" path="res://Assets/Buttons/QuitButton/QuitButton06.png" id="22_26jvb"]
 [ext_resource type="Texture2D" uid="uid://kkus1s73i5u4" path="res://Assets/Buttons/QuitButton/QuitButton07.png" id="23_txis4"]
 [ext_resource type="Texture2D" uid="uid://rpro2i2qydhg" path="res://Assets/Buttons/QuitButton/QuitButton08.png" id="24_mb148"]
+[ext_resource type="Shader" path="res://Shaders/main_menu.gdshader" id="26_nig11"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_6hl3o"]
 frames = 8
@@ -95,6 +96,9 @@ frame_6/texture = ExtResource("23_txis4")
 frame_6/duration = 0.1
 frame_7/texture = ExtResource("24_mb148")
 frame_7/duration = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sss2c"]
+shader = ExtResource("26_nig11")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_adgkx"]
 animations = [{
@@ -259,6 +263,7 @@ bus = &"Music"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true
+material = SubResource("ShaderMaterial_sss2c")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
