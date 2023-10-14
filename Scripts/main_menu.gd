@@ -1,7 +1,6 @@
 extends Control
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 @onready var _animated_logo = $AnimatedSprite2D
-@onready var _start_button = $VBoxContainer/Start
 var recently_animated = true;
 
 func _ready():

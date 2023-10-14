@@ -15,6 +15,6 @@ func _process(_delta):
 		else:
 			recently_spawned = true
 			self.add_child(enemy_child)
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer(3).timeout
 			recently_spawned = false
 		
