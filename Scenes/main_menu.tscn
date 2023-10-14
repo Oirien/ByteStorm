@@ -1,19 +1,73 @@
-[gd_scene load_steps=16 format=3 uid="uid://byp3ifsnigay0"]
+[gd_scene load_steps=32 format=3 uid="uid://byp3ifsnigay0"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_k7n3p"]
-[ext_resource type="Texture2D" uid="uid://y3jfg6y4fve6" path="res://Assets/jank_start.png.png" id="3_btw6s"]
+[ext_resource type="Texture2D" uid="uid://co0ij8tkq3fv6" path="res://Assets/Buttons/StartButton/StartButton01.png" id="2_aul4v"]
+[ext_resource type="Texture2D" uid="uid://b7ghpktqlptpl" path="res://Assets/Buttons/StartButton/StartButton02.png" id="3_dcxrb"]
 [ext_resource type="Texture2D" uid="uid://b7oj31iks7l2y" path="res://Assets/ByteStormLogo/ByteStormLogo.png" id="4_7k18q"]
 [ext_resource type="Texture2D" uid="uid://cc3ukywj1l07b" path="res://Assets/jank_quit.png" id="4_da3u0"]
+[ext_resource type="Texture2D" uid="uid://cir7fg5akcqi7" path="res://Assets/Buttons/StartButton/StartButton03.png" id="4_muynv"]
 [ext_resource type="AudioStream" uid="uid://bjacxku44b1k2" path="res://Assets/Sounds/Music/track1.ogg" id="5_1c0dy"]
 [ext_resource type="Texture2D" uid="uid://chbsw1dk0cx7x" path="res://Assets/ByteStormLogo/ByteStormLogo4.png" id="5_3wk38"]
+[ext_resource type="Texture2D" uid="uid://c4dghdilqchpl" path="res://Assets/Buttons/StartButton/StartButton04.png" id="5_7lnja"]
+[ext_resource type="Texture2D" uid="uid://cttoriu623lhu" path="res://Assets/Buttons/StartButton/StartButton05.png" id="6_ctd8y"]
 [ext_resource type="Texture2D" uid="uid://dvoa2402ch1dx" path="res://Assets/ByteStormLogo/ByteStormLogo3.png" id="6_qotnw"]
 [ext_resource type="Texture2D" uid="uid://1hhd5cbrv3tn" path="res://Assets/ByteStormLogo/ByteStormLogo7.png" id="7_8fxo3"]
+[ext_resource type="Texture2D" uid="uid://berkql2kouayq" path="res://Assets/Buttons/StartButton/StartButton06.png" id="7_h1rqy"]
 [ext_resource type="Texture2D" uid="uid://wd7jkby8ppwf" path="res://Assets/ByteStormLogo/ByteStormLogo8.png" id="8_7yc3x"]
+[ext_resource type="Texture2D" uid="uid://dblwhcobrhrqk" path="res://Assets/Buttons/StartButton/StartButton07.png" id="8_s3jvl"]
 [ext_resource type="Texture2D" uid="uid://dd7men8qrcwm2" path="res://Assets/ByteStormLogo/ByteStormLogo2.png" id="9_tpvso"]
+[ext_resource type="Texture2D" uid="uid://brj26s5b37pye" path="res://Assets/Buttons/SettingsButton/SettingsButton01.png" id="10_uthhd"]
 [ext_resource type="Texture2D" uid="uid://sxr2o8kaixoi" path="res://Assets/ByteStormLogo/ByteStormLogo9.png" id="10_vx4ye"]
+[ext_resource type="Texture2D" uid="uid://d4leb3tugsl8q" path="res://Assets/Buttons/SettingsButton/SettingsButton02.png" id="11_02qid"]
 [ext_resource type="Texture2D" uid="uid://dlau4on2dwa25" path="res://Assets/ByteStormLogo/ByteStormLogo10.png" id="11_7lh8r"]
 [ext_resource type="Texture2D" uid="uid://rcfvqkoi1p5u" path="res://Assets/ByteStormLogo/ByteStormLogo5.png" id="12_ln1uh"]
+[ext_resource type="Texture2D" uid="uid://5sthnsaokth1" path="res://Assets/Buttons/SettingsButton/SettingsButton03.png" id="12_uqf06"]
+[ext_resource type="Texture2D" uid="uid://edurquos247h" path="res://Assets/Buttons/SettingsButton/SettingsButton04.png" id="13_mr4qm"]
 [ext_resource type="Texture2D" uid="uid://c6t6t6ogqbs6g" path="res://Assets/ByteStormLogo/ByteStormLogo6.png" id="13_svhyt"]
+[ext_resource type="Texture2D" uid="uid://dgeftbu24qjw0" path="res://Assets/Buttons/SettingsButton/SettingsButton05.png" id="14_ip2v2"]
+[ext_resource type="Texture2D" uid="uid://bvy0qcth3leh5" path="res://Assets/Buttons/SettingsButton/SettingsButton06.png" id="15_l2cyx"]
+[ext_resource type="Texture2D" uid="uid://dufbtxp0o8iri" path="res://Assets/Buttons/SettingsButton/SettingsButton07.png" id="16_wfnnm"]
+[ext_resource type="Texture2D" uid="uid://sjj602xynkol" path="res://Assets/Buttons/SettingsButton/SettingsButton08.png" id="17_akjha"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_6hl3o"]
+frames = 8
+speed_scale = 2.0
+frame_0/texture = ExtResource("2_aul4v")
+frame_0/duration = 8.0
+frame_1/texture = ExtResource("3_dcxrb")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("4_muynv")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("5_7lnja")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("6_ctd8y")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("7_h1rqy")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("8_s3jvl")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("2_aul4v")
+frame_7/duration = 0.1
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_lgbh8"]
+frames = 8
+speed_scale = 2.0
+frame_0/texture = ExtResource("10_uthhd")
+frame_0/duration = 7.0
+frame_1/texture = ExtResource("11_02qid")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("12_uqf06")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("13_mr4qm")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("14_ip2v2")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("15_l2cyx")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("16_wfnnm")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("17_akjha")
+frame_7/duration = 0.1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_adgkx"]
 animations = [{
@@ -148,14 +202,16 @@ script = ExtResource("1_k7n3p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 800.0
-offset_top = 500.0
-offset_right = 1108.0
-offset_bottom = 755.0
+offset_left = 748.0
+offset_top = 483.0
+offset_right = 1156.0
+offset_bottom = 838.0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-icon = ExtResource("3_btw6s")
+icon = SubResource("AnimatedTexture_6hl3o")
+flat = true
+icon_alignment = 1
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -163,13 +219,9 @@ icon = ExtResource("4_da3u0")
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Settings"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer"]
-position = Vector2(153, -113)
-scale = Vector2(1.5, 1.5)
-sprite_frames = SubResource("SpriteFrames_adgkx")
-animation = &"glitch_heavy"
+icon = SubResource("AnimatedTexture_lgbh8")
+flat = true
+icon_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1c0dy")
@@ -184,6 +236,12 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(949, 387)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_adgkx")
+animation = &"glitch_heavy"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
