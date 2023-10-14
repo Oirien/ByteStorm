@@ -169,6 +169,7 @@ text = "Settings"
 position = Vector2(153, -113)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_adgkx")
+animation = &"glitch_heavy"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1c0dy")

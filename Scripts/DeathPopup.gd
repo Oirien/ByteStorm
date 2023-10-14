@@ -8,7 +8,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -19,7 +19,7 @@ func _on_menu_pressed():
 
 #Once we fix the submit score we can uncomment line 25
 func _on_submit_score_pressed():
-	var score = PlayerDataNode._get_score()
+	var _score = PlayerDataNode._get_score()
 #	$HTTPRequest._submit_score()
 	var gamescene = get_node("../../")
 	gamescene.get_child(0).show()

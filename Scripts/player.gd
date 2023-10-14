@@ -40,19 +40,19 @@ func movement(delta):
 		return Vector2(xDirection, yDirection) *delta
 	return Vector2.ZERO
 
-func _on_player_area_bottom_area_entered(area):
+func _on_player_area_bottom_area_entered(_area):
 	self.position.y -= 24
 
 
-func _on_player_area_top_area_entered(area):
+func _on_player_area_top_area_entered(_area):
 	self.position.y += 24
 
 
-func _on_player_area_left_area_entered(area):
+func _on_player_area_left_area_entered(_area):
 	self.position.x += 24
 
 
-func _on_player_area_right_area_entered(area):
+func _on_player_area_right_area_entered(_area):
 	self.position.x -= 24
 
 
@@ -61,5 +61,5 @@ func _on_animated_sprite_2d_animation_finished():
 	self.queue_free()
 
 
-func _on_player_area_top_area_exited(area):
+func _on_player_area_top_area_exited(_area):
 	pass # Replace with function body.
