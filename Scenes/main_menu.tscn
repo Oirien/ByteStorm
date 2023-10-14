@@ -177,6 +177,13 @@ volume_db = -33.0
 autoplay = true
 bus = &"Music"
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -3
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
