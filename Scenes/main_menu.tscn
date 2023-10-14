@@ -1,10 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://byp3ifsnigay0"]
+[gd_scene load_steps=40 format=3 uid="uid://byp3ifsnigay0"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_k7n3p"]
 [ext_resource type="Texture2D" uid="uid://co0ij8tkq3fv6" path="res://Assets/Buttons/StartButton/StartButton01.png" id="2_aul4v"]
 [ext_resource type="Texture2D" uid="uid://b7ghpktqlptpl" path="res://Assets/Buttons/StartButton/StartButton02.png" id="3_dcxrb"]
 [ext_resource type="Texture2D" uid="uid://b7oj31iks7l2y" path="res://Assets/ByteStormLogo/ByteStormLogo.png" id="4_7k18q"]
-[ext_resource type="Texture2D" uid="uid://cc3ukywj1l07b" path="res://Assets/jank_quit.png" id="4_da3u0"]
 [ext_resource type="Texture2D" uid="uid://cir7fg5akcqi7" path="res://Assets/Buttons/StartButton/StartButton03.png" id="4_muynv"]
 [ext_resource type="AudioStream" uid="uid://bjacxku44b1k2" path="res://Assets/Sounds/Music/track1.ogg" id="5_1c0dy"]
 [ext_resource type="Texture2D" uid="uid://chbsw1dk0cx7x" path="res://Assets/ByteStormLogo/ByteStormLogo4.png" id="5_3wk38"]
@@ -28,6 +27,14 @@
 [ext_resource type="Texture2D" uid="uid://bvy0qcth3leh5" path="res://Assets/Buttons/SettingsButton/SettingsButton06.png" id="15_l2cyx"]
 [ext_resource type="Texture2D" uid="uid://dufbtxp0o8iri" path="res://Assets/Buttons/SettingsButton/SettingsButton07.png" id="16_wfnnm"]
 [ext_resource type="Texture2D" uid="uid://sjj602xynkol" path="res://Assets/Buttons/SettingsButton/SettingsButton08.png" id="17_akjha"]
+[ext_resource type="Texture2D" uid="uid://3rtx4lmwejvv" path="res://Assets/Buttons/QuitButton/QuitButton01.png" id="17_cwf8x"]
+[ext_resource type="Texture2D" uid="uid://bxitgbs2mi2t6" path="res://Assets/Buttons/QuitButton/QuitButton02.png" id="18_6eyr5"]
+[ext_resource type="Texture2D" uid="uid://dj6kce1smolhk" path="res://Assets/Buttons/QuitButton/QuitButton03.png" id="19_6bof5"]
+[ext_resource type="Texture2D" uid="uid://cv80251vq76mo" path="res://Assets/Buttons/QuitButton/QuitButton04.png" id="20_3q1mw"]
+[ext_resource type="Texture2D" uid="uid://d4hxssf4s6bnq" path="res://Assets/Buttons/QuitButton/QuitButton05.png" id="21_jibfa"]
+[ext_resource type="Texture2D" uid="uid://di7armber7ixx" path="res://Assets/Buttons/QuitButton/QuitButton06.png" id="22_26jvb"]
+[ext_resource type="Texture2D" uid="uid://kkus1s73i5u4" path="res://Assets/Buttons/QuitButton/QuitButton07.png" id="23_txis4"]
+[ext_resource type="Texture2D" uid="uid://rpro2i2qydhg" path="res://Assets/Buttons/QuitButton/QuitButton08.png" id="24_mb148"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_6hl3o"]
 frames = 8
@@ -67,6 +74,26 @@ frame_5/duration = 0.1
 frame_6/texture = ExtResource("16_wfnnm")
 frame_6/duration = 0.1
 frame_7/texture = ExtResource("17_akjha")
+frame_7/duration = 0.1
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_c32rn"]
+frames = 8
+speed_scale = 2.0
+frame_0/texture = ExtResource("17_cwf8x")
+frame_0/duration = 9.0
+frame_1/texture = ExtResource("18_6eyr5")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("19_6bof5")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("20_3q1mw")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("21_jibfa")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("22_26jvb")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("23_txis4")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("24_mb148")
 frame_7/duration = 0.1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_adgkx"]
@@ -213,15 +240,16 @@ icon = SubResource("AnimatedTexture_6hl3o")
 flat = true
 icon_alignment = 1
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-icon = ExtResource("4_da3u0")
-
 [node name="Settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 icon = SubResource("AnimatedTexture_lgbh8")
 flat = true
 icon_alignment = 1
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = SubResource("AnimatedTexture_c32rn")
+flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1c0dy")
@@ -244,5 +272,5 @@ sprite_frames = SubResource("SpriteFrames_adgkx")
 animation = &"glitch_heavy"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
