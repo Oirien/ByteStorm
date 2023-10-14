@@ -1,10 +1,141 @@
-[gd_scene load_steps=6 format=3 uid="uid://byp3ifsnigay0"]
+[gd_scene load_steps=16 format=3 uid="uid://byp3ifsnigay0"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_k7n3p"]
-[ext_resource type="Texture2D" uid="uid://dnc24hwwbivb7" path="res://Assets/jank_logo.png" id="2_1oqfp"]
 [ext_resource type="Texture2D" uid="uid://y3jfg6y4fve6" path="res://Assets/jank_start.png.png" id="3_btw6s"]
+[ext_resource type="Texture2D" uid="uid://b7oj31iks7l2y" path="res://Assets/ByteStormLogo/ByteStormLogo.png" id="4_7k18q"]
 [ext_resource type="Texture2D" uid="uid://cc3ukywj1l07b" path="res://Assets/jank_quit.png" id="4_da3u0"]
 [ext_resource type="AudioStream" uid="uid://bjacxku44b1k2" path="res://Assets/Sounds/Music/track1.ogg" id="5_1c0dy"]
+[ext_resource type="Texture2D" uid="uid://chbsw1dk0cx7x" path="res://Assets/ByteStormLogo/ByteStormLogo4.png" id="5_3wk38"]
+[ext_resource type="Texture2D" uid="uid://dvoa2402ch1dx" path="res://Assets/ByteStormLogo/ByteStormLogo3.png" id="6_qotnw"]
+[ext_resource type="Texture2D" uid="uid://1hhd5cbrv3tn" path="res://Assets/ByteStormLogo/ByteStormLogo7.png" id="7_8fxo3"]
+[ext_resource type="Texture2D" uid="uid://wd7jkby8ppwf" path="res://Assets/ByteStormLogo/ByteStormLogo8.png" id="8_7yc3x"]
+[ext_resource type="Texture2D" uid="uid://dd7men8qrcwm2" path="res://Assets/ByteStormLogo/ByteStormLogo2.png" id="9_tpvso"]
+[ext_resource type="Texture2D" uid="uid://sxr2o8kaixoi" path="res://Assets/ByteStormLogo/ByteStormLogo9.png" id="10_vx4ye"]
+[ext_resource type="Texture2D" uid="uid://dlau4on2dwa25" path="res://Assets/ByteStormLogo/ByteStormLogo10.png" id="11_7lh8r"]
+[ext_resource type="Texture2D" uid="uid://rcfvqkoi1p5u" path="res://Assets/ByteStormLogo/ByteStormLogo5.png" id="12_ln1uh"]
+[ext_resource type="Texture2D" uid="uid://c6t6t6ogqbs6g" path="res://Assets/ByteStormLogo/ByteStormLogo6.png" id="13_svhyt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_adgkx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7k18q")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("4_7k18q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3wk38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7k18q")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_qotnw")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_8fxo3")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_7yc3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7k18q")
+}],
+"loop": false,
+"name": &"glitch_1",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("4_7k18q")
+}, {
+"duration": 0.5,
+"texture": ExtResource("9_tpvso")
+}, {
+"duration": 0.5,
+"texture": ExtResource("10_vx4ye")
+}, {
+"duration": 0.5,
+"texture": ExtResource("11_7lh8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qotnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7k18q")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_3wk38")
+}, {
+"duration": 0.5,
+"texture": ExtResource("12_ln1uh")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_8fxo3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7k18q")
+}],
+"loop": false,
+"name": &"glitch_2",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7k18q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tpvso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qotnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3wk38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ln1uh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_svhyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8fxo3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7yc3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vx4ye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8fxo3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7lh8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_svhyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7lh8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7yc3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vx4ye")
+}],
+"loop": false,
+"name": &"glitch_heavy",
+"speed": 24.0
+}]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -17,12 +148,10 @@ script = ExtResource("1_k7n3p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_1oqfp")
+offset_left = 800.0
+offset_top = 500.0
+offset_right = 1108.0
+offset_bottom = 755.0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -35,6 +164,12 @@ icon = ExtResource("4_da3u0")
 [node name="Settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Settings"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer"]
+position = Vector2(153, -113)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_adgkx")
+animation = &"glitch_heavy"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1c0dy")

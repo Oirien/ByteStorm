@@ -2,7 +2,7 @@ extends Node2D
 var health=2
 @onready var _animated_explosion = $AnimatedSprite2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
-@onready var wallarea = get_tree().get_root().get_node("Game").get_child(2).get_node("THE WALL")
+@onready var wallarea = get_tree().get_root().get_node("Game").get_child(3).get_node("THE WALL")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_animated_explosion.hide()
