@@ -1,7 +1,8 @@
 extends Control
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 @onready var _animated_logo = $AnimatedSprite2D
-var recently_animated = true;
+var recently_animated : bool = true;
+var start_pressed : bool = false;
 
 func _ready():
 	pass
@@ -17,13 +18,16 @@ func _animation_spread():
 		_play_animation()
 
 func _on_start_pressed():
-	_animated_logo.play("glitch_heavy")
-	await _animated_logo.animation_finished
-	var level_1 = preload("res://Scenes/level_1.tscn").instantiate()
-	get_parent().add_child(level_1)
-	PlayerDataNode._reset()
-	self.hide()
-	$AudioStreamPlayer.stop()
+	if start_pressed == false:
+		start_pressed = true
+		_animated_logo.play("glitch_heavy")
+		await _animated_logo.animation_finished
+		var level_1 = preload("res://Scenes/level_1.tscn").instantiate()
+		get_parent().add_child(level_1)
+		PlayerDataNode._reset()
+		self.hide()
+		$AudioStreamPlayer.stop()
+		start_pressed = false
 
 func _play_animation():
 	var animation_target = randi_range(1,2)
