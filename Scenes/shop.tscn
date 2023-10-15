@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfioyq7sfsqib"]
+
+[ext_resource type="Script" path="res://Scripts/shop.gd" id="1_27t0e"]
+[ext_resource type="Texture2D" uid="uid://h4has65jpnl7" path="res://Assets/blast1.png" id="2_134ro"]
+[ext_resource type="Script" path="res://Scripts/MoneyLabel.gd" id="3_hg0tk"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_27t0e")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0.0117647, 0.188235, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 746.0
+offset_top = -1.0
+offset_right = 1092.0
+offset_bottom = 174.0
+theme_override_font_sizes/normal_font_size = 128
+text = "SHOP"
+fit_content = true
+autowrap_mode = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 360.0
+offset_right = 402.0
+offset_bottom = 472.0
+
+[node name="Damage Upgrade" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Damage Upgrade"]
+layout_mode = 2
+texture = ExtResource("2_134ro")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Damage Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade Damage" type="RichTextLabel" parent="PanelContainer/Damage Upgrade/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Upgrade Damage[/b]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Damage Upgrade/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Damage: 2[/center]"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/Damage Upgrade/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Price: 100[/center]"
+fit_content = true
+
+[node name="Purchase" type="Button" parent="PanelContainer/Damage Upgrade/VBoxContainer"]
+layout_mode = 2
+text = "Purchase"
+
+[node name="Wallet" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 74.0
+offset_right = 442.0
+offset_bottom = 132.0
+theme_override_font_sizes/normal_font_size = 42
+text = "Balance: 400"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("3_hg0tk")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1567.0
+offset_top = 936.0
+offset_right = 1840.0
+offset_bottom = 1016.0
+theme_override_font_sizes/font_size = 52
+text = "Next Level"
