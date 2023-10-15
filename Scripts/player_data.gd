@@ -1,6 +1,6 @@
 extends Node
 var score = 0
-var wallet=0
+var wallet=1000
 var max_health = 5
 var damage = 1
 
@@ -27,3 +27,9 @@ func _spend_money(cost):
 		
 func _get_wallet():
 	return wallet
+	
+func _get_damage():
+	return damage
+	
+func _set_damage(amount):
+	damage = amount
