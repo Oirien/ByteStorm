@@ -1,18 +1,22 @@
 extends Node2D
 @onready var _animated_explosion = $AnimatedSprite2D
 @onready var deathpopup = get_parent().get_node("DeathPopup")
-var health = 5
+@onready var _player_data = get_parent().get_parent().get_node("PlayerData")
+var health = 100
 var speed = 300
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_animated_explosion.hide()
+	health = _player_data._get_max_health()
 	
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	self.position += movement(delta)
 	
+
 func on_hit():
 	health -= 1
 	if (health == 0):
@@ -24,6 +28,7 @@ func on_hit():
 		sprite.free()
 		collision_box.free()
 	
+
 func movement(delta):
 	if (health > 0):
 		var xDirection = 0

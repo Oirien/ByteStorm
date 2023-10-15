@@ -22,7 +22,7 @@ func _on_start_pressed():
 		start_pressed = true
 		_animated_logo.play("glitch_heavy")
 		await _animated_logo.animation_finished
-		var level_1 = preload("res://Scenes/level_1.tscn").instantiate()
+		var level_1 = preload("res://Scenes/level_2.tscn").instantiate()
 		get_parent().add_child(level_1)
 		PlayerDataNode._reset()
 		self.hide()

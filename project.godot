@@ -20,11 +20,6 @@ boot_splash/fullsize=false
 config/icon="res://Assets/BytestormIcon.svg"
 boot_splash/minimum_display_time=2000
 
-[debug]
-
-settings/stdout/print_fps=true
-settings/stdout/print_gpu_profile=true
-
 [display]
 
 window/size/viewport_width=1920

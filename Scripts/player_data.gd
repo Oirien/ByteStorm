@@ -27,3 +27,6 @@ func _spend_money(cost):
 		
 func _get_wallet():
 	return wallet
+
+func _get_max_health():
+	return max_health
