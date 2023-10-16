@@ -1,4 +1,5 @@
 extends Control
+@onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,3 +19,5 @@ func _reset_shops():
 
 func _on_next_level_pressed():
 	pass # Replace with function body.
+#	var level_1 = preload("res://Scenes/level_1.tscn").instantiate()
+#	get_parent().add_child(level_1)
