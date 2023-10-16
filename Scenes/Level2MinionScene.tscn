@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://h1qr2bj718et"]
+
+[ext_resource type="Texture2D" uid="uid://n2frcrhangui" path="res://Assets/enemy_4.png" id="1_i0rhf"]
+[ext_resource type="Script" path="res://Scripts/Level2MinionScene.gd" id="1_yi6xc"]
+[ext_resource type="Script" path="res://Scripts/MinionArea2D.gd" id="2_f8ygx"]
+[ext_resource type="Script" path="res://Scripts/MinionNode2D.gd" id="2_hnv2p"]
+[ext_resource type="Texture2D" uid="uid://bo27nyiahprsj" path="res://Assets/Explosion1/explosion10.png" id="5_ky8qg"]
+[ext_resource type="Texture2D" uid="uid://brqoattmeb56p" path="res://Assets/Explosion1/explosion11.png" id="6_4o8fg"]
+[ext_resource type="Texture2D" uid="uid://hff35flchau0" path="res://Assets/Explosion1/explosion12.png" id="7_2l70a"]
+[ext_resource type="Texture2D" uid="uid://btqv82u5jvel7" path="res://Assets/Explosion1/explosion13.png" id="8_1c438"]
+[ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="9_yrgwh"]
+[ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="10_ywqis"]
+
+[sub_resource type="Curve2D" id="Curve2D_haw71"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, 3, 107.878, 17.9797, -107.878, -17.9797, -280, -126, 143.837, 20.9763, -143.837, -20.9763, -541, 93, 140.841, 17.9797, -140.841, -17.9797, -873, -213, 251.716, 5.99323, -251.716, -5.99323, -1275, 291, 311.648, 8.98984, -311.648, -8.98984, -1883, -416)
+}
+point_count = 6
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a3ws0"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ky8qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4o8fg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2l70a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1c438")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yrgwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ywqis")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 6.0
+}]
+
+[node name="Level2MinionScene" type="Node2D"]
+script = ExtResource("1_yi6xc")
+
+[node name="MinionPath2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_haw71")
+
+[node name="MinionPathFollow2D" type="PathFollow2D" parent="MinionPath2D"]
+position = Vector2(-2, 3)
+rotation = -2.70713
+loop = false
+
+[node name="MinionNode2D" type="Node2D" parent="MinionPath2D/MinionPathFollow2D"]
+script = ExtResource("2_hnv2p")
+
+[node name="MinionArea2D" type="Area2D" parent="MinionPath2D/MinionPathFollow2D/MinionNode2D"]
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+script = ExtResource("2_f8ygx")
+
+[node name="MinionSprite2D" type="Sprite2D" parent="MinionPath2D/MinionPathFollow2D/MinionNode2D/MinionArea2D"]
+texture = ExtResource("1_i0rhf")
+flip_v = true
+
+[node name="MinionCollisionPolygon2D" type="CollisionPolygon2D" parent="MinionPath2D/MinionPathFollow2D/MinionNode2D/MinionArea2D"]
+polygon = PackedVector2Array(26.4005, -0.124146, 16.3, -29, -16, -29, -27.3076, 0.544922, -28, 27, 28, 27)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MinionPath2D/MinionPathFollow2D/MinionNode2D"]
+z_index = 100
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_a3ws0")
+animation = &"explosion"
