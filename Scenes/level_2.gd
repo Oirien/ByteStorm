@@ -1,6 +1,6 @@
 extends Node2D
 @onready var pausemenu = $"Pause Menu"
-var paused = false
+var paused:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	process_mode = Node2D.PROCESS_MODE_PAUSABLE

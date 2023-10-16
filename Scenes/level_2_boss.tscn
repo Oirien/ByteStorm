@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dluka0dnutgyw"]
+[gd_scene load_steps=14 format=3 uid="uid://dluka0dnutgyw"]
 
 [ext_resource type="Script" path="res://Scripts/level_2_boss.gd" id="1_imogb"]
 [ext_resource type="Texture2D" uid="uid://bwww68kus1ubf" path="res://Assets/enemy_5.png" id="1_pxy5r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://btqv82u5jvel7" path="res://Assets/Explosion1/explosion13.png" id="7_70mhu"]
 [ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="8_uv5vo"]
 [ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="9_0q4i5"]
+[ext_resource type="Script" path="res://Scripts/Boss2Spinner.gd" id="11_oq2u5"]
 
 [sub_resource type="Curve2D" id="Curve2D_bg2m0"]
 _data = {
@@ -66,7 +67,10 @@ script = ExtResource("2_b7rr7")
 [node name="Boss2BulletSpawner" type="Node2D" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D"]
 script = ExtResource("3_ubsyw")
 
+[node name="AttackStyleTimer" type="Timer" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D/Boss2BulletSpawner"]
+
 [node name="Boss2Area2D" type="Area2D" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D"]
+rotation = -1.5708
 
 [node name="Boss2Sprite2D" type="Sprite2D" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D/Boss2Area2D"]
 texture = ExtResource("1_pxy5r")
@@ -82,4 +86,8 @@ animation = &"explosion"
 frame = 5
 frame_progress = 1.0
 
+[node name="Spinner" type="Node2D" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D"]
+script = ExtResource("11_oq2u5")
+
+[connection signal="timeout" from="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D/Boss2BulletSpawner/AttackStyleTimer" to="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D/Boss2BulletSpawner" method="_on_attack_style_timer_timeout"]
 [connection signal="animation_finished" from="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D/AnimatedSprite2D" to="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D" method="_on_animated_sprite_2d_animation_finished"]

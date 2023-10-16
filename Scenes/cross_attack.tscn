@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/cross_attack_spinner.gd" id="1_5yylf"]
 [ext_resource type="Script" path="res://Scripts/CrossAttack.gd" id="1_svqm3"]
-[ext_resource type="Texture2D" uid="uid://y5l3aec7esng" path="res://Assets/purple_ball/purple_ball0.png" id="2_4md8r"]
+[ext_resource type="Texture2D" uid="uid://knq76xo111ax" path="res://Assets/Enemy_2.png" id="3_qtgly"]
 [ext_resource type="Script" path="res://Scripts/CrossAttack2.gd" id="4_dun1w"]
 [ext_resource type="Script" path="res://Scripts/CrossAttack3.gd" id="5_8a67r"]
 [ext_resource type="Script" path="res://Scripts/CrossAttack4.gd" id="6_j0pfw"]
@@ -16,11 +16,12 @@ collision_mask = 2
 script = ExtResource("1_svqm3")
 
 [node name="Sprite2D" type="Sprite2D" parent="CrossAttack"]
-texture = ExtResource("2_4md8r")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qtgly")
 
 [node name="RayCast2D" type="RayCast2D" parent="CrossAttack/Sprite2D"]
-position = Vector2(0, -8)
-target_position = Vector2(0, 16)
+position = Vector2(0, -24)
+target_position = Vector2(0, 48)
 collision_mask = 2
 hit_from_inside = true
 collide_with_areas = true
@@ -32,11 +33,12 @@ collision_mask = 2
 script = ExtResource("4_dun1w")
 
 [node name="Sprite2D" type="Sprite2D" parent="CrossAttack2"]
-texture = ExtResource("2_4md8r")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qtgly")
 
 [node name="RayCast2D" type="RayCast2D" parent="CrossAttack2/Sprite2D"]
-position = Vector2(0, -8)
-target_position = Vector2(0, 16)
+position = Vector2(0, -24)
+target_position = Vector2(0, 48)
 collision_mask = 2
 hit_from_inside = true
 collide_with_areas = true
@@ -48,11 +50,12 @@ collision_mask = 2
 script = ExtResource("5_8a67r")
 
 [node name="Sprite2D" type="Sprite2D" parent="CrossAttack3"]
-texture = ExtResource("2_4md8r")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qtgly")
 
 [node name="RayCast2D" type="RayCast2D" parent="CrossAttack3/Sprite2D"]
-position = Vector2(0, -8)
-target_position = Vector2(0, 16)
+position = Vector2(0, -24)
+target_position = Vector2(0, 48)
 collision_mask = 2
 hit_from_inside = true
 collide_with_areas = true
@@ -64,11 +67,12 @@ collision_mask = 2
 script = ExtResource("6_j0pfw")
 
 [node name="Sprite2D" type="Sprite2D" parent="CrossAttack4"]
-texture = ExtResource("2_4md8r")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qtgly")
 
 [node name="RayCast2D" type="RayCast2D" parent="CrossAttack4/Sprite2D"]
-position = Vector2(0, -8)
-target_position = Vector2(0, 16)
+position = Vector2(0, -24)
+target_position = Vector2(0, 48)
 collision_mask = 2
 hit_from_inside = true
 collide_with_areas = true

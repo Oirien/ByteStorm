@@ -120,7 +120,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBox/PlayerAreaRight" groups=["Player"]]
-position = Vector2(827, 597)
+position = Vector2(1200, 597)
 shape = SubResource("RectangleShape2D_fa2pn")
 
 [node name="Level2Boss" parent="." instance=ExtResource("9_upsbq")]
