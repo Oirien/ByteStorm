@@ -38,10 +38,10 @@ autowrap_mode = 0
 
 [node name="Upgrade Damage Container" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 240.0
-offset_top = 411.0
-offset_right = 444.0
-offset_bottom = 523.0
+offset_left = 241.0
+offset_top = 360.0
+offset_right = 445.0
+offset_bottom = 472.0
 script = ExtResource("2_jjqds")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Upgrade Damage Container"]
@@ -83,10 +83,10 @@ text = "Purchase"
 
 [node name="Upgrade Ship Speed Container" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 234.0
-offset_top = 573.0
-offset_right = 474.0
-offset_bottom = 685.0
+offset_left = 242.0
+offset_top = 574.0
+offset_right = 504.0
+offset_bottom = 686.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Upgrade Ship Speed Container"]
 layout_mode = 2
@@ -127,12 +127,12 @@ text = "Purchase"
 
 [node name="Wallet" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 187.0
-offset_top = 74.0
-offset_right = 442.0
-offset_bottom = 132.0
+offset_left = 222.0
+offset_top = 174.0
+offset_right = 509.0
+offset_bottom = 232.0
 theme_override_font_sizes/normal_font_size = 42
-text = "Balance: 400"
+text = "Balance: XXXX"
 fit_content = true
 autowrap_mode = 0
 script = ExtResource("3_hg0tk")

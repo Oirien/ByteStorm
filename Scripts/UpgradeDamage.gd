@@ -1,6 +1,6 @@
 extends PanelContainer
 #@onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
-#BELOW CODE IS FOR TESTING - DELETE BELOW LINE + PlayerDataNode WHEN TESTING IS DONE
+#BELOW CODE IS FOR TESTING - DELETE BELOW LINE + THE PlayerData NODE WITHIN SHOP SCENE WHEN TESTING IS DONE
 @onready var PlayerDataNode = get_tree().get_root().get_node("Shop").get_node("PlayerData")
 var damageUpgrades = [
 	{
@@ -47,5 +47,3 @@ func _on_purchase_pressed():
 		PlayerDataNode._spend_money(upgrade.price)
 		PlayerDataNode._set_damage(upgrade.damage)
 		_display_upgrade()
-		print(PlayerDataNode._get_wallet())
-		print(PlayerDataNode._get_damage())
