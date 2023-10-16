@@ -17,7 +17,7 @@ func _reset():
 	score = 0
 	wallet = 0
 	max_health = 5
-	damage = 5
+	damage = 25
 	speed = 300
 	
 func _spend_money(cost):
