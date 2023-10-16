@@ -17,8 +17,9 @@ func _process(_delta):
 	if !locker:
 		score_over_time(1)
 
-func on_hit():
+func on_hit(damage):
 	pass
+
 
 func start_pause():
 	if (paused):

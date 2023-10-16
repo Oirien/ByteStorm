@@ -3,15 +3,19 @@ extends Node2D
 @onready var _dodge_particles = $CPUParticles2D
 @onready var deathpopup = get_parent().get_node("DeathPopup")
 @onready var _player_data = get_parent().get_parent().get_node("PlayerData")
+
 var health = 100
 var speed = 300
 var recently_hit : bool = false
 var recently_dodged : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_animated_explosion.hide()
 	health = _player_data._get_max_health()
-	
+
+	speed = _player_data._get_speed()
+
 
 
 
@@ -20,13 +24,15 @@ func _process(delta):
 	self.position += movement(delta)
 	
 
-func on_hit():
+
+func on_hit(_damage):
 	if recently_hit == false:
 		recently_hit = true
 		health -= 1
 		if health > 0:
 			await get_tree().create_timer(0.5).timeout
 		recently_hit = false
+
 	if (health == 0):
 		_animated_explosion.show()
 		_animated_explosion.reparent(self)

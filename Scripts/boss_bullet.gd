@@ -14,7 +14,7 @@ func _process(delta):
 	if ($RayCast2D.is_colliding() and bullet_hit == false):
 		bullet_hit = true 
 		var player_hit = $RayCast2D.get_collider()
-		player_hit.get_parent().on_hit()
+		player_hit.get_parent().on_hit(1)
 		_animated_bullet.play("default")
 	if (Time.get_ticks_msec() - spawntime > 15000):
 		self.queue_free()

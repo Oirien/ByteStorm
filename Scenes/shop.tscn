@@ -1,0 +1,216 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfioyq7sfsqib"]
+
+[ext_resource type="Script" path="res://Scripts/shop.gd" id="1_27t0e"]
+[ext_resource type="Texture2D" uid="uid://h4has65jpnl7" path="res://Assets/blast1.png" id="2_134ro"]
+[ext_resource type="Script" path="res://Scripts/UpgradeDamage.gd" id="2_jjqds"]
+[ext_resource type="Script" path="res://Scripts/MoneyLabel.gd" id="3_hg0tk"]
+[ext_resource type="Script" path="res://Scripts/Upgrade Ship Speed.gd" id="4_j867m"]
+[ext_resource type="Texture2D" uid="uid://drpnxu0qs7j07" path="res://Assets/SHIP1.png" id="4_vmjc5"]
+[ext_resource type="Script" path="res://Scripts/Upgrade Max Health Container.gd" id="6_egsgm"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_27t0e")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.341176, 0.00392157, 0.32549, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 780.0
+offset_top = 7.0
+offset_right = 1126.0
+offset_bottom = 182.0
+theme_override_font_sizes/normal_font_size = 128
+text = "SHOP"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Upgrades" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Upgrade Max Health Container" type="PanelContainer" parent="Upgrades"]
+layout_mode = 0
+offset_left = 825.0
+offset_top = 548.0
+offset_right = 1270.0
+offset_bottom = 724.0
+script = ExtResource("6_egsgm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Upgrades/Upgrade Max Health Container"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Upgrades/Upgrade Max Health Container/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_vmjc5")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Upgrades/Upgrade Max Health Container/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Upgrade Type" type="RichTextLabel" parent="Upgrades/Upgrade Max Health Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[b]Upgrade Max Health[/b]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="UpgradeStat" type="RichTextLabel" parent="Upgrades/Upgrade Max Health Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Speed: XXX[/center]"
+fit_content = true
+
+[node name="Price" type="RichTextLabel" parent="Upgrades/Upgrade Max Health Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Price: XXX[/center]"
+fit_content = true
+
+[node name="Purchase" type="Button" parent="Upgrades/Upgrade Max Health Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Purchase"
+
+[node name="Upgrade Ship Speed Container" type="PanelContainer" parent="Upgrades"]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 554.0
+offset_right = 684.0
+offset_bottom = 730.0
+script = ExtResource("4_j867m")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Upgrades/Upgrade Ship Speed Container"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Upgrades/Upgrade Ship Speed Container/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_vmjc5")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Upgrades/Upgrade Ship Speed Container/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Upgrade Type" type="RichTextLabel" parent="Upgrades/Upgrade Ship Speed Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[b]Upgrade Ship Speed[/b]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="UpgradeStat" type="RichTextLabel" parent="Upgrades/Upgrade Ship Speed Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Speed: XXX[/center]"
+fit_content = true
+
+[node name="Price" type="RichTextLabel" parent="Upgrades/Upgrade Ship Speed Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Price: XXX[/center]"
+fit_content = true
+
+[node name="Purchase" type="Button" parent="Upgrades/Upgrade Ship Speed Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Purchase"
+
+[node name="Upgrade Damage Container" type="PanelContainer" parent="Upgrades"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 337.0
+offset_right = 580.0
+offset_bottom = 513.0
+script = ExtResource("2_jjqds")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Upgrades/Upgrade Damage Container"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Upgrades/Upgrade Damage Container/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_134ro")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Upgrades/Upgrade Damage Container/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Upgrade Damage" type="RichTextLabel" parent="Upgrades/Upgrade Damage Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[b]Upgrade Damage[/b]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="UpgradeStat" type="RichTextLabel" parent="Upgrades/Upgrade Damage Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Damage: 2[/center]"
+fit_content = true
+
+[node name="Price" type="RichTextLabel" parent="Upgrades/Upgrade Damage Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Price: 100[/center]"
+fit_content = true
+
+[node name="Purchase" type="Button" parent="Upgrades/Upgrade Damage Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Purchase"
+
+[node name="Wallet" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 174.0
+offset_right = 509.0
+offset_bottom = 232.0
+theme_override_font_sizes/normal_font_size = 42
+text = "Balance: XXXX"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("3_hg0tk")
+
+[node name="Next Level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1567.0
+offset_top = 936.0
+offset_right = 1840.0
+offset_bottom = 1016.0
+theme_override_font_sizes/font_size = 52
+text = "Next Level"
+
+[connection signal="pressed" from="Upgrades/Upgrade Max Health Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrades/Upgrade Max Health Container" method="_on_purchase_pressed"]
+[connection signal="pressed" from="Upgrades/Upgrade Ship Speed Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrades/Upgrade Ship Speed Container" method="_on_purchase_pressed"]
+[connection signal="pressed" from="Upgrades/Upgrade Damage Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrades/Upgrade Damage Container" method="_on_purchase_pressed"]
+[connection signal="pressed" from="Next Level" to="." method="_on_next_level_pressed"]

@@ -3,6 +3,9 @@ var score = 0
 var wallet=0
 var max_health = 5
 var damage = 1
+var speed = 300
+var current_level = 1
+@onready var ShopNode = get_tree().get_root().get_node("Game").get_node("Shop")
 
 func _add_score(value):
 	score+=value
@@ -14,10 +17,13 @@ func _get_score():
 	return score
 
 func _reset():
-	score=0
-	wallet=0
-	max_health=5
-	damage=1
+	score = 0
+	wallet = 0
+	max_health = 5
+	damage = 1
+	speed = 300
+	current_level = 1
+	ShopNode._reset_shops()
 	
 func _spend_money(cost):
 	if (wallet>cost):
@@ -31,3 +37,18 @@ func _get_wallet():
 
 func _get_max_health():
 	return max_health
+	
+func _set_max_health(newMaxHealth):
+	max_health = newMaxHealth
+	
+func _get_damage():
+	return damage
+	
+func _set_damage(amount):
+	damage = amount
+	
+func _get_speed():
+	return speed
+
+func _set_speed(newSpeed):
+	speed = newSpeed

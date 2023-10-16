@@ -2,7 +2,7 @@ extends Node2D
 var health=2
 @onready var _animated_explosion = $AnimatedSprite2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
-@onready var wallarea = get_tree().get_root().get_node("Game").get_child(3).get_node("THE WALL")
+@onready var wallarea = get_tree().get_root().get_node("Game").get_child(4).get_node("THE WALL")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_animated_explosion.hide()
@@ -12,9 +12,9 @@ func _ready():
 func _process(_delta):
 	end_of_path()
 	
-func on_hit():
-	health -= 1
-	if (health == 0):
+func on_hit(damage):
+	health -= damage
+	if (health <= 0):
 		PlayerDataNode._add_score(5)
 
 		_animated_explosion.show()
