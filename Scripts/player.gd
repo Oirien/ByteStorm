@@ -24,7 +24,8 @@ func on_hit():
 	if recently_hit == false:
 		recently_hit = true
 		health -= 1
-		await get_tree().create_timer(0.5).timeout
+		if health > 0:
+			await get_tree().create_timer(0.5).timeout
 		recently_hit = false
 	if (health == 0):
 		_animated_explosion.show()

@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=17 format=3 uid="uid://b11oh1poawx23"]
-
 
 [ext_resource type="PackedScene" uid="uid://k0khelvllg4d" path="res://Scenes/player.tscn" id="1_23xv1"]
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_hnats"]
@@ -13,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cwnqgg8l8pob6" path="res://Scenes/small_enemy_spawner.tscn" id="10_7frga"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="11_omqqf"]
 [ext_resource type="AudioStream" uid="uid://bc08nuo42bain" path="res://Assets/Sounds/Music/track3.ogg" id="11_shaba"]
-
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apjjd"]
 size = Vector2(1952.5, 85)
