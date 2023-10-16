@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://byp3ifsnigay0" path="res://Scenes/main_menu.tscn" id="2_c7t60"]
 [ext_resource type="PackedScene" uid="uid://duwftjyo7nhq8" path="res://Scenes/player_data.tscn" id="3_ecifo"]
 [ext_resource type="PackedScene" uid="uid://bsivnft574ty3" path="res://Scenes/settings.tscn" id="4_vymfo"]
-[ext_resource type="PackedScene" path="res://Scenes/shop.tscn" id="5_auk3a"]
+[ext_resource type="PackedScene" uid="uid://cfioyq7sfsqib" path="res://Scenes/shop.tscn" id="5_auk3a"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_58ro4")
@@ -20,4 +20,3 @@ offset_right = 750.0
 offset_bottom = 400.0
 
 [node name="Shop" parent="." instance=ExtResource("5_auk3a")]
-visible = false

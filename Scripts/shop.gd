@@ -19,7 +19,7 @@ func _reset_shops():
 
 func _on_next_level_pressed():
 	var next_level = PlayerDataNode._next_level()
-#	match next_level:
-#		2:
-#			var level_2 = preload("res://Scenes/level_2.tscn").instantiate()
-#			get_parent().add_child(level_2)
+	match next_level:
+		2:
+			var level_2 = preload("res://Scenes/level_2.tscn").instantiate()
+			get_parent().add_child(level_2)
