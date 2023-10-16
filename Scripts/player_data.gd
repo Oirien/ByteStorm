@@ -20,7 +20,7 @@ func _reset():
 	score = 0
 	wallet = 0
 	max_health = 5
-	damage = 10
+	damage = 1
 	speed = 300
 	current_level = 1
 	ShopNode._reset_shops()

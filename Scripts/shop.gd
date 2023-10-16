@@ -23,3 +23,4 @@ func _on_next_level_pressed():
 		2:
 			var level_2 = preload("res://Scenes/level_2.tscn").instantiate()
 			get_parent().add_child(level_2)
+	self.hide()
