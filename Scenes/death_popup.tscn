@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2ncmdu1tnmm"]
 
 [ext_resource type="Script" path="res://Scripts/DeathPopup.gd" id="1_mio07"]
-[ext_resource type="Script" path="res://Scenes/PlayerStatsDisplay.gd" id="2_fmiic"]
+[ext_resource type="Script" path="res://Scripts/PlayerStatsDisplay.gd" id="2_fmiic"]
 [ext_resource type="Script" path="res://Scripts/HTTPRequest.gd" id="3_gq7dc"]
 
 [node name="DeathPopup" type="Control"]
