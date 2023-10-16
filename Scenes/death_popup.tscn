@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2ncmdu1tnmm"]
+[gd_scene load_steps=5 format=3 uid="uid://d2ncmdu1tnmm"]
 
 [ext_resource type="Script" path="res://Scripts/DeathPopup.gd" id="1_mio07"]
+[ext_resource type="FontFile" uid="uid://cvcff6y4li62g" path="res://Assets/PixelifySans-Regular.ttf" id="2_6hwtl"]
 [ext_resource type="Script" path="res://Scripts/PlayerStatsDisplay.gd" id="2_fmiic"]
 [ext_resource type="Script" path="res://Scripts/HTTPRequest.gd" id="3_gq7dc"]
 
@@ -21,18 +22,21 @@ offset_bottom = 40.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_6hwtl")
 bbcode_enabled = true
 text = "[center]You Died[/center]"
 fit_content = true
 
 [node name="PlayerStatsDisplay" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_6hwtl")
 bbcode_enabled = true
 fit_content = true
 script = ExtResource("2_fmiic")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_6hwtl")
 bbcode_enabled = true
 text = "[center]Name:[/center]"
 fit_content = true
@@ -40,14 +44,17 @@ fit_content = true
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6hwtl")
 placeholder_text = "Type Your Name"
 
 [node name="Submit Score" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6hwtl")
 text = "Submit Score"
 
 [node name="Menu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6hwtl")
 text = "Main Menu"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
