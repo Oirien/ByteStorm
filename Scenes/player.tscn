@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://k0khelvllg4d"]
+[gd_scene load_steps=13 format=3 uid="uid://k0khelvllg4d"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3asme"]
 [ext_resource type="Texture2D" uid="uid://drpnxu0qs7j07" path="res://Assets/SHIP1.png" id="1_446r4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://btqv82u5jvel7" path="res://Assets/Explosion1/explosion13.png" id="7_l5c8i"]
 [ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="8_ihu5h"]
 [ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="9_ja781"]
+[ext_resource type="Shader" path="res://Shaders/player.gdshader" id="10_dilv6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n6o5v"]
 animations = [{
@@ -41,6 +42,9 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhb7v"]
+shader = ExtResource("10_dilv6")
+
 [node name="Player" type="Node2D"]
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
@@ -65,5 +69,18 @@ show_behind_parent = true
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_n6o5v")
 animation = &"explosion"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_bhb7v")
+emitting = false
+lifetime = 0.1
+one_shot = true
+texture = ExtResource("1_446r4")
+gravity = Vector2(0, 0)
+angle_min = 270.0
+angle_max = 270.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+color = Color(1, 1, 1, 0.239216)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
