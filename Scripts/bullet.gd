@@ -12,7 +12,8 @@ func _process(delta):
 	if ($RayCast2D.is_colliding()): 
 		var player_hit = $RayCast2D.get_collider()
 		player_hit.get_parent().on_hit()
-		self.queue_free()	
+		self.queue_free()
+		
 	if (Time.get_ticks_msec() - spawntime > 15000):
 		self.queue_free()
 		

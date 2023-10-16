@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp2dt4qodvlkp"]
+
+[ext_resource type="Script" path="res://Scripts/alternate_attack.gd" id="1_5om6x"]
+[ext_resource type="Texture2D" uid="uid://y5l3aec7esng" path="res://Assets/purple_ball/purple_ball0.png" id="2_dty0d"]
+[ext_resource type="Script" path="res://Scripts/AlternateAttackArea2D.gd" id="2_xoxfv"]
+
+[node name="AlternateAttack" type="Node2D"]
+script = ExtResource("1_5om6x")
+
+[node name="AlternateAttackArea2D" type="Area2D" parent="."]
+script = ExtResource("2_xoxfv")
+
+[node name="AlternateAttackSprite2D" type="Sprite2D" parent="AlternateAttackArea2D"]
+texture = ExtResource("2_dty0d")
+
+[node name="AlternateAttackRayCast2D" type="RayCast2D" parent="AlternateAttackArea2D/AlternateAttackSprite2D"]
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="AlternateAttackArea2D2" type="Area2D" parent="."]
+script = ExtResource("2_xoxfv")
+
+[node name="AlternateAttackSprite2D" type="Sprite2D" parent="AlternateAttackArea2D2"]
+texture = ExtResource("2_dty0d")
+
+[node name="AlternateAttackRayCast2D" type="RayCast2D" parent="AlternateAttackArea2D2/AlternateAttackSprite2D"]
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
