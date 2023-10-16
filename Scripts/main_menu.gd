@@ -13,13 +13,16 @@ func _process(_delta):
 	
 func _animation_spread():
 	if recently_animated == true:
-		await get_tree().create_timer(5.0).timeout
+		var x : float = randf_range(3.0,7.0)
+		await get_tree().create_timer(x).timeout
 		recently_animated = false
 		_play_animation()
 
 func _on_start_pressed():
 	if start_pressed == false:
 		start_pressed = true
+		_animated_logo.queue_redraw()
+		_animated_logo.apply_scale(Vector2(2,2))
 		_animated_logo.play("glitch_heavy")
 		await _animated_logo.animation_finished
 		var level_1 = preload("res://Scenes/level_1.tscn").instantiate()

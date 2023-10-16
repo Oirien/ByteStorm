@@ -5,10 +5,11 @@ var max_health = 5
 var damage = 1
 
 func _add_score(value):
-	
 	score+=value
+
+func _add_wallet(value):
 	wallet+=value*5
-	
+
 func _get_score():
 	return score
 

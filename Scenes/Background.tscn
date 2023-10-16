@@ -1,0 +1,151 @@
+[gd_scene load_steps=18 format=3 uid="uid://pj8etep5wyc6"]
+
+[ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="1_6nw57"]
+[ext_resource type="Texture2D" uid="uid://38477encum6x" path="res://Assets/cityblock-1.png" id="2_y1ag1"]
+[ext_resource type="Texture2D" uid="uid://dd3whq1k5ikoi" path="res://Assets/Clouds_black/Shape3/cloud_shape3_5.png" id="3_fqf77"]
+[ext_resource type="Texture2D" uid="uid://bu6i31vf07x3s" path="res://Assets/Clouds_black/Shape3/cloud_shape3_4.png" id="4_yty4u"]
+[ext_resource type="Texture2D" uid="uid://thwteljt6s0c" path="res://Assets/Clouds_black/Shape3/cloud_shape3_1.png" id="5_boogb"]
+[ext_resource type="Texture2D" uid="uid://crcemuh2nclcr" path="res://Assets/Clouds_black/Shape2/cloud_shape2_1.png" id="6_anubb"]
+[ext_resource type="Texture2D" uid="uid://dmp71bo58v323" path="res://Assets/Clouds_black/Shape2/cloud_shape2_4.png" id="7_20yl5"]
+[ext_resource type="Texture2D" uid="uid://cit85n83cu8s7" path="res://Assets/Clouds_black/Shape1/cloud_shape1_1.png" id="8_o8w48"]
+[ext_resource type="Texture2D" uid="uid://btgf5am82kod" path="res://Assets/Clouds_black/Shape1/cloud_shape1_5.png" id="9_3q736"]
+[ext_resource type="Texture2D" uid="uid://2n3k4s6gkja1" path="res://Assets/Clouds_black/Shape1/cloud_shape1_4.png" id="10_0y2vf"]
+[ext_resource type="Texture2D" uid="uid://btm4tox7balpu" path="res://Assets/Clouds_black/Shape4/cloud_shape4_1.png" id="11_c44jw"]
+[ext_resource type="Texture2D" uid="uid://bwv2qq3guo3qf" path="res://Assets/Clouds_black/Shape4/cloud_shape4_4.png" id="12_o5jh7"]
+[ext_resource type="Texture2D" uid="uid://dpfh6w4psg142" path="res://Assets/Clouds_black/Shape1/cloud_shape1_3.png" id="13_bqpqm"]
+[ext_resource type="Shader" path="res://Shaders/boundary.gdshader" id="14_7s3ud"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_og23x"]
+texture = ExtResource("2_y1ag1")
+texture_region_size = Vector2i(150, 150)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_uutvj"]
+tile_size = Vector2i(150, 150)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
+sources/0 = SubResource("TileSetAtlasSource_og23x")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6m16"]
+shader = ExtResource("14_7s3ud")
+shader_parameter/color_gap = Vector4(0, 0, 0, 0)
+shader_parameter/color_stripe = Vector4(1, 0.3, 0, 0.4)
+shader_parameter/divisions = 8.0
+shader_parameter/stripe_bias = 2.5
+shader_parameter/speed = 0.1
+shader_parameter/angle = 1.3
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_offset = Vector2(-10, 0)
+script = ExtResource("1_6nw57")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TileMap" type="TileMap" parent="ParallaxLayer"]
+tile_set = SubResource("TileSet_uutvj")
+cell_quadrant_size = 48
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 262145, 0, 0, 196609, 0, 0, 131073, 0, 0, 65537, 0, 0, 1, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 262147, 0, 0, 196611, 0, 0, 131075, 0, 0, 65539, 0, 0, 3, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 262149, 0, 0, 196613, 0, 0, 131077, 0, 0, 65541, 0, 0, 5, 0, 0, 6, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 262151, 0, 0, 196615, 0, 0, 131079, 0, 0, 65543, 0, 0, 7, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 327682, 0, 0, 393218, 0, 0, 458754, 0, 0, 327683, 0, 0, 393219, 0, 0, 458755, 0, 0, 327684, 0, 0, 393220, 0, 0, 458756, 0, 0, 327685, 0, 0, 393221, 0, 0, 458757, 0, 0, 327686, 0, 0, 393222, 0, 0, 458758, 0, 0, 327687, 0, 0, 393223, 0, 0, 458759, 0, 0, 327688, 0, 0, 393224, 0, 0, 458760, 0, 0, 327689, 0, 0, 393225, 0, 0, 458761, 0, 0, 327690, 0, 0, 393226, 0, 0, 458762, 0, 0, 327691, 0, 0, 393227, 0, 0, 458763, 0, 0, 327692, 0, 0, 393228, 0, 0, 458764, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 0, 0, 10, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 0, 0, 11, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 12, 0, 0, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0, 262156, 0, 0)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1980, 0)
+
+[node name="CloudShape35" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(1113, 444)
+texture = ExtResource("3_fqf77")
+
+[node name="CloudShape34" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(530, 515)
+texture = ExtResource("4_yty4u")
+
+[node name="CloudShape31" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(854, 710)
+texture = ExtResource("5_boogb")
+
+[node name="CloudShape21" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(1397, 1010)
+texture = ExtResource("6_anubb")
+
+[node name="CloudShape24" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(770, 683)
+texture = ExtResource("7_20yl5")
+
+[node name="CloudShape11" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(576, 540)
+texture = ExtResource("8_o8w48")
+
+[node name="CloudShape15" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(1478, 318)
+texture = ExtResource("9_3q736")
+
+[node name="CloudShape14" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(189, 227)
+texture = ExtResource("10_0y2vf")
+
+[node name="CloudShape41" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(1703, 567)
+texture = ExtResource("11_c44jw")
+
+[node name="CloudShape44" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(230, 752)
+texture = ExtResource("12_o5jh7")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="CloudShape15" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(371, 755)
+texture = ExtResource("9_3q736")
+
+[node name="CloudShape13" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(1491, 234)
+texture = ExtResource("13_bqpqm")
+
+[node name="CloudShape21" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(496, 244)
+texture = ExtResource("6_anubb")
+
+[node name="CloudShape31" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(1225, 203)
+texture = ExtResource("5_boogb")
+
+[node name="CloudShape34" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(422, 866)
+texture = ExtResource("4_yty4u")
+
+[node name="CloudShape35" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(1727, 425)
+texture = ExtResource("3_fqf77")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxLayer2"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.67451)
+metadata/_edit_use_anchors_ = true
+
+[node name="WarningStrips" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_v6m16")
+offset_left = 737.0
+offset_top = -12.0
+offset_right = 893.0
+offset_bottom = 1098.0
+
+[node name="WarningBorderLeft" type="ColorRect" parent="."]
+offset_left = 730.0
+offset_top = -12.0
+offset_right = 737.0
+offset_bottom = 1123.0
+color = Color(1, 0.3, 0, 0.4)
+
+[node name="WarningBorderRight" type="ColorRect" parent="."]
+offset_left = 893.0
+offset_top = -12.0
+offset_right = 900.0
+offset_bottom = 1123.0
+color = Color(1, 0.3, 0, 0.4)
