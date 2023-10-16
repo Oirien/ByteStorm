@@ -12,9 +12,9 @@ func _ready():
 func _process(_delta):
 	end_of_path()
 	
-func on_hit():
-	health -= 1
-	if (health == 0):
+func on_hit(damage):
+	health -= damage
+	if (health <= 0):
 		PlayerDataNode._add_score(5)
 
 		_animated_explosion.show()

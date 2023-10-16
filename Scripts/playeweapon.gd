@@ -1,10 +1,12 @@
 extends Node2D
 var bullet_scene = load("res://Scenes/player_bullet.tscn")
+@onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 var shooting=false;
+var damage = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	damage = PlayerDataNode._get_damage()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
