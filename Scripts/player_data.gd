@@ -52,3 +52,13 @@ func _get_speed():
 
 func _set_speed(newSpeed):
 	speed = newSpeed
+	
+func _get_current_level():
+	return current_level
+
+func _reset_current_level():
+	current_level = 1
+
+func _next_level():
+	current_level += 1
+	return current_level
