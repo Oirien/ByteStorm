@@ -47,3 +47,6 @@ func _on_purchase_pressed():
 		PlayerDataNode._spend_money(upgrade.price)
 		PlayerDataNode._set_damage(upgrade.damage)
 		_display_upgrade()
+
+func _reset_upgrade():
+	currentUpgrade = 0
