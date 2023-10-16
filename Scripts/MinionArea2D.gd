@@ -11,7 +11,7 @@ func _process(delta):
 	if !just_shot:
 		just_shot = true
 		_shooting()
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(1.5).timeout
 		just_shot = false
 	end_of_path()
 

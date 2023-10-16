@@ -1,7 +1,7 @@
 extends Node2D
 @onready var _animated_explosion = $AnimatedSprite2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
-var health = 200
+var health = 150
 
 func _ready():
 	_animated_explosion.hide()

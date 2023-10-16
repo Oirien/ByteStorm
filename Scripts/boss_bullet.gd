@@ -1,5 +1,5 @@
 extends Node2D
-var speed = -300
+var speed = -500
 @onready var _animated_bullet = $Area2D/AnimatedSprite2D
 var bullet_hit = false
 var spawntime = Time.get_ticks_msec()

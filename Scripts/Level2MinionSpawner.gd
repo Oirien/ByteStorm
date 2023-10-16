@@ -21,7 +21,7 @@ func _process(delta):
 	if !spawning:
 		spawning = true
 		_spawn_minion()
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1.5).timeout
 		spawning = false
 
 func _spawn_minion():
