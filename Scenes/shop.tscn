@@ -213,3 +213,4 @@ text = "Next Level"
 [connection signal="pressed" from="Upgrades/Upgrade Max Health Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrades/Upgrade Max Health Container" method="_on_purchase_pressed"]
 [connection signal="pressed" from="Upgrades/Upgrade Ship Speed Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrades/Upgrade Ship Speed Container" method="_on_purchase_pressed"]
 [connection signal="pressed" from="Upgrades/Upgrade Damage Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrades/Upgrade Damage Container" method="_on_purchase_pressed"]
+[connection signal="pressed" from="Next Level" to="." method="_on_next_level_pressed"]
