@@ -27,7 +27,6 @@ func on_hit():
 		_animated_explosion.reparent(self)
 		_animated_explosion.play("explosion")
 		var sprite = get_child(0)
-		var collision_box = get_child(1)
 		sprite.free()
 	
 func movement(delta):
