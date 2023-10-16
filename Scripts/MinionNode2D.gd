@@ -1,16 +1,15 @@
 extends Node2D
 @onready var _animated_explosion = $AnimatedSprite2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
-var health = 150
-var score_value = 1000
-var credit_value = 250
-
-
+var score_value = 75
+var credit_value = 30
+var health =3
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	_animated_explosion.hide()
 
 
-
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
@@ -26,7 +25,3 @@ func on_hit(damage):
 		var sprite = get_child(1)
 		spawner.free()
 		sprite.free()
-
-
-func _on_animated_sprite_2d_animation_finished():
-	self.queue_free()

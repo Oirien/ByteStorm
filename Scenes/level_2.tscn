@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddpyn2ps0u3ya"]
+[gd_scene load_steps=17 format=3 uid="uid://ddpyn2ps0u3ya"]
 
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_o6h87"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="2_rfhyh"]
 [ext_resource type="PackedScene" uid="uid://cll0e1jxgx30t" path="res://Scenes/HUD.tscn" id="3_hxc6i"]
 [ext_resource type="PackedScene" uid="uid://d2ncmdu1tnmm" path="res://Scenes/death_popup.tscn" id="4_ax46r"]
 [ext_resource type="PackedScene" uid="uid://k0khelvllg4d" path="res://Scenes/player.tscn" id="5_2yr4t"]
+[ext_resource type="Script" path="res://Scripts/THE WALL.gd" id="6_dsid5"]
 [ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="6_jlltm"]
 [ext_resource type="Texture2D" uid="uid://38477encum6x" path="res://Assets/cityblock-1.png" id="7_eq1sp"]
 [ext_resource type="Script" path="res://Scripts/PlayerArea.gd" id="8_b76io"]
@@ -62,6 +63,7 @@ position = Vector2(207, 593)
 [node name="THE WALL" type="Area2D" parent="." groups=["THEWALL"]]
 collision_layer = 3
 collision_mask = 3
+script = ExtResource("6_dsid5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="THE WALL"]
 polygon = PackedVector2Array(0, 0, -233, -120, -241, 1329, 2056, 1299, 2054, -144, 0, -120, 4, -1, 1949, -1, 1950, 1200, -2, 1203)

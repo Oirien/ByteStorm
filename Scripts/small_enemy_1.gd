@@ -1,5 +1,7 @@
 extends Node2D
 var health=2
+var score_value = 50
+var credit_value = 15
 @onready var _animated_explosion = $AnimatedSprite2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 @onready var wallarea = get_tree().get_root().get_node("Game").get_child(4).get_node("THE WALL")
@@ -15,8 +17,8 @@ func _process(_delta):
 func on_hit(damage):
 	health -= damage
 	if (health <= 0):
-		PlayerDataNode._add_score(5)
-
+		PlayerDataNode._add_score(score_value)
+		PlayerDataNode._add_credits(credit_value)
 		_animated_explosion.show()
 		_animated_explosion.reparent(self)
 		_animated_explosion.play("explosion")

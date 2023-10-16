@@ -3,6 +3,8 @@ extends Node2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 @onready var ShopNode = get_tree().get_root().get_node("Game").get_node("Shop")
 var health = 50
+var score_value = 500
+var credit_value = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,7 +18,8 @@ func _process(_delta):
 func on_hit(damage):
 	health -= damage
 	if (health <= 0):
-		PlayerDataNode._add_score(5)
+		PlayerDataNode._add_score(score_value)
+		PlayerDataNode._add_credits(credit_value)
 		_animated_explosion.show()
 		_animated_explosion.reparent(self)
 		_animated_explosion.play("explosion")
