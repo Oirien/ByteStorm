@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://bygt1ah06kcvm"]
+
+[ext_resource type="Script" path="res://Scripts/cross_attack_spinner.gd" id="1_v333u"]
+[ext_resource type="Script" path="res://Scripts/CrossAttack.gd" id="2_y7emv"]
+[ext_resource type="Texture2D" uid="uid://y5l3aec7esng" path="res://Assets/purple_ball/purple_ball0.png" id="3_j86n1"]
+[ext_resource type="Script" path="res://Scripts/CrossAttack2.gd" id="4_8edps"]
+[ext_resource type="Script" path="res://Scripts/CrossAttack3.gd" id="5_cj70j"]
+[ext_resource type="Script" path="res://Scripts/CrossAttack4.gd" id="6_d10mp"]
+
+[node name="CrossAttack" type="Node2D"]
+script = ExtResource("1_v333u")
+
+[node name="CrossAttack" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_y7emv")
+
+[node name="Sprite2D" type="Sprite2D" parent="CrossAttack"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_j86n1")
+
+[node name="RayCast2D" type="RayCast2D" parent="CrossAttack/Sprite2D"]
+position = Vector2(0, -24)
+target_position = Vector2(0, 48)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="CrossAttack2" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_8edps")
+
+[node name="Sprite2D" type="Sprite2D" parent="CrossAttack2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_j86n1")
+
+[node name="RayCast2D" type="RayCast2D" parent="CrossAttack2/Sprite2D"]
+position = Vector2(0, -24)
+target_position = Vector2(0, 48)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="CrossAttack3" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("5_cj70j")
+
+[node name="Sprite2D" type="Sprite2D" parent="CrossAttack3"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_j86n1")
+
+[node name="RayCast2D" type="RayCast2D" parent="CrossAttack3/Sprite2D"]
+position = Vector2(0, -24)
+target_position = Vector2(0, 48)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="CrossAttack4" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("6_d10mp")
+
+[node name="Sprite2D" type="Sprite2D" parent="CrossAttack4"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_j86n1")
+
+[node name="RayCast2D" type="RayCast2D" parent="CrossAttack4/Sprite2D"]
+position = Vector2(0, -24)
+target_position = Vector2(0, 48)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false

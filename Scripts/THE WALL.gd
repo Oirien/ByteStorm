@@ -1,5 +1,5 @@
-extends Node2D
-var t:float = 0.0
+extends Area2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,6 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	t += delta
-	$MinionPath2D/MinionPathFollow2D.progress = t * 300
-	
+	pass
+
+func on_hit(damage):
+	pass

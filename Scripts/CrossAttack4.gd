@@ -14,5 +14,5 @@ func _process(delta):
 	self.position=(Vector2.RIGHT*distance_travelled)
 	if ($Sprite2D/RayCast2D.is_colliding()): 
 		var player_hit = $Sprite2D/RayCast2D.get_collider()
-		player_hit.get_parent().on_hit()
+		player_hit.get_parent().on_hit(1)
 		self.queue_free()
