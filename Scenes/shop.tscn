@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfioyq7sfsqib"]
+[gd_scene load_steps=8 format=3 uid="uid://cfioyq7sfsqib"]
 
 [ext_resource type="Script" path="res://Scripts/shop.gd" id="1_27t0e"]
 [ext_resource type="Texture2D" uid="uid://h4has65jpnl7" path="res://Assets/blast1.png" id="2_134ro"]
 [ext_resource type="Script" path="res://Scripts/UpgradeDamage.gd" id="2_jjqds"]
 [ext_resource type="Script" path="res://Scripts/MoneyLabel.gd" id="3_hg0tk"]
+[ext_resource type="Script" path="res://Scripts/Upgrade Ship Speed.gd" id="4_j867m"]
 [ext_resource type="Texture2D" uid="uid://drpnxu0qs7j07" path="res://Assets/SHIP1.png" id="4_vmjc5"]
 [ext_resource type="PackedScene" uid="uid://duwftjyo7nhq8" path="res://Scenes/player_data.tscn" id="6_5xdhq"]
 
@@ -27,10 +28,10 @@ color = Color(0.164706, 0.0117647, 0.188235, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 2
-offset_left = 746.0
-offset_top = -1.0
-offset_right = 1092.0
-offset_bottom = 174.0
+offset_left = 780.0
+offset_top = 7.0
+offset_right = 1126.0
+offset_bottom = 182.0
 theme_override_font_sizes/normal_font_size = 128
 text = "SHOP"
 fit_content = true
@@ -38,10 +39,10 @@ autowrap_mode = 0
 
 [node name="Upgrade Damage Container" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 241.0
-offset_top = 360.0
-offset_right = 445.0
-offset_bottom = 472.0
+offset_left = 245.0
+offset_top = 337.0
+offset_right = 580.0
+offset_bottom = 513.0
 script = ExtResource("2_jjqds")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Upgrade Damage Container"]
@@ -60,6 +61,8 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 28
 bbcode_enabled = true
 text = "[b]Upgrade Damage[/b]"
 fit_content = true
@@ -67,26 +70,30 @@ autowrap_mode = 0
 
 [node name="UpgradeStat" type="RichTextLabel" parent="Upgrade Damage Container/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[center]Damage: 2[/center]"
 fit_content = true
 
 [node name="Price" type="RichTextLabel" parent="Upgrade Damage Container/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[center]Price: 100[/center]"
 fit_content = true
 
 [node name="Purchase" type="Button" parent="Upgrade Damage Container/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Purchase"
 
 [node name="Upgrade Ship Speed Container" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 242.0
-offset_top = 574.0
-offset_right = 504.0
-offset_bottom = 686.0
+offset_left = 246.0
+offset_top = 554.0
+offset_right = 581.0
+offset_bottom = 730.0
+script = ExtResource("4_j867m")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Upgrade Ship Speed Container"]
 layout_mode = 2
@@ -100,29 +107,34 @@ expand_mode = 3
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Upgrade Speed" type="RichTextLabel" parent="Upgrade Ship Speed Container/HBoxContainer/VBoxContainer"]
+[node name="Upgrade Damage" type="RichTextLabel" parent="Upgrade Ship Speed Container/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 28
 bbcode_enabled = true
 text = "[b]Upgrade Ship Speed[/b]"
 fit_content = true
 autowrap_mode = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Upgrade Ship Speed Container/HBoxContainer/VBoxContainer"]
+[node name="UpgradeStat" type="RichTextLabel" parent="Upgrade Ship Speed Container/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "[center]Speed: XX[/center]"
+text = "[center]Speed: XXX[/center]"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Upgrade Ship Speed Container/HBoxContainer/VBoxContainer"]
+[node name="Price" type="RichTextLabel" parent="Upgrade Ship Speed Container/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "[center]Price: 100[/center]"
+text = "[center]Price: XXX[/center]"
 fit_content = true
 
 [node name="Purchase" type="Button" parent="Upgrade Ship Speed Container/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Purchase"
 
 [node name="Wallet" type="RichTextLabel" parent="."]
@@ -149,3 +161,4 @@ text = "Next Level"
 [node name="PlayerData" parent="." instance=ExtResource("6_5xdhq")]
 
 [connection signal="pressed" from="Upgrade Damage Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrade Damage Container" method="_on_purchase_pressed"]
+[connection signal="pressed" from="Upgrade Ship Speed Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrade Ship Speed Container" method="_on_purchase_pressed"]
