@@ -28,9 +28,9 @@ text = "Fullscreen"
 layout_mode = 2
 text = "Windowed"
 
-[node name="BackToMenu" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Back" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Main Menu"
+text = "Back"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -63,4 +63,4 @@ bus_index = 3
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/WindowedButton" to="." method="_on_windowed_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
