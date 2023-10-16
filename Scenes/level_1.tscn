@@ -1,29 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://b11oh1poawx23"]
+[gd_scene load_steps=17 format=3 uid="uid://b11oh1poawx23"]
 
 [ext_resource type="PackedScene" uid="uid://k0khelvllg4d" path="res://Scenes/player.tscn" id="1_23xv1"]
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_hnats"]
-[ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="2_8amhs"]
 [ext_resource type="PackedScene" uid="uid://cll0e1jxgx30t" path="res://Scenes/HUD.tscn" id="3_fns87"]
-[ext_resource type="Texture2D" uid="uid://38477encum6x" path="res://Assets/cityblock-1.png" id="3_wybf0"]
 [ext_resource type="Script" path="res://Scripts/PlayerArea.gd" id="4_y2awf"]
 [ext_resource type="PackedScene" uid="uid://d2ncmdu1tnmm" path="res://Scenes/death_popup.tscn" id="4_y08ye"]
 [ext_resource type="Script" path="res://Scripts/Node2D.gd" id="5_11xp6"]
+[ext_resource type="PackedScene" uid="uid://pj8etep5wyc6" path="res://Scenes/Background.tscn" id="6_t0hqh"]
 [ext_resource type="PackedScene" uid="uid://bjsh5uhvujji1" path="res://Scenes/enemy.tscn" id="7_kytv3"]
 [ext_resource type="PackedScene" uid="uid://cwnqgg8l8pob6" path="res://Scenes/small_enemy_spawner.tscn" id="10_7frga"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="11_omqqf"]
 [ext_resource type="AudioStream" uid="uid://bc08nuo42bain" path="res://Assets/Sounds/Music/track3.ogg" id="11_shaba"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_og23x"]
-texture = ExtResource("3_wybf0")
-texture_region_size = Vector2i(150, 150)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_uutvj"]
-tile_size = Vector2i(150, 150)
-terrain_set_0/mode = 0
-terrain_set_0/terrain_0/name = "Terrain 0"
-terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
-sources/0 = SubResource("TileSetAtlasSource_og23x")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apjjd"]
 size = Vector2(1952.5, 85)
@@ -60,9 +47,9 @@ z_index = 20
 [node name="DeathPopup" parent="." instance=ExtResource("4_y08ye")]
 z_index = 10
 offset_left = 790.0
-offset_top = 500.0
+offset_top = 300.0
 offset_right = 790.0
-offset_bottom = 500.0
+offset_bottom = 300.0
 scale = Vector2(2, 2)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_23xv1")]
@@ -75,27 +62,7 @@ collision_mask = 3
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="THE WALL"]
 polygon = PackedVector2Array(0, 0, -233, -120, -241, 1329, 2056, 1299, 2054, -144, 0, -120, 4, -1, 1949, -1, 1950, 1200, -2, 1203)
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_offset = Vector2(-10, 0)
-script = ExtResource("2_8amhs")
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1920, 0)
-
-[node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer"]
-tile_set = SubResource("TileSet_uutvj")
-cell_quadrant_size = 48
-format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 262145, 0, 0, 196609, 0, 0, 131073, 0, 0, 65537, 0, 0, 1, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 262147, 0, 0, 196611, 0, 0, 131075, 0, 0, 65539, 0, 0, 3, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 262149, 0, 0, 196613, 0, 0, 131077, 0, 0, 65541, 0, 0, 5, 0, 0, 6, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 262151, 0, 0, 196615, 0, 0, 131079, 0, 0, 65543, 0, 0, 7, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 327682, 0, 0, 393218, 0, 0, 458754, 0, 0, 327683, 0, 0, 393219, 0, 0, 458755, 0, 0, 327684, 0, 0, 393220, 0, 0, 458756, 0, 0, 327685, 0, 0, 393221, 0, 0, 458757, 0, 0, 327686, 0, 0, 393222, 0, 0, 458758, 0, 0, 327687, 0, 0, 393223, 0, 0, 458759, 0, 0, 327688, 0, 0, 393224, 0, 0, 458760, 0, 0, 327689, 0, 0, 393225, 0, 0, 458761, 0, 0, 327690, 0, 0, 393226, 0, 0, 458762, 0, 0, 327691, 0, 0, 393227, 0, 0, 458763, 0, 0, 327692, 0, 0, 393228, 0, 0, 458764, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 0, 0, 10, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 0, 0, 11, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 12, 0, 0, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0, 262156, 0, 0)
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1920, 0)
-
-[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer2"]
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.67451)
-metadata/_edit_use_anchors_ = true
+[node name="ParallaxBackground" parent="." instance=ExtResource("6_t0hqh")]
 
 [node name="PlayerBox" type="Node2D" parent="."]
 

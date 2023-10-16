@@ -8,10 +8,11 @@ var current_level = 1
 @onready var ShopNode = get_tree().get_root().get_node("Game").get_node("Shop")
 
 func _add_score(value):
-	
 	score+=value
+
+func _add_wallet(value):
 	wallet+=value*5
-	
+
 func _get_score():
 	return score
 
