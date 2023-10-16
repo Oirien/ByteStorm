@@ -23,7 +23,7 @@ func _on_submit_score_pressed():
 #	$HTTPRequest._submit_score()
 	var gamescene = get_node("../../")
 	gamescene.get_child(0).show()
-	gamescene.get_child(3).queue_free()
+	gamescene.get_child(4).queue_free()
 
 
 func _on_text_edit_text_changed():

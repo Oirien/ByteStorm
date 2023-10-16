@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfioyq7sfsqib"]
+[gd_scene load_steps=8 format=3 uid="uid://cfioyq7sfsqib"]
 
 [ext_resource type="Script" path="res://Scripts/shop.gd" id="1_27t0e"]
 [ext_resource type="Texture2D" uid="uid://h4has65jpnl7" path="res://Assets/blast1.png" id="2_134ro"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Scripts/MoneyLabel.gd" id="3_hg0tk"]
 [ext_resource type="Script" path="res://Scripts/Upgrade Ship Speed.gd" id="4_j867m"]
 [ext_resource type="Texture2D" uid="uid://drpnxu0qs7j07" path="res://Assets/SHIP1.png" id="4_vmjc5"]
-[ext_resource type="PackedScene" uid="uid://duwftjyo7nhq8" path="res://Scenes/player_data.tscn" id="6_5xdhq"]
 [ext_resource type="Script" path="res://Scripts/Upgrade Max Health Container.gd" id="6_egsgm"]
 
 [node name="Shop" type="Control"]
@@ -213,8 +212,6 @@ offset_right = 1840.0
 offset_bottom = 1016.0
 theme_override_font_sizes/font_size = 52
 text = "Next Level"
-
-[node name="PlayerData" parent="." instance=ExtResource("6_5xdhq")]
 
 [connection signal="pressed" from="Upgrades/Upgrade Max Health Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrades/Upgrade Max Health Container" method="_on_purchase_pressed"]
 [connection signal="pressed" from="Upgrades/Upgrade Ship Speed Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrades/Upgrade Ship Speed Container" method="_on_purchase_pressed"]

@@ -1,7 +1,7 @@
 extends PanelContainer
-#@onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
+@onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 #BELOW CODE IS FOR TESTING - DELETE BELOW LINE + THE PlayerData NODE WITHIN SHOP SCENE WHEN TESTING IS DONE
-@onready var PlayerDataNode = get_tree().get_root().get_node("Shop").get_node("PlayerData")
+#@onready var PlayerDataNode = get_tree().get_root().get_node("Shop").get_node("PlayerData")
 var speedUpgrades = [
 	{
 		"speed": 400,

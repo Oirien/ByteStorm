@@ -21,5 +21,5 @@ func _on_quit_pressed():
 	
 	gamescene.get_child(0).show()
 	gamescene.get_child(0).get_node("AudioStreamPlayer").play()
-	gamescene.get_child(3).queue_free()
+	gamescene.get_child(4).queue_free()
 	Engine.time_scale = 1

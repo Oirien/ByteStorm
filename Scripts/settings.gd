@@ -9,7 +9,8 @@ func _ready():
 
 func _on_back_to_menu_pressed():
 	var gamescene = get_node("../")
-	gamescene.get_child(0).show()
+	if (gamescene.get_child_count() <= 4):
+		gamescene.get_child(0).show()
 	self.hide()
 
 
