@@ -12,17 +12,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="UiElementTop" type="Sprite2D" parent="."]
+position = Vector2(254, 74)
+scale = Vector2(1.40375, 1)
+texture = ExtResource("3_47qgt")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 2
-offset_left = 90.0
-offset_right = 508.0
-offset_bottom = 59.0
+offset_left = 108.0
+offset_top = 21.0
+offset_right = 526.0
+offset_bottom = 80.0
 theme_override_fonts/normal_font = ExtResource("1_dl74y")
 theme_override_font_sizes/normal_font_size = 48
 text = "Score: 1123"
 script = ExtResource("1_wdxgp")
-
-[node name="UiElementTop" type="Sprite2D" parent="."]
-position = Vector2(267.25, 66)
-scale = Vector2(1.40375, 1)
-texture = ExtResource("3_47qgt")

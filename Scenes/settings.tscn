@@ -33,7 +33,9 @@ text = "Windowed"
 
 [node name="Back" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+
 theme_override_fonts/font = ExtResource("2_ylylr")
+
 text = "Back"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
