@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://h1qr2bj718et"]
+
+[ext_resource type="Texture2D" uid="uid://n2frcrhangui" path="res://Assets/enemy_4.png" id="1_i0rhf"]
+[ext_resource type="Script" path="res://Scripts/Level2MinionScene.gd" id="1_yi6xc"]
+
+[sub_resource type="Curve2D" id="Curve2D_haw71"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, 3, 107.878, 17.9797, -107.878, -17.9797, -280, -126, 143.837, 20.9763, -143.837, -20.9763, -541, 93, 140.841, 17.9797, -140.841, -17.9797, -873, -213, 251.716, 5.99323, -251.716, -5.99323, -1275, 291, 311.648, 8.98984, -311.648, -8.98984, -1883, -416, 0, 0, 0, 0, -2430, 800)
+}
+point_count = 7
+
+[node name="Level2MinionScene" type="Node2D"]
+script = ExtResource("1_yi6xc")
+
+[node name="MinionPath2D" type="Path2D" parent="."]
+position = Vector2(1920, 0)
+curve = SubResource("Curve2D_haw71")
+
+[node name="MinionPathFollow2D" type="PathFollow2D" parent="MinionPath2D"]
+position = Vector2(-2, 3)
+rotation = -2.70713
+loop = false
+
+[node name="MinionArea2D" type="Area2D" parent="MinionPath2D/MinionPathFollow2D"]
+rotation = 1.5708
+
+[node name="MinionSprite2D" type="Sprite2D" parent="MinionPath2D/MinionPathFollow2D/MinionArea2D"]
+texture = ExtResource("1_i0rhf")
+flip_v = true
+
+[node name="MinionCollisionPolygon2D" type="CollisionPolygon2D" parent="MinionPath2D/MinionPathFollow2D/MinionArea2D"]
+polygon = PackedVector2Array(26.4005, -0.124146, 16.3, -29, -16, -29, -27.3076, 0.544922, -28, 27, 28, 27)

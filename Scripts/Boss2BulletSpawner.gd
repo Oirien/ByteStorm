@@ -73,10 +73,6 @@ func _spawn_alt():
 func _on_attack_style_timer_timeout():
 	if (firing_mode == 0):
 		await firing == false
-		
-		
-			
-
 		firing_mode = 1
 	else:
 		await firing == false
