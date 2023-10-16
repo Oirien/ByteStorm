@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cll0e1jxgx30t"]
+[gd_scene load_steps=4 format=3 uid="uid://cll0e1jxgx30t"]
 
+[ext_resource type="FontFile" uid="uid://cvcff6y4li62g" path="res://Assets/PixelifySans-Regular.ttf" id="1_dl74y"]
 [ext_resource type="Script" path="res://Scripts/HUDText.gd" id="1_wdxgp"]
+[ext_resource type="Texture2D" uid="uid://bke5784jjl8q" path="res://Assets/UIElementTop.png" id="3_47qgt"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,8 +13,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(1000, 100)
 layout_mode = 2
-offset_right = 1000.0
-offset_bottom = 100.0
+offset_left = 90.0
+offset_right = 508.0
+offset_bottom = 59.0
+theme_override_fonts/normal_font = ExtResource("1_dl74y")
+theme_override_font_sizes/normal_font_size = 48
+text = "Score: 1123"
 script = ExtResource("1_wdxgp")
+
+[node name="UiElementTop" type="Sprite2D" parent="."]
+position = Vector2(267.25, 66)
+scale = Vector2(1.40375, 1)
+texture = ExtResource("3_47qgt")

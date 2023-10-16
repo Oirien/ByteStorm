@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccuke7yhj4b2o"]
+[gd_scene load_steps=3 format=3 uid="uid://ccuke7yhj4b2o"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_en0y2"]
+[ext_resource type="FontFile" uid="uid://cvcff6y4li62g" path="res://Assets/PixelifySans-Regular.ttf" id="2_mgdtr"]
 
 [node name="Pause Menu" type="Control"]
 layout_mode = 3
@@ -22,6 +23,7 @@ layout_mode = 2
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mgdtr")
 text = "Resume"
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -32,6 +34,7 @@ text = "Settings"
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mgdtr")
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsivnft574ty3"]
+[gd_scene load_steps=4 format=3 uid="uid://bsivnft574ty3"]
 
 [ext_resource type="Script" path="res://Scripts/settings.gd" id="1_47lp3"]
 [ext_resource type="PackedScene" uid="uid://ceb0p86t0eqwa" path="res://Scenes/volume_slider.tscn" id="2_2llxt"]
+[ext_resource type="FontFile" uid="uid://cvcff6y4li62g" path="res://Assets/PixelifySans-Regular.ttf" id="2_ylylr"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -22,21 +23,26 @@ layout_mode = 2
 
 [node name="FullscreenButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ylylr")
 text = "Fullscreen"
 
 [node name="WindowedButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ylylr")
 text = "Windowed"
 
 [node name="Back" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+
 text = "Back"
+
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
 [node name="Master Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ylylr")
 text = "Master Volume"
 
 [node name="Master" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("2_2llxt")]
@@ -45,6 +51,7 @@ bus_name = "Master"
 
 [node name="Music Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ylylr")
 text = "Music Volume"
 
 [node name="Music" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("2_2llxt")]
@@ -54,6 +61,7 @@ bus_index = 1
 
 [node name="SFX Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ylylr")
 text = "SFX Volume"
 
 [node name="SFX" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("2_2llxt")]
