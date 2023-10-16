@@ -21,7 +21,6 @@ func _animation_spread():
 func _on_start_pressed():
 	if start_pressed == false:
 		start_pressed = true
-		_animated_logo.queue_redraw()
 		_animated_logo.apply_scale(Vector2(2,2))
 		_animated_logo.play("glitch_heavy")
 		await _animated_logo.animation_finished
@@ -29,6 +28,7 @@ func _on_start_pressed():
 		get_parent().add_child(level_1)
 		PlayerDataNode._reset()
 		self.hide()
+		_animated_logo.apply_scale(Vector2(.5,.5))
 		$AudioStreamPlayer.stop()
 		start_pressed = false
 
@@ -38,13 +38,15 @@ func _play_animation():
 		if animation_target == 1:
 			_animated_logo.play("glitch_1")
 			await _animated_logo.animation_finished
-			_animated_logo.play("default")
+			if !start_pressed:
+				_animated_logo.play("default")
 			recently_animated = true
 			return
 		if animation_target == 2:
 			_animated_logo.play("glitch_2")
 			await _animated_logo.animation_finished
-			_animated_logo.play("default")
+			if !start_pressed:
+				_animated_logo.play("default")
 			recently_animated = true
 			return
 			

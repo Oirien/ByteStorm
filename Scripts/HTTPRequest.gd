@@ -1,28 +1,19 @@
 extends HTTPRequest
 var http_request
+@onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _submit_score(player_name, score):
+	http_request = HTTPRequest.new()
+	add_child(http_request)
 
+	var data_to_send = {
+		"name": player_name,
+		"score": score
+	}
+	
+	var json = JSON.stringify(data_to_send)
+	print(json)
+	var headers = ["Content-Type: application/json"]
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
-
-#func _submit_score():
-#	http_request = HTTPRequest.new()
-#	add_child(http_request)
-#
-#	var data_to_send = {
-#		"title": "test1",
-#		"date": "2020-1-01 00:00:00",
-#		"content": "helloworld",
-#		"imageRef": "boobs"
-#	}
-#	var json = JSON.stringify(data_to_send)
-#	var headers = ["Content-Type: application/json"]
-#
-#	# Call the request() function on the instance of HTTPRequest
-#	http_request.request("http://localhost:8080/api/blogpost", headers, HTTPClient.METHOD_POST, json)
+	# Call the request() function on the instance of HTTPRequest
+	http_request.request("http://54.74.199.55:8080/api/leaderboard/", headers, HTTPClient.METHOD_POST, json)

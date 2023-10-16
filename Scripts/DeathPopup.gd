@@ -17,10 +17,13 @@ func _on_menu_pressed():
 	gamescene.get_child(0).show()
 	gamescene.get_child(4).queue_free()
 
-#Once we fix the submit score we can uncomment line 25
+
 func _on_submit_score_pressed():
-	var _score = PlayerDataNode._get_score()
-#	$HTTPRequest._submit_score()
+	var score = PlayerDataNode._get_score()
+	if player_name != "":
+		$HTTPRequest._submit_score(player_name, score)
+		self.hide()
+		await get_tree().create_timer(3).timeout
 	var gamescene = get_node("../../")
 	gamescene.get_child(0).show()
 	gamescene.get_child(4).queue_free()
@@ -28,3 +31,4 @@ func _on_submit_score_pressed():
 
 func _on_text_edit_text_changed():
 	player_name = $VBoxContainer/TextEdit.text
+
