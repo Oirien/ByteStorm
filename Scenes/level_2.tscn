@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://ddpyn2ps0u3ya"]
 
-[ext_resource type="Script" path="res://Scenes/level_2.gd" id="1_hsqqp"]
+[ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_o6h87"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="2_rfhyh"]
 [ext_resource type="PackedScene" uid="uid://cll0e1jxgx30t" path="res://Scenes/HUD.tscn" id="3_hxc6i"]
 [ext_resource type="PackedScene" uid="uid://d2ncmdu1tnmm" path="res://Scenes/death_popup.tscn" id="4_ax46r"]
@@ -35,7 +35,7 @@ size = Vector2(28, 1208)
 size = Vector2(177, 1215)
 
 [node name="level_2" type="Node2D"]
-script = ExtResource("1_hsqqp")
+script = ExtResource("1_o6h87")
 
 [node name="Pause Menu" parent="." instance=ExtResource("2_rfhyh")]
 z_index = 25
