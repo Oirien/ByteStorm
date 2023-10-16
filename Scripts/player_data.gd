@@ -10,8 +10,8 @@ var current_level = 1
 func _add_score(value):
 	score+=value
 
-func _add_wallet(value):
-	wallet+=value*5
+func _add_credits(value):
+	wallet+=value
 
 func _get_score():
 	return score

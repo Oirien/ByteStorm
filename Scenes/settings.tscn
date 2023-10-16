@@ -33,9 +33,7 @@ text = "Windowed"
 
 [node name="Back" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-
 text = "Back"
-
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
