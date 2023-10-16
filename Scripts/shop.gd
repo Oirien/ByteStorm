@@ -14,3 +14,7 @@ func _reset_shops():
 	var upgradeCollection = $Upgrades.get_children()
 	for upgrade in upgradeCollection:
 		upgrade._reset_upgrade()
+
+
+func _on_next_level_pressed():
+	pass # Replace with function body.
