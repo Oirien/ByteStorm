@@ -15,7 +15,8 @@ func _process(_delta):
 	if (Input.is_action_just_pressed("ui_pause")):
 		start_pause()
 	if !locker:
-		score_over_time(1)
+		if get_node_or_null("Player") != null:
+			score_over_time(1)
 
 func on_hit(damage):
 	pass
