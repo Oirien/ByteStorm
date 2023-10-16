@@ -14,5 +14,10 @@ script = ExtResource("1_58ro4")
 [node name="PlayerData" parent="." instance=ExtResource("3_ecifo")]
 
 [node name="Settings" parent="." instance=ExtResource("4_vymfo")]
+offset_left = 750.0
+offset_top = 400.0
+offset_right = 750.0
+offset_bottom = 400.0
 
 [node name="Shop" parent="." instance=ExtResource("5_auk3a")]
+visible = false

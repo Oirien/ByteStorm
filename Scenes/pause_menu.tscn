@@ -26,6 +26,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_mgdtr")
 text = "Resume"
 
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "Settings"
+
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -33,4 +38,5 @@ theme_override_fonts/font = ExtResource("2_mgdtr")
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
