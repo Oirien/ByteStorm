@@ -31,7 +31,7 @@ func _display_upgrade():
 	upgradeStatLabel.clear()
 	upgradePriceLabel.clear()
 	if (currentUpgrade >= speedUpgrades.size()):
-		upgradeStatLabel.append_text("[center]Damage: Maxed[/center]")
+		upgradeStatLabel.append_text("[center]Speed: Maxed[/center]")
 		upgradePriceLabel.append_text("[center]No More Upgrades")
 		$HBoxContainer/VBoxContainer/Purchase.hide()
 		return 
