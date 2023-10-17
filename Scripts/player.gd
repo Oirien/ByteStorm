@@ -42,6 +42,7 @@ func on_hit(_damage):
 		_health_decreased.emit()
 
 	if (health == 0):
+		_kill_collision()
 		_animated_explosion.show()
 		_animated_explosion.reparent(self)
 		_animated_explosion.play("explosion")
