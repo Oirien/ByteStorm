@@ -55,7 +55,8 @@ func on_hit(_damage):
 func dash_timer():
 	var timeleft = timer.time_left / 3
 	tween = create_tween()
-	tween.tween_property(dashbar, "scale", Vector2(1.0, timeleft), 0.1)
+	if timeleft:
+		tween.tween_property(dashbar, "scale", Vector2(1.0, timeleft), 0.1)
 
 func movement(delta):
 	if (health > 0):
