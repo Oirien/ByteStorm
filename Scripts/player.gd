@@ -6,7 +6,7 @@ extends Node2D
 @onready var sprite = $Sprite2D
 @onready var dashbar = $DashBar
 signal _health_decreased
-@onready var tween : Tween
+var tween : Tween
 @onready var timer = $Timer
 
 var health = 100
@@ -54,8 +54,8 @@ func on_hit(_damage):
 
 func dash_timer():
 	var timeleft = timer.time_left / 3
-	tween = create_tween()
 	if timeleft:
+		tween = create_tween()
 		tween.tween_property(dashbar, "scale", Vector2(1.0, timeleft), 0.1)
 
 func movement(delta):
