@@ -13,7 +13,6 @@ var recently_dodged : bool = false
 func _ready():
 	_animated_explosion.hide()
 	health = _player_data._get_max_health()
-
 	speed = _player_data._get_speed()
 
 

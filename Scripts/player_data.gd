@@ -5,6 +5,7 @@ var max_health = 5
 var damage = 1
 var speed = 300
 var current_level = 1
+var player_weapon = 1
 @onready var ShopNode = get_tree().get_root().get_node("Game").get_node("Shop")
 
 func _add_score(value):
@@ -23,6 +24,7 @@ func _reset():
 	damage = 1
 	speed = 300
 	current_level = 1
+	player_weapon = 1
 	ShopNode._reset_shops()
 	
 func _spend_money(cost):
@@ -62,3 +64,9 @@ func _reset_current_level():
 func _next_level():
 	current_level += 1
 	return current_level
+
+func _get_weapon():
+	return player_weapon
+
+func _set_weapon(newWeapon):
+	player_weapon = newWeapon

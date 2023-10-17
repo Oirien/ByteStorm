@@ -4,6 +4,7 @@ var bullet_scene = load("res://Scenes/player_bullet.tscn")
 var shooting=false;
 var damage = 1
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	damage = PlayerDataNode._get_damage()
@@ -14,15 +15,21 @@ func _process(_delta):
 	if (shooting):
 		return
 	else:
-		shooting = true
-		self.position = get_parent().position
-		await get_tree().create_timer(0.25).timeout
-		spawn_bullet()
-		shooting = false
-		
+		match PlayerDataNode._get_weapon():
+			1:
+				bullet_pattern1()
+
 func spawn_bullet():
 	var bullet = bullet_scene.instantiate()
 	bullet.position = self.position
 	bullet.position.x += 25
 	bullet.rotation = 1.5
 	get_parent().get_parent().add_child(bullet)
+	
+func bullet_pattern1():
+	shooting = true
+	self.position = get_parent().position
+	spawn_bullet()
+	await get_tree().create_timer(0.25).timeout
+	shooting = false
+	
