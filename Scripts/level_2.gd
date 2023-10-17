@@ -12,7 +12,7 @@ func _process(_delta):
 	if (Input.is_action_just_pressed("ui_pause")):
 		start_pause()
 
-func on_hit(damage):
+func on_hit(_damage):
 	pass
 
 func start_pause():

@@ -7,8 +7,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-func on_hit(damage):
+func on_hit(_damage):
 	pass

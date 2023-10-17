@@ -10,6 +10,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	self.clear()
 	self.add_text("Credits: " + str(PlayerDataNode._get_wallet()))

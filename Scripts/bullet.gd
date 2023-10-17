@@ -1,9 +1,9 @@
 extends Node2D
 var speed = -300
-var spawntime = Time.get_ticks_msec()
+@onready var spawntime = get_tree().create_timer(15) 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	spawntime.connect("timeout", self.queue_free)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,8 +13,4 @@ func _process(delta):
 		var player_hit = $RayCast2D.get_collider()
 
 		player_hit.get_parent().on_hit(1)
-		self.queue_free()	
-
-	if (Time.get_ticks_msec() - spawntime > 15000):
 		self.queue_free()
-		

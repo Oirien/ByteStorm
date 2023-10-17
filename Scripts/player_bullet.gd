@@ -11,7 +11,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(spawntime.timeout)
 	self.position += Vector2(speed * delta,0).rotated(self.rotation)
 	if ($RayCast2D.is_colliding()):
 		var enemy_hit = $RayCast2D.get_collider()
