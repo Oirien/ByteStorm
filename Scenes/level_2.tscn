@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddpyn2ps0u3ya"]
+[gd_scene load_steps=19 format=3 uid="uid://ddpyn2ps0u3ya"]
 
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_o6h87"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="2_rfhyh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://k0khelvllg4d" path="res://Scenes/player.tscn" id="5_2yr4t"]
 [ext_resource type="Script" path="res://Scripts/THE WALL.gd" id="6_dsid5"]
 [ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="6_jlltm"]
+[ext_resource type="PackedScene" uid="uid://pj8etep5wyc6" path="res://Scenes/Background.tscn" id="7_0hr4m"]
 [ext_resource type="Texture2D" uid="uid://38477encum6x" path="res://Assets/cityblock-1.png" id="7_eq1sp"]
 [ext_resource type="Script" path="res://Scripts/PlayerArea.gd" id="8_b76io"]
 [ext_resource type="PackedScene" uid="uid://dluka0dnutgyw" path="res://Scenes/level_2_boss.tscn" id="9_upsbq"]
@@ -59,7 +60,10 @@ script = ExtResource("6_dsid5")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="THE WALL"]
 polygon = PackedVector2Array(0, 0, -233, -120, -241, 1329, 2056, 1299, 2054, -144, 0, -120, 4, -1, 1949, -1, 1950, 1200, -2, 1203)
 
+[node name="ParallaxBackground2" parent="." instance=ExtResource("7_0hr4m")]
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 scroll_offset = Vector2(-10, 0)
 script = ExtResource("6_jlltm")
 
@@ -113,7 +117,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBox/PlayerAreaRight" groups=["Player"]]
-position = Vector2(1200, 597)
+position = Vector2(827, 597)
 shape = SubResource("RectangleShape2D_fa2pn")
 
 [node name="Level2Boss" parent="." instance=ExtResource("9_upsbq")]

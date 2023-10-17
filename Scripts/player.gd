@@ -53,7 +53,7 @@ func on_hit(_damage):
 		sprite.free()
 
 func dash_timer():
-	var timeleft = timer.time_left / 3
+	var timeleft : float = timer.time_left / 3
 	if timeleft:
 		tween = create_tween()
 		tween.tween_property(dashbar, "scale", Vector2(1.0, timeleft), 0.1)
