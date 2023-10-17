@@ -29,6 +29,5 @@ func _on_submit_score_pressed():
 	_on_menu_pressed()
 
 
-func _on_text_edit_text_changed():
-	player_name = $VBoxContainer/TextEdit.text
-
+func _on_line_edit_text_changed(new_text):
+	player_name = $VBoxContainer/LineEdit.text

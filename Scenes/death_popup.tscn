@@ -47,12 +47,12 @@ bbcode_enabled = true
 text = "[center]Name:[/center]"
 fit_content = true
 
-[node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_6hwtl")
 theme_override_font_sizes/font_size = 24
 placeholder_text = "Type Your Name"
+max_length = 10
 
 [node name="Submit Score" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -69,7 +69,7 @@ text = "Main Menu"
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 script = ExtResource("3_gq7dc")
 
-[connection signal="text_changed" from="VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Submit Score" to="." method="_on_submit_score_pressed"]
 [connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
