@@ -2,6 +2,7 @@ extends Node2D
 @onready var _animated_explosion = $AnimatedSprite2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 @onready var ShopNode = get_tree().get_root().get_node("Game").get_node("Shop")
+@onready var PlayerNode = get_tree().get_root().get_node("Game").get_node("Level 1").get_node("Player")
 var health = 50
 var score_value = 500
 var credit_value = 100
@@ -29,9 +30,12 @@ func on_hit(damage):
 		spinner.free()
 		sprite.free()
 		collision_box.free()
+		PlayerNode._kill_collision()
 
 
 func _on_animated_sprite_2d_animation_finished():
+	$AnimatedSprite2D.hide()
+	await get_tree().create_timer(2).timeout
 	ShopNode.show()
 	ShopNode.get_node("AudioStreamPlayer").play()
 	get_tree().get_root().get_node("Game").get_node("Level 1").queue_free()
