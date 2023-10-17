@@ -11,12 +11,12 @@ _data = [Vector2(0.0274725, -291.79), 0.0, 0.0, 0, 0, Vector2(0.983517, 291.789)
 point_count = 2
 
 [node name="Node2D" type="Node2D"]
-rotation = 1.5708
 script = ExtResource("1_32efp")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+rotation = 1.5708
 texture = ExtResource("1_a7kve")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Area2D/Sprite2D"]
@@ -38,7 +38,8 @@ hue_variation_min = 0.3
 hue_variation_max = 0.3
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(-10, 2.08165e-12)
+rotation = 1.5708
 target_position = Vector2(0, -22)
 hit_from_inside = true
 collide_with_areas = true
