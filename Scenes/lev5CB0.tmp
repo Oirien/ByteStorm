@@ -49,6 +49,7 @@ script = ExtResource("1_steel")
 texture = ExtResource("2_jk0kt")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
 polygon = PackedVector2Array(60, -12, 51, 22, 36, 49, 1, 60, -37, 49, -53, 19, -60, -12, -60, -55, -21, -60, 1, -41, 20, -60, 59, -56)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -56,8 +57,3 @@ z_index = 100
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ut3w0")
 animation = &"explosion"
-
-[node name="AttackStyleTimer" type="Timer" parent="."]
-
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="timeout" from="AttackStyleTimer" to="." method="_on_attack_style_timer_timeout"]

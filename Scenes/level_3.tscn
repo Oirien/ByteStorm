@@ -141,6 +141,8 @@ position = Vector2(1000, 150)
 [node name="Level3MiniBoss4" parent="." instance=ExtResource("11_6h1sr")]
 position = Vector2(1000, 930)
 
+[node name="bulletHost" type="Node" parent="."]
+
 [connection signal="area_entered" from="PlayerBox/PlayerAreaBottom" to="Player" method="_on_player_area_bottom_area_entered"]
 [connection signal="area_entered" from="PlayerBox/PlayerAreaTop" to="Player" method="_on_player_area_top_area_entered"]
 [connection signal="area_entered" from="PlayerBox/PlayerAreaLeft" to="Player" method="_on_player_area_left_area_entered"]

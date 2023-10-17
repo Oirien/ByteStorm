@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://qlhsyo5o4r5w"]
+[gd_scene load_steps=13 format=3 uid="uid://qlhsyo5o4r5w"]
 
 [ext_resource type="Texture2D" uid="uid://dg3q8xpuhnc31" path="res://Assets/enemy_6.png" id="1_2q063"]
 [ext_resource type="Script" path="res://Scripts/level_3_boss.gd" id="1_6pyym"]
 [ext_resource type="Script" path="res://Scripts/Lvel3BossNode2D.gd" id="1_kmltj"]
+[ext_resource type="Script" path="res://Scripts/Boss3Area2D.gd" id="3_k3t3u"]
 [ext_resource type="Texture2D" uid="uid://bo27nyiahprsj" path="res://Assets/Explosion1/explosion10.png" id="3_r8hk6"]
 [ext_resource type="Texture2D" uid="uid://brqoattmeb56p" path="res://Assets/Explosion1/explosion11.png" id="4_6vtom"]
 [ext_resource type="Texture2D" uid="uid://hff35flchau0" path="res://Assets/Explosion1/explosion12.png" id="5_8qmyi"]
@@ -65,12 +66,15 @@ script = ExtResource("1_kmltj")
 [node name="AttackStyleTimer" type="Timer" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Level3BossBulletSpawnerNode2D"]
 
 [node name="Boss3Area2D" type="Area2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
+script = ExtResource("3_k3t3u")
 
 [node name="Sprite2D" type="Sprite2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Boss3Area2D"]
 texture = ExtResource("1_2q063")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Boss3Area2D"]
 polygon = PackedVector2Array(87, -339, 95, -299, 102, -233, 142, -164, 149, -103, 163, -91, 151, -4, 126, 70, 62, 41, 43, 75, 60, 116, 34, 166, 52, 203, 24, 255, 42, 291, 10, 371, -11, 371, -45, 293, -24, 255, -53, 205, -32, 167, -59, 120, -38, 77, -58, 40, -125, 71, -150, -3, -164, -88, -149, -105, -147, -157, -103, -229, -95, -298, -87.3, -346, -38, -371, -25, -349, -23, -241, 24, -243, 24, -348, 34, -375)
+
+[node name="Timer" type="Timer" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Boss3Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
 z_index = 100
@@ -80,5 +84,6 @@ animation = &"explosion"
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="timeout" from="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Boss3Area2D/Timer" to="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Boss3Area2D" method="_on_timer_timeout"]
 [connection signal="animation_finished" from="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/AnimatedSprite2D" to="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

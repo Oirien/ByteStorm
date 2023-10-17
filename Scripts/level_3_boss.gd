@@ -24,5 +24,12 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	moving_left = true
-	$Timer.queue_free()
+	if !moving_left && !moving_along_path:
+		moving_left = true
+	$Timer.stop()
+	
+	return
+
+
+
+
