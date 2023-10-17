@@ -276,7 +276,9 @@ color = Color(0, 0, 0, 1)
 position = Vector2(949, 269)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_adgkx")
-animation = &"glitch_heavy"
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="AnimatedSprite2D"]
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
