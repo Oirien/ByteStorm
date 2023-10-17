@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://qlhsyo5o4r5w"]
+[gd_scene load_steps=14 format=3 uid="uid://qlhsyo5o4r5w"]
 
 [ext_resource type="Texture2D" uid="uid://dg3q8xpuhnc31" path="res://Assets/enemy_6.png" id="1_2q063"]
 [ext_resource type="Script" path="res://Scripts/level_3_boss.gd" id="1_6pyym"]
 [ext_resource type="Script" path="res://Scripts/Lvel3BossNode2D.gd" id="1_kmltj"]
+[ext_resource type="Script" path="res://Scripts/Level3BossBulletSpawnerNode2D.gd" id="3_8iqfi"]
 [ext_resource type="Script" path="res://Scripts/Boss3Area2D.gd" id="3_k3t3u"]
 [ext_resource type="Texture2D" uid="uid://bo27nyiahprsj" path="res://Assets/Explosion1/explosion10.png" id="3_r8hk6"]
 [ext_resource type="Texture2D" uid="uid://brqoattmeb56p" path="res://Assets/Explosion1/explosion11.png" id="4_6vtom"]
@@ -62,6 +63,7 @@ rotates = false
 script = ExtResource("1_kmltj")
 
 [node name="Level3BossBulletSpawnerNode2D" type="Node2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
+script = ExtResource("3_8iqfi")
 
 [node name="AttackStyleTimer" type="Timer" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Level3BossBulletSpawnerNode2D"]
 
@@ -77,10 +79,13 @@ polygon = PackedVector2Array(87, -339, 95, -299, 102, -233, 142, -164, 149, -103
 [node name="Timer" type="Timer" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Boss3Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
+visible = false
 z_index = 100
 scale = Vector2(35, 35)
 sprite_frames = SubResource("SpriteFrames_rmw37")
 animation = &"explosion"
+
+[node name="bulletHost" type="Node" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
 
 [node name="Timer" type="Timer" parent="."]
 
