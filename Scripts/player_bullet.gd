@@ -14,7 +14,6 @@ func _process(delta):
 	self.position += Vector2(speed * delta,0)
 	if ($RayCast2D.is_colliding()):
 		var enemy_hit = $RayCast2D.get_collider()
-		print(enemy_hit)
 		enemy_hit.get_parent().on_hit(damage)
 		self.queue_free()
 	if (Time.get_ticks_msec() - spawntime > 15000):

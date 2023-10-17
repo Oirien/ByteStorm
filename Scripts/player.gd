@@ -23,18 +23,12 @@ func _process(delta):
 	self.position += movement(delta)
 	
 func flash_on_hit():
-	var flash_material : ShaderMaterial = sprite.material
-	flash_material.set_shader_parameter("active", true)
-	await get_tree().create_timer(.1).timeout
-	flash_material.set_shader_parameter("active", false)
-	await get_tree().create_timer(.1).timeout
-	flash_material.set_shader_parameter("active", true)
-	await get_tree().create_timer(.1).timeout
-	flash_material.set_shader_parameter("active", false)
-	await get_tree().create_timer(.1).timeout
-	flash_material.set_shader_parameter("active", true)
-	await get_tree().create_timer(.1).timeout
-	flash_material.set_shader_parameter("active", false)
+	var flash_material: ShaderMaterial = $Sprite2D.material  # Replace with the correct path to your sprite
+	for flash in range(3):  # You can adjust the number of flashes as needed
+		flash_material.set_shader_parameter("active", true)
+		await get_tree().create_timer(0.1).timeout
+		flash_material.set_shader_parameter("active", false)
+		await get_tree().create_timer(0.1).timeout
 
 func on_hit(_damage):
 	if recently_hit == false:
