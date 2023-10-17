@@ -28,7 +28,7 @@ func _reset():
 	ShopNode._reset_shops()
 	
 func _spend_money(cost):
-	if (wallet>cost):
+	if (wallet>=cost):
 		wallet-=cost
 		return "Success"
 	else:

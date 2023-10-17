@@ -45,7 +45,7 @@ func _on_purchase_pressed():
 	if (walletAmount >= upgrade.price):
 		currentUpgrade += 1
 		PlayerDataNode._spend_money(upgrade.price)
-		PlayerDataNode._set_health(upgrade.health)
+		PlayerDataNode._set_max_health(upgrade.health)
 		_display_upgrade()
 		
 

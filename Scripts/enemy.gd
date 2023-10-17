@@ -33,4 +33,5 @@ func on_hit(damage):
 
 func _on_animated_sprite_2d_animation_finished():
 	ShopNode.show()
+	ShopNode.get_node("AudioStreamPlayer").play()
 	get_tree().get_root().get_node("Game").get_node("Level 1").queue_free()
