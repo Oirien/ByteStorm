@@ -1,20 +1,17 @@
 extends Node2D
 @onready var _animated_explosion = $AnimatedSprite2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
-@onready var ShopNode = get_tree().get_root().get_node("Game").get_node("Shop")
-var health = 150
-var score_value = 1000
-var credit_value = 250
 
+var health = 50
+var score_value = 500
+var credit_value = 100
+var shooting:bool = false
+var attack_style:int = 0
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	_animated_explosion.hide()
-
-
-
-func _process(delta):
-	pass
-
+	
 func on_hit(damage):
 	health -= damage
 	if (health <= 0):
@@ -28,7 +25,6 @@ func on_hit(damage):
 		spawner.free()
 		sprite.free()
 
-
-func _on_animated_sprite_2d_animation_finished():
-	ShopNode.show()
-	get_tree().get_root().get_node("Game").get_node("Level 2").queue_free()
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	self.rotate(get_angle_to(self.get_parent().get_child(3).position) + PI/2) 

@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://y41bejyr85x"]
+
+[ext_resource type="Script" path="res://Scripts/level_3_mini_boss.gd" id="1_steel"]
+[ext_resource type="Texture2D" uid="uid://drrdva2e8gqqc" path="res://Assets/enemy_3.png" id="2_jk0kt"]
+[ext_resource type="Texture2D" uid="uid://bo27nyiahprsj" path="res://Assets/Explosion1/explosion10.png" id="3_lbvu3"]
+[ext_resource type="Texture2D" uid="uid://brqoattmeb56p" path="res://Assets/Explosion1/explosion11.png" id="4_8b7av"]
+[ext_resource type="Texture2D" uid="uid://hff35flchau0" path="res://Assets/Explosion1/explosion12.png" id="5_ga8ob"]
+[ext_resource type="Texture2D" uid="uid://btqv82u5jvel7" path="res://Assets/Explosion1/explosion13.png" id="6_ubpu1"]
+[ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="7_utgab"]
+[ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="8_5wax7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ut3w0"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lbvu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8b7av")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ga8ob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ubpu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_utgab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5wax7")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 6.0
+}]
+
+[node name="Level3MiniBoss" type="Node2D"]
+script = ExtResource("1_steel")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_jk0kt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+polygon = PackedVector2Array(60, -12, 51, 22, 36, 49, 1, 60, -37, 49, -53, 19, -60, -12, -60, -55, -21, -60, 1, -41, 20, -60, 59, -56)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 100
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ut3w0")
+animation = &"explosion"

@@ -1,0 +1,97 @@
+[gd_scene load_steps=15 format=3 uid="uid://dluka0dnutgyw"]
+
+[ext_resource type="Script" path="res://Scripts/level_2_boss.gd" id="1_imogb"]
+[ext_resource type="Texture2D" uid="uid://bwww68kus1ubf" path="res://Assets/enemy_5.png" id="1_pxy5r"]
+[ext_resource type="Script" path="res://Scripts/Boss2Node2D.gd" id="2_b7rr7"]
+[ext_resource type="Script" path="res://Scripts/Boss2BulletSpawner.gd" id="3_ubsyw"]
+[ext_resource type="Texture2D" uid="uid://bo27nyiahprsj" path="res://Assets/Explosion1/explosion10.png" id="4_fog6e"]
+[ext_resource type="Texture2D" uid="uid://brqoattmeb56p" path="res://Assets/Explosion1/explosion11.png" id="5_mieqn"]
+[ext_resource type="Texture2D" uid="uid://hff35flchau0" path="res://Assets/Explosion1/explosion12.png" id="6_j4vyd"]
+[ext_resource type="Texture2D" uid="uid://btqv82u5jvel7" path="res://Assets/Explosion1/explosion13.png" id="7_70mhu"]
+[ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="8_uv5vo"]
+[ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="9_0q4i5"]
+[ext_resource type="Script" path="res://Scripts/Boss2Spinner.gd" id="11_oq2u5"]
+[ext_resource type="Script" path="res://Scripts/Level2MinionSpawner.gd" id="12_8ai4e"]
+
+[sub_resource type="Curve2D" id="Curve2D_bg2m0"]
+_data = {
+"points": PackedVector2Array(4.48985, -2.24492, -4.48985, 2.24492, -50, -45, 0, 0, 0, 0, -102, 6, 0, 0, 0, 0, -57, 63, 0, 0, 0, 0, 143, -113, 0, 0, 0, 0, 143, -113, 0, 0, 0, 0, 143, 108, 0, 0, 0, 0, 24, -284, 0, 0, 0, 0, 25, 354, 0, 0, 0, 0, -50, -45)
+}
+point_count = 9
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wphyf"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fog6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mieqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j4vyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_70mhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uv5vo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0q4i5")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 6.0
+}]
+
+[node name="Level2Boss" type="Node2D"]
+position = Vector2(1500, 540)
+script = ExtResource("1_imogb")
+
+[node name="L2BossPath2D" type="Path2D" parent="."]
+position = Vector2(1, 0)
+curve = SubResource("Curve2D_bg2m0")
+
+[node name="L2BossPathFollow2D" type="PathFollow2D" parent="L2BossPath2D"]
+position = Vector2(-50, -45)
+rotates = false
+
+[node name="Boss2Node2D" type="Node2D" parent="L2BossPath2D/L2BossPathFollow2D"]
+script = ExtResource("2_b7rr7")
+
+[node name="Boss2BulletSpawner" type="Node2D" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D"]
+script = ExtResource("3_ubsyw")
+
+[node name="AttackStyleTimer" type="Timer" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D/Boss2BulletSpawner"]
+
+[node name="Boss2Area2D" type="Area2D" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D"]
+rotation = -1.5708
+
+[node name="Boss2Sprite2D" type="Sprite2D" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D/Boss2Area2D"]
+texture = ExtResource("1_pxy5r")
+
+[node name="Boss2CollisionPolygon2D" type="CollisionPolygon2D" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D/Boss2Area2D"]
+polygon = PackedVector2Array(53, -119, 61, -119, 61, -115, 65, -115, 65, -111, 69, -111, 69, -107, 93, -107, 93, -103, 97, -103, 97, -71, 101, -71, 101, -63, 105, -63, 105, -55, 108, -55, 108, -37, 105, -37, 105, -33, 101, -33, 101, -1, 97, -1, 97, 3, 93, 3, 93, 19, 85, 19, 85, 21, 89, 21, 89, 35, 85, 35, 85, 39, 77, 39, 77, 43, 73, 43, 73, 57, 77, 57, 77, 65, 81, 65, 81, 75, 77, 75, 77, 79, 73, 79, 73, 99, 69, 99, 69, 103, 65, 103, 65, 107, 53, 107, 53, 111, 49, 111, 49, 115, 31, 115, 31, 111, 27, 111, 27, 99, 25, 99, 25, 107, 21, 107, 21, 111, 17, 111, 17, 119, 13, 119, 13, 122, -13, 122, -13, 119, -17, 119, -17, 111, -21, 111, -21, 107, -25, 107, -25, 99, -27, 99, -27, 111, -31, 111, -31, 115, -49, 115, -49, 111, -53, 111, -53, 107, -65, 107, -65, 103, -69, 103, -69, 99, -73, 99, -73, 79, -77, 79, -77, 75, -81, 75, -81, 65, -77, 65, -77, 57, -73, 57, -73, 43, -77, 43, -77, 39, -85, 39, -85, 35, -89, 35, -89, 21, -85, 21, -85, 19, -93, 19, -93, 3, -97, 3, -97, -1, -101, -1, -101, -33, -105, -33, -105, -37, -108, -37, -108, -55, -105, -55, -105, -63, -101, -63, -101, -71, -97, -71, -97, -103, -93, -103, -93, -107, -69, -107, -69, -111, -65, -111, -65, -115, -61, -115, -61, -119, -53, -119, -53, -122, -39, -122, -39, -111, -35, -111, -35, -89, -39, -89, -39, -71, -37, -71, -37, -75, -33, -75, -33, -79, -25, -79, -25, -83, -15, -83, -15, -47, -9, -47, -9, -51, -5, -51, -5, -55, 5, -55, 5, -51, 9, -51, 9, -47, 15, -47, 15, -83, 25, -83, 25, -79, 33, -79, 33, -75, 37, -75, 37, -71, 39, -71, 39, -89, 35, -89, 35, -111, 39, -111, 39, -122, 53, -122)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D"]
+z_index = 100
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_wphyf")
+animation = &"explosion"
+frame = 5
+frame_progress = 1.0
+
+[node name="Spinner" type="Node2D" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D"]
+script = ExtResource("11_oq2u5")
+
+[node name="MinionSpawner" type="Node2D" parent="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D"]
+script = ExtResource("12_8ai4e")
+
+[connection signal="timeout" from="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D/Boss2BulletSpawner/AttackStyleTimer" to="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D/Boss2BulletSpawner" method="_on_attack_style_timer_timeout"]
+[connection signal="animation_finished" from="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D/AnimatedSprite2D" to="L2BossPath2D/L2BossPathFollow2D/Boss2Node2D" method="_on_animated_sprite_2d_animation_finished"]
