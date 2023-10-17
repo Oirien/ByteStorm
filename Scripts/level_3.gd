@@ -34,5 +34,5 @@ func start_pause():
 # Boss has very slow speed, but disappears every 10s for 5s
 # 4 Mini bosses, don't respawn
 #
-#
+# Boss starts laser at 50%hp
 #

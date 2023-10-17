@@ -11,7 +11,7 @@ func _ready():
 func _process(delta):
 	
 	if allowed_to_shoot(self.global_position.x):
-		_tail_shot()
+		_wings()
 
 
 func _shoot():
@@ -19,14 +19,18 @@ func _shoot():
 
 func _tail_shot():
 	for n in 3:
-		spawn_spread(n)
+		_spawn_spread(n)
 	await get_tree().create_timer(1).timeout
 
 func _laser():
 	pass
 	
 func _wings():
-	pass
+	shooting = true
+	for n in 5:
+		_wing_shot(n)
+		await get_tree().create_timer(0.3).timeout
+	shooting = false
 	
 func _apocalypse():
 	pass
@@ -42,7 +46,7 @@ func allowed_to_shoot(xCoord):
 		return true
 
 
-func spawn_spread(n):
+func _spawn_spread(n):
 	shooting = true
 	var bullet = boss_2_bullet.instantiate()
 	var bullet2 = boss_2_bullet.instantiate()
@@ -74,3 +78,41 @@ func spawn_spread(n):
 	
 	await get_tree().create_timer(1).timeout
 	shooting = false
+
+func _wing_shot(n):
+	var offset1:Vector2
+	var offset2:Vector2
+	
+	match n:
+		0:
+			pass
+		1:
+			offset1=Vector2(70,-60)
+			offset2=Vector2(70, 60)
+		2:
+			offset1=Vector2(140,-65)
+			offset2=Vector2(140, 65)
+		3:
+			offset1=Vector2(210, -105)
+			offset2=Vector2(210, 105)
+		4:
+			offset1=Vector2(280,-125)
+			offset2=Vector2(280, 125)
+		_:pass
+	
+	
+	var bullet = boss_2_bullet.instantiate()
+	var bullet2 = boss_2_bullet.instantiate()
+	
+	bullet.position = self.global_position + Vector2(-370, -35)+offset1
+	bullet2.position = self.global_position + Vector2(-370, 35)+offset2
+	
+	
+	self.get_parent().get_node("bulletHost").add_child(bullet)
+	self.get_parent().get_node("bulletHost").add_child(bullet2)
+	
+	bullet.rotation += (-0.05 + (0.05*n))
+	bullet2.rotation += (0.05 + (0.05*n))
+	
+	await get_tree().create_timer(1).timeout
+
