@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cll0e1jxgx30t"]
+[gd_scene load_steps=6 format=3 uid="uid://cll0e1jxgx30t"]
 
 [ext_resource type="FontFile" uid="uid://cvcff6y4li62g" path="res://Assets/PixelifySans-Regular.ttf" id="1_dl74y"]
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_i2003"]
 [ext_resource type="Script" path="res://Scripts/HUDText.gd" id="1_wdxgp"]
 [ext_resource type="Texture2D" uid="uid://bke5784jjl8q" path="res://Assets/UIElementTop.png" id="3_47qgt"]
+[ext_resource type="Texture2D" uid="uid://dxvhjviust3f" path="res://Assets/healthbar.png" id="5_72xca"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i2003")
 
 [node name="UiElementTop" type="Sprite2D" parent="."]
 position = Vector2(254, 74)
@@ -27,3 +30,25 @@ theme_override_fonts/normal_font = ExtResource("1_dl74y")
 theme_override_font_sizes/normal_font_size = 48
 text = "Score: 1123"
 script = ExtResource("1_wdxgp")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 952.0
+offset_right = 253.0
+offset_bottom = 994.0
+theme_override_fonts/font = ExtResource("1_dl74y")
+theme_override_font_sizes/font_size = 32
+text = "Health"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 1001.0
+offset_right = 353.0
+offset_bottom = 1041.0
+color = Color(1, 0, 0, 1)
+
+[node name="Healthbar" type="Sprite2D" parent="."]
+position = Vector2(203, 1021)
+texture = ExtResource("5_72xca")

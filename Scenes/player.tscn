@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://k0khelvllg4d"]
+[gd_scene load_steps=15 format=3 uid="uid://k0khelvllg4d"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3asme"]
 [ext_resource type="Texture2D" uid="uid://drpnxu0qs7j07" path="res://Assets/SHIP1.png" id="1_446r4"]
+[ext_resource type="Shader" path="res://Shaders/hitflash.gdshader" id="2_qk1o5"]
 [ext_resource type="Script" path="res://Scripts/playeweapon.gd" id="3_ld0tk"]
 [ext_resource type="Texture2D" uid="uid://bo27nyiahprsj" path="res://Assets/Explosion1/explosion10.png" id="4_5mhc7"]
 [ext_resource type="Texture2D" uid="uid://brqoattmeb56p" path="res://Assets/Explosion1/explosion11.png" id="5_sc8oh"]
@@ -10,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="8_ihu5h"]
 [ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="9_ja781"]
 [ext_resource type="Shader" path="res://Shaders/player.gdshader" id="10_dilv6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4vqu"]
+shader = ExtResource("2_qk1o5")
+shader_parameter/active = false
+shader_parameter/tint = Color(1, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n6o5v"]
 animations = [{
@@ -50,7 +56,16 @@ rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_3asme")
 
+[node name="DashBar" type="ColorRect" parent="."]
+offset_left = 78.0002
+offset_top = 63.9997
+offset_right = 91.0002
+offset_bottom = 191.0
+rotation = 3.14159
+color = Color(0, 1, 1, 0.690196)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_t4vqu")
 texture = ExtResource("1_446r4")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -61,7 +76,7 @@ collision_mask = 6
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(60, 0, 58, 10, 30, 30, 8, 30, -10, 38, -22, 50, -34, 50, -46, 38, -46, -38, -34, -50, -22, -50, -10, -38, 8, -30, 30, -30, 58, -10)
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="PlayerWeapon" type="Node2D" parent="."]
 script = ExtResource("3_ld0tk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -82,5 +97,8 @@ angle_max = 270.0
 scale_amount_min = 0.5
 scale_amount_max = 0.5
 color = Color(1, 1, 1, 0.239216)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

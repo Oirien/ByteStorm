@@ -7,7 +7,7 @@ change this shader according to your needs and consider sharing
 the modified result to godotshaders.com.
 */
 
-shader_type spatial;
+shader_type canvas_item;
 render_mode blend_add; // Remove this if you want to use HDR glow instead (use "Glow" and "Outline Glow" sliders)
 
 uniform int beams = 2; // How many beams the energy field should have
@@ -113,7 +113,5 @@ void fragment()
    for (int i = 0; i < beams; i++){
       beam = max(beam, bolt(UV, TIME, float(i)));
    }
-
-   ALBEDO = beam.rgb;
-   ALPHA = beam.a;
+	COLOR = beam;
 }

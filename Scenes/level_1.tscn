@@ -121,6 +121,6 @@ autoplay = true
 bus = &"Music"
 
 [connection signal="area_entered" from="PlayerBox/PlayerAreaBottom" to="Player" method="_on_player_area_bottom_area_entered"]
-[connection signal="area_exited" from="PlayerBox/PlayerAreaTop" to="Player" method="_on_player_area_top_area_exited"]
+[connection signal="area_entered" from="PlayerBox/PlayerAreaTop" to="Player" method="_on_player_area_top_area_entered"]
 [connection signal="area_entered" from="PlayerBox/PlayerAreaLeft" to="Player" method="_on_player_area_left_area_entered"]
 [connection signal="area_entered" from="PlayerBox/PlayerAreaRight" to="Player" method="_on_player_area_right_area_entered"]

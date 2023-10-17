@@ -1,12 +1,12 @@
 extends PanelContainer
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_node("PlayerData")
-var damageUpgrades = [
+var projectileUpgrades = [
 	{
-		"damage": 2,
+		"projectiles": 2,
 		"price": 100
 	},
 	{
-		"damage": 4,
+		"projectiles": 3,
 		"price": 400
 	}
 ]
@@ -28,22 +28,22 @@ func _process(_delta):
 func _display_upgrade():
 	upgradeStatLabel.clear()
 	upgradePriceLabel.clear()
-	if (currentUpgrade >= damageUpgrades.size()):
-		upgradeStatLabel.append_text("[center]Damage: Maxed[/center]")
+	if (currentUpgrade >= projectileUpgrades.size()):
+		upgradeStatLabel.append_text("[center]Projectiles: Maxed[/center]")
 		upgradePriceLabel.append_text("[center]No More Upgrades")
 		$HBoxContainer/VBoxContainer/Purchase.hide()
 		return 
-	upgradeStatLabel.append_text("[center]Damage: %s" % [damageUpgrades[currentUpgrade].damage])
-	upgradePriceLabel.append_text("[center]Price: %s" % [damageUpgrades[currentUpgrade].price])
+	upgradeStatLabel.append_text("[center]Projectiles: %s" % [projectileUpgrades[currentUpgrade].projectiles])
+	upgradePriceLabel.append_text("[center]Price: %s" % [projectileUpgrades[currentUpgrade].price])
 
 
 func _on_purchase_pressed():
 	var walletAmount = PlayerDataNode._get_wallet()
-	var upgrade = damageUpgrades[currentUpgrade]
+	var upgrade = projectileUpgrades[currentUpgrade]
 	if (walletAmount >= upgrade.price):
 		currentUpgrade += 1
 		PlayerDataNode._spend_money(upgrade.price)
-		PlayerDataNode._set_damage(upgrade.damage)
+		PlayerDataNode._set_weapon(upgrade.projectiles)
 		_display_upgrade()
 
 func _reset_upgrade():

@@ -16,6 +16,7 @@ func _on_menu_pressed():
 	var gamescene = get_node("../../")
 	gamescene.get_child(0).show()
 	gamescene.get_child(4).queue_free()
+	gamescene.get_node("MainMenu").get_node("AudioStreamPlayer").play()
 
 
 func _on_submit_score_pressed():
@@ -25,8 +26,7 @@ func _on_submit_score_pressed():
 		self.hide()
 		await get_tree().create_timer(3).timeout
 	var gamescene = get_node("../../")
-	gamescene.get_child(0).show()
-	gamescene.get_child(4).queue_free()
+	_on_menu_pressed()
 
 
 func _on_text_edit_text_changed():
