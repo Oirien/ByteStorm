@@ -68,7 +68,7 @@ collision_mask = 6
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(60, 0, 58, 10, 30, 30, 8, 30, -10, 38, -22, 50, -34, 50, -46, 38, -46, -38, -34, -50, -22, -50, -10, -38, 8, -30, 30, -30, 58, -10)
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="PlayerWeapon" type="Node2D" parent="."]
 script = ExtResource("3_ld0tk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

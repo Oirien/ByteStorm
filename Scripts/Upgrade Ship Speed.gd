@@ -1,5 +1,5 @@
 extends PanelContainer
-@onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
+@onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_node("PlayerData")
 #BELOW CODE IS FOR TESTING - DELETE BELOW LINE + THE PlayerData NODE WITHIN SHOP SCENE WHEN TESTING IS DONE
 #@onready var PlayerDataNode = get_tree().get_root().get_node("Shop").get_node("PlayerData")
 var speedUpgrades = [
@@ -31,7 +31,7 @@ func _display_upgrade():
 	upgradeStatLabel.clear()
 	upgradePriceLabel.clear()
 	if (currentUpgrade >= speedUpgrades.size()):
-		upgradeStatLabel.append_text("[center]Damage: Maxed[/center]")
+		upgradeStatLabel.append_text("[center]Speed: Maxed[/center]")
 		upgradePriceLabel.append_text("[center]No More Upgrades")
 		$HBoxContainer/VBoxContainer/Purchase.hide()
 		return 

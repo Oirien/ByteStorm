@@ -104,7 +104,9 @@ func _dodge_timer():
 	recently_dodged = true
 	await get_tree().create_timer(3).timeout
 	recently_dodged = false
-	
+
 func _get_health():
 	return self.health
 	
+func _kill_collision():
+	$Area2D.queue_free()

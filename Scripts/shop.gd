@@ -5,6 +5,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.hide()
+	$AudioStreamPlayer.stop()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,6 +16,7 @@ func _reset_shops():
 	var upgradeCollection = $Upgrades.get_children()
 	for upgrade in upgradeCollection:
 		upgrade._reset_upgrade()
+		upgrade._display_upgrade()
 
 
 func _on_next_level_pressed():
@@ -24,3 +26,4 @@ func _on_next_level_pressed():
 			var level_2 = preload("res://Scenes/level_2.tscn").instantiate()
 			get_parent().add_child(level_2)
 	self.hide()
+	$AudioStreamPlayer.stop()
