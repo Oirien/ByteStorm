@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddpyn2ps0u3ya"]
+[gd_scene load_steps=18 format=3 uid="uid://ddpyn2ps0u3ya"]
 
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_o6h87"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="2_rfhyh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://38477encum6x" path="res://Assets/cityblock-1.png" id="7_eq1sp"]
 [ext_resource type="Script" path="res://Scripts/PlayerArea.gd" id="8_b76io"]
 [ext_resource type="PackedScene" uid="uid://dluka0dnutgyw" path="res://Scenes/level_2_boss.tscn" id="9_upsbq"]
+[ext_resource type="AudioStream" uid="uid://bc08nuo42bain" path="res://Assets/Sounds/Music/track3.ogg" id="11_bl4ha"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_og23x"]
 texture = ExtResource("7_eq1sp")
@@ -126,6 +127,12 @@ position = Vector2(1200, 597)
 shape = SubResource("RectangleShape2D_fa2pn")
 
 [node name="Level2Boss" parent="." instance=ExtResource("9_upsbq")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_bl4ha")
+volume_db = -33.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="area_entered" from="PlayerBox/PlayerAreaBottom" to="Player" method="_on_player_area_bottom_area_entered"]
 [connection signal="area_entered" from="PlayerBox/PlayerAreaTop" to="Player" method="_on_player_area_top_area_entered"]
