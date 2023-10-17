@@ -1,14 +1,12 @@
 extends PanelContainer
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_node("PlayerData")
-#BELOW CODE IS FOR TESTING - DELETE BELOW LINE + THE PlayerData NODE WITHIN SHOP SCENE WHEN TESTING IS DONE
-#@onready var PlayerDataNode = get_tree().get_root().get_node("Shop").get_node("PlayerData")
-var healthUpgrades = [
+var projectileUpgrades = [
 	{
-		"health": 6,
+		"projectiles": 2,
 		"price": 100
 	},
 	{
-		"health": 7,
+		"projectiles": 3,
 		"price": 400
 	}
 ]
@@ -30,24 +28,23 @@ func _process(_delta):
 func _display_upgrade():
 	upgradeStatLabel.clear()
 	upgradePriceLabel.clear()
-	if (currentUpgrade >= healthUpgrades.size()):
-		upgradeStatLabel.append_text("[center]Health: Maxed[/center]")
+	if (currentUpgrade >= projectileUpgrades.size()):
+		upgradeStatLabel.append_text("[center]Projectiles: Maxed[/center]")
 		upgradePriceLabel.append_text("[center]No More Upgrades")
 		$HBoxContainer/VBoxContainer/Purchase.hide()
 		return 
-	upgradeStatLabel.append_text("[center]Health: %s" % [healthUpgrades[currentUpgrade].health])
-	upgradePriceLabel.append_text("[center]Price: %s" % [healthUpgrades[currentUpgrade].price])
+	upgradeStatLabel.append_text("[center]Projectiles: %s" % [projectileUpgrades[currentUpgrade].projectiles])
+	upgradePriceLabel.append_text("[center]Price: %s" % [projectileUpgrades[currentUpgrade].price])
 
 
 func _on_purchase_pressed():
 	var walletAmount = PlayerDataNode._get_wallet()
-	var upgrade = healthUpgrades[currentUpgrade]
+	var upgrade = projectileUpgrades[currentUpgrade]
 	if (walletAmount >= upgrade.price):
 		currentUpgrade += 1
 		PlayerDataNode._spend_money(upgrade.price)
-		PlayerDataNode._set_health(upgrade.health)
+		PlayerDataNode._set_weapon(upgrade.projectiles)
 		_display_upgrade()
-		
 
 func _reset_upgrade():
 	currentUpgrade = 0

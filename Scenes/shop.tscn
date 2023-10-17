@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfioyq7sfsqib"]
+[gd_scene load_steps=10 format=3 uid="uid://cfioyq7sfsqib"]
 
 [ext_resource type="Script" path="res://Scripts/shop.gd" id="1_27t0e"]
 [ext_resource type="FontFile" uid="uid://cvcff6y4li62g" path="res://Assets/PixelifySans-Regular.ttf" id="2_70dn5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Upgrade Ship Speed.gd" id="4_j867m"]
 [ext_resource type="Texture2D" uid="uid://drpnxu0qs7j07" path="res://Assets/SHIP1.png" id="4_vmjc5"]
 [ext_resource type="Script" path="res://Scripts/Upgrade Max Health Container.gd" id="6_egsgm"]
+[ext_resource type="Script" path="res://Scripts/Upgrade Num of Projectiles Container.gd" id="8_30q7r"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -203,6 +204,60 @@ theme_override_fonts/font = ExtResource("2_70dn5")
 theme_override_font_sizes/font_size = 28
 text = "Purchase"
 
+[node name="Upgrade Num of Projectiles Container" type="PanelContainer" parent="Upgrades"]
+layout_mode = 0
+offset_left = 825.0
+offset_top = 337.0
+offset_right = 1160.0
+offset_bottom = 513.0
+script = ExtResource("8_30q7r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Upgrades/Upgrade Num of Projectiles Container"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Upgrades/Upgrade Num of Projectiles Container/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_134ro")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Upgrades/Upgrade Num of Projectiles Container/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Upgrade Damage" type="RichTextLabel" parent="Upgrades/Upgrade Num of Projectiles Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("2_70dn5")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[b]Upgrade Number of Projectiles[/b]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="UpgradeStat" type="RichTextLabel" parent="Upgrades/Upgrade Num of Projectiles Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_70dn5")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Projectiles: 2[/center]"
+fit_content = true
+
+[node name="Price" type="RichTextLabel" parent="Upgrades/Upgrade Num of Projectiles Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_70dn5")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Price: 100[/center]"
+fit_content = true
+
+[node name="Purchase" type="Button" parent="Upgrades/Upgrade Num of Projectiles Container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_70dn5")
+theme_override_font_sizes/font_size = 28
+text = "Purchase"
+
 [node name="Wallet" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 222.0
@@ -229,4 +284,5 @@ text = "Next Level"
 [connection signal="pressed" from="Upgrades/Upgrade Max Health Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrades/Upgrade Max Health Container" method="_on_purchase_pressed"]
 [connection signal="pressed" from="Upgrades/Upgrade Ship Speed Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrades/Upgrade Ship Speed Container" method="_on_purchase_pressed"]
 [connection signal="pressed" from="Upgrades/Upgrade Damage Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrades/Upgrade Damage Container" method="_on_purchase_pressed"]
+[connection signal="pressed" from="Upgrades/Upgrade Num of Projectiles Container/HBoxContainer/VBoxContainer/Purchase" to="Upgrades/Upgrade Num of Projectiles Container" method="_on_purchase_pressed"]
 [connection signal="pressed" from="Next Level" to="." method="_on_next_level_pressed"]
