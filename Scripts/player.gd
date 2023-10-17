@@ -6,7 +6,7 @@ extends Node2D
 @onready var sprite = $Sprite2D
 @onready var dashbar = $DashBar
 signal _health_decreased
-var tween : Tween
+@onready var tween : Tween
 @onready var timer = $Timer
 
 var health = 100
