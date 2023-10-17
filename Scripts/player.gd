@@ -17,6 +17,7 @@ func _ready():
 	_animated_explosion.hide()
 	health = _player_data._get_max_health()
 	speed = _player_data._get_speed()
+	$Sprite2D.material.set_shader_parameter("active", false)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
