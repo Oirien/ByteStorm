@@ -17,7 +17,7 @@ func _process(_delta):
 	else:
 		match PlayerDataNode._get_weapon():
 			1:
-				bullet_pattern1()
+				bullet_pattern2()
 
 func spawn_bullet():
 	var bullet = bullet_scene.instantiate()
@@ -31,5 +31,17 @@ func bullet_pattern1():
 	self.position = get_parent().position
 	spawn_bullet()
 	await get_tree().create_timer(0.25).timeout
+	shooting = false
+
+func bullet_pattern2():
+	shooting = true
+	self.position = get_parent().position
+	self.position.y +=12
+	spawn_bullet()
+	await get_tree().create_timer(0.125).timeout
+	self.position = get_parent().position
+	self.position.y -=12
+	spawn_bullet()
+	await get_tree().create_timer(0.125).timeout
 	shooting = false
 	
