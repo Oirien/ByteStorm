@@ -17,6 +17,10 @@ func _process(_delta):
 	else:
 		match PlayerDataNode._get_weapon():
 			1:
+				bullet_pattern1()
+			2:
+				bullet_pattern2()
+			3:
 				bullet_pattern3()
 
 func spawn_bullet():
@@ -24,7 +28,7 @@ func spawn_bullet():
 	bullet.position = self.position
 	bullet.position.x += 25
 	bullet.rotation = self.rotation
-	bullet.rotation_degrees -= 90
+#	bullet.rotation_degrees -= 90
 	get_parent().get_parent().add_child(bullet)
 	
 func bullet_pattern1():
@@ -49,7 +53,7 @@ func bullet_pattern2():
 func bullet_pattern3():
 	shooting = true
 	self.position= get_parent().position
-	self.rotation = get_parent().rotation
+	self.rotation_degrees = 0
 	spawn_bullet()
 	self.rotation_degrees +=5
 	spawn_bullet()

@@ -24,7 +24,7 @@ func _reset():
 	damage = 1
 	speed = 300
 	current_level = 1
-	player_weapon = 1
+	player_weapon = 3
 	ShopNode._reset_shops()
 	
 func _spend_money(cost):
