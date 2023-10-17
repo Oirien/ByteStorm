@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://k0khelvllg4d"]
+[gd_scene load_steps=15 format=3 uid="uid://k0khelvllg4d"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3asme"]
 [ext_resource type="Texture2D" uid="uid://drpnxu0qs7j07" path="res://Assets/SHIP1.png" id="1_446r4"]
+[ext_resource type="Shader" path="res://Shaders/hitflash.gdshader" id="2_qk1o5"]
 [ext_resource type="Script" path="res://Scripts/playeweapon.gd" id="3_ld0tk"]
 [ext_resource type="Texture2D" uid="uid://bo27nyiahprsj" path="res://Assets/Explosion1/explosion10.png" id="4_5mhc7"]
 [ext_resource type="Texture2D" uid="uid://brqoattmeb56p" path="res://Assets/Explosion1/explosion11.png" id="5_sc8oh"]
@@ -10,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="8_ihu5h"]
 [ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="9_ja781"]
 [ext_resource type="Shader" path="res://Shaders/player.gdshader" id="10_dilv6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4vqu"]
+shader = ExtResource("2_qk1o5")
+shader_parameter/active = false
+shader_parameter/tint = Color(1, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n6o5v"]
 animations = [{
@@ -51,6 +57,7 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_3asme")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_t4vqu")
 texture = ExtResource("1_446r4")
 
 [node name="Area2D" type="Area2D" parent="."]
