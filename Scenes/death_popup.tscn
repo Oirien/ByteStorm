@@ -23,6 +23,7 @@ offset_bottom = 40.0
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_6hwtl")
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[center]You Died[/center]"
 fit_content = true
@@ -30,6 +31,7 @@ fit_content = true
 [node name="PlayerStatsDisplay" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_6hwtl")
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 fit_content = true
 script = ExtResource("2_fmiic")
@@ -37,6 +39,7 @@ script = ExtResource("2_fmiic")
 [node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_6hwtl")
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[center]Name:[/center]"
 fit_content = true
@@ -45,16 +48,19 @@ fit_content = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_6hwtl")
+theme_override_font_sizes/font_size = 24
 placeholder_text = "Type Your Name"
 
 [node name="Submit Score" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_6hwtl")
+theme_override_font_sizes/font_size = 32
 text = "Submit Score"
 
 [node name="Menu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_6hwtl")
+theme_override_font_sizes/font_size = 32
 text = "Main Menu"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]

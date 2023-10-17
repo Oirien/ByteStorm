@@ -3,6 +3,8 @@ extends Node2D
 @onready var _dodge_particles = $CPUParticles2D
 @onready var deathpopup = get_parent().get_node("DeathPopup")
 @onready var _player_data = get_parent().get_parent().get_node("PlayerData")
+@onready var sprite = $Sprite2D
+
 
 var health = 100
 var speed = 300
@@ -13,20 +15,30 @@ var recently_dodged : bool = false
 func _ready():
 	_animated_explosion.hide()
 	health = _player_data._get_max_health()
-
 	speed = _player_data._get_speed()
-
-
-
-
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	self.position += movement(delta)
 	
-
+func flash_on_hit():
+	var flash_material : ShaderMaterial = sprite.material
+	flash_material.set_shader_parameter("active", true)
+	await get_tree().create_timer(.1).timeout
+	flash_material.set_shader_parameter("active", false)
+	await get_tree().create_timer(.1).timeout
+	flash_material.set_shader_parameter("active", true)
+	await get_tree().create_timer(.1).timeout
+	flash_material.set_shader_parameter("active", false)
+	await get_tree().create_timer(.1).timeout
+	flash_material.set_shader_parameter("active", true)
+	await get_tree().create_timer(.1).timeout
+	flash_material.set_shader_parameter("active", false)
 
 func on_hit(_damage):
 	if recently_hit == false:
+		flash_on_hit()
 		recently_hit = true
 		health -= 1
 		if health > 0:
