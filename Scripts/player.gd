@@ -18,7 +18,6 @@ func _ready():
 	health = _player_data._get_max_health()
 	speed = _player_data._get_speed()
 	
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	self.position += movement(delta)

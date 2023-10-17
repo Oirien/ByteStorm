@@ -30,7 +30,8 @@ func on_hit(damage):
 		spinner.free()
 		sprite.free()
 		collision_box.free()
-		PlayerNode._kill_collision()
+		if PlayerNode.get_node("Area2D"):
+			PlayerNode._kill_collision()
 
 
 func _on_animated_sprite_2d_animation_finished():
