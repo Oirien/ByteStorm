@@ -4,6 +4,7 @@ extends Node2D
 @onready var deathpopup = get_parent().get_node("DeathPopup")
 @onready var _player_data = get_parent().get_parent().get_node("PlayerData")
 @onready var sprite = $Sprite2D
+signal _health_decreased
 
 
 var health = 100
@@ -38,6 +39,7 @@ func on_hit(_damage):
 		if health > 0:
 			await get_tree().create_timer(0.5).timeout
 		recently_hit = false
+		_health_decreased.emit()
 
 	if (health == 0):
 		_animated_explosion.show()
@@ -102,3 +104,7 @@ func _dodge_timer():
 	recently_dodged = true
 	await get_tree().create_timer(3).timeout
 	recently_dodged = false
+	
+func _get_health():
+	return self.health
+	
