@@ -12,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://bjacxku44b1k2" path="res://Assets/Sounds/Music/track1.ogg" id="10_42egw"]
 
 [node name="Shop" type="Control"]
+z_index = 50
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

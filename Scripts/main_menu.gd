@@ -3,6 +3,7 @@ extends Control
 @onready var _animated_logo = $AnimatedSprite2D
 var recently_animated : bool = true;
 var start_pressed : bool = false;
+@onready var animation_timer = $AnimatedSprite2D/Timer
 
 func _ready():
 	pass
@@ -13,9 +14,11 @@ func _process(_delta):
 	
 func _animation_spread():
 	if recently_animated == true:
-		var x : float = randf_range(3.0,7.0)
-		await get_tree().create_timer(x).timeout
+		var generatedtime : float = randf_range(3.0,7.0)
 		recently_animated = false
+		animation_timer.wait_time = generatedtime
+		animation_timer.start()
+		await animation_timer.timeout
 		_play_animation()
 
 func _on_start_pressed():
@@ -29,6 +32,7 @@ func _on_start_pressed():
 		PlayerDataNode._reset()
 		self.hide()
 		_animated_logo.apply_scale(Vector2(.5,.5))
+		_animated_logo.play("default")
 		$AudioStreamPlayer.stop()
 		start_pressed = false
 

@@ -1,5 +1,6 @@
 extends Node2D
 var boss_2_bullet = load("res://Scenes/boss_2_bullet.tscn")
+var laser_load = load("res://Scenes/laser.tscn")
 var shooting:bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -9,9 +10,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+	Engine.time_scale = 3
 	if allowed_to_shoot(self.global_position.x):
-		_wings()
+		_laser()
 
 
 func _shoot():
@@ -23,7 +24,13 @@ func _tail_shot():
 	await get_tree().create_timer(1).timeout
 
 func _laser():
-	pass
+	shooting = true
+	self.get_parent().get_node("CPUParticles2D").show()
+	await get_tree().create_timer(2).timeout
+	self.get_parent().get_node("CPUParticles2D").hide()
+	_laser_spawn()
+	await get_tree().create_timer(20).timeout
+	shooting = false
 	
 func _wings():
 	shooting = true
@@ -35,7 +42,14 @@ func _wings():
 func _apocalypse():
 	pass
 
-
+func _laser_spawn():
+	var laser = laser_load.instantiate()
+	
+	self.add_child(laser)
+	laser.rotate(PI/2)
+	laser.position += Vector2(0, -250)
+	
+	pass
 
 func allowed_to_shoot(xCoord):
 	if(xCoord >1400):

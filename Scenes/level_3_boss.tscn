@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://qlhsyo5o4r5w"]
+[gd_scene load_steps=18 format=3 uid="uid://qlhsyo5o4r5w"]
 
 [ext_resource type="Texture2D" uid="uid://dg3q8xpuhnc31" path="res://Assets/enemy_6.png" id="1_2q063"]
 [ext_resource type="Script" path="res://Scripts/level_3_boss.gd" id="1_6pyym"]
 [ext_resource type="Script" path="res://Scripts/Lvel3BossNode2D.gd" id="1_kmltj"]
 [ext_resource type="Script" path="res://Scripts/Level3BossBulletSpawnerNode2D.gd" id="3_8iqfi"]
+[ext_resource type="Shader" path="res://Shaders/Boss3Fade.gdshader" id="3_8o1w8"]
 [ext_resource type="Script" path="res://Scripts/Boss3Area2D.gd" id="3_k3t3u"]
 [ext_resource type="Texture2D" uid="uid://bo27nyiahprsj" path="res://Assets/Explosion1/explosion10.png" id="3_r8hk6"]
 [ext_resource type="Texture2D" uid="uid://brqoattmeb56p" path="res://Assets/Explosion1/explosion11.png" id="4_6vtom"]
@@ -11,12 +12,18 @@
 [ext_resource type="Texture2D" uid="uid://btqv82u5jvel7" path="res://Assets/Explosion1/explosion13.png" id="6_qj3h0"]
 [ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="7_nq2cn"]
 [ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="8_qbi0f"]
+[ext_resource type="Texture2D" uid="uid://csrko03ync7p7" path="res://Assets/purple_ball/purple_ball1.png" id="12_1ji4d"]
 
 [sub_resource type="Curve2D" id="Curve2D_2s22d"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 450, 0, 0, 0, 0, 0, -450, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nje0w"]
+shader = ExtResource("3_8o1w8")
+shader_parameter/active = false
+shader_parameter/tint = Color(1, 1, 1, 0.1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rmw37"]
 animations = [{
@@ -49,6 +56,10 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="Curve" id="Curve_ldo7k"]
+_data = [Vector2(0, 0.242105), 0.0, 0.0, 0, 0, Vector2(0.989011, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Level3Boss" type="Node2D"]
 rotation = -1.5708
 script = ExtResource("1_6pyym")
@@ -62,6 +73,10 @@ rotates = false
 [node name="Lvel3BossNode2D" type="Node2D" parent="Level3BossPath2D/Level3BossPathFollow2D"]
 script = ExtResource("1_kmltj")
 
+[node name="Sprite2D" type="Sprite2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
+material = SubResource("ShaderMaterial_nje0w")
+texture = ExtResource("1_2q063")
+
 [node name="Level3BossBulletSpawnerNode2D" type="Node2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
 script = ExtResource("3_8iqfi")
 
@@ -69,9 +84,6 @@ script = ExtResource("3_8iqfi")
 
 [node name="Boss3Area2D" type="Area2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
 script = ExtResource("3_k3t3u")
-
-[node name="Sprite2D" type="Sprite2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Boss3Area2D"]
-texture = ExtResource("1_2q063")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Boss3Area2D"]
 polygon = PackedVector2Array(87, -339, 95, -299, 102, -233, 142, -164, 149, -103, 163, -91, 151, -4, 126, 70, 62, 41, 43, 75, 60, 116, 34, 166, 52, 203, 24, 255, 42, 291, 10, 371, -11, 371, -45, 293, -24, 255, -53, 205, -32, 167, -59, 120, -38, 77, -58, 40, -125, 71, -150, -3, -164, -88, -149, -105, -147, -157, -103, -229, -95, -298, -87.3, -346, -38, -371, -25, -349, -23, -241, 24, -243, 24, -348, 34, -375)
@@ -86,6 +98,24 @@ sprite_frames = SubResource("SpriteFrames_rmw37")
 animation = &"explosion"
 
 [node name="bulletHost" type="Node" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
+position = Vector2(0, -240)
+amount = 4
+lifetime = 0.1
+texture = ExtResource("12_1ji4d")
+emission_shape = 1
+emission_sphere_radius = 8.76
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
+angle_min = 90.0
+angle_max = 90.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_ldo7k")
 
 [node name="Timer" type="Timer" parent="."]
 

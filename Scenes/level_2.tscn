@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=15 format=3 uid="uid://ddpyn2ps0u3ya"]
+=======
+[gd_scene load_steps=18 format=3 uid="uid://ddpyn2ps0u3ya"]
+>>>>>>> c1fe16e42713ba182d4d01fc586c2ad3abe55a0f
 
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_o6h87"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="2_rfhyh"]
@@ -9,6 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="6_jlltm"]
 [ext_resource type="Script" path="res://Scripts/PlayerArea.gd" id="8_b76io"]
 [ext_resource type="PackedScene" uid="uid://dluka0dnutgyw" path="res://Scenes/level_2_boss.tscn" id="9_upsbq"]
+[ext_resource type="AudioStream" uid="uid://bc08nuo42bain" path="res://Assets/Sounds/Music/track3.ogg" id="11_bl4ha"]
 
 [sub_resource type="TileSet" id="TileSet_c60l6"]
 tile_size = Vector2i(150, 150)
@@ -33,22 +38,12 @@ script = ExtResource("1_o6h87")
 
 [node name="Pause Menu" parent="." instance=ExtResource("2_rfhyh")]
 z_index = 25
-offset_left = 720.0
-offset_top = 346.0
-offset_right = 720.0
-offset_bottom = 346.0
-scale = Vector2(2, 2)
 
 [node name="Control" parent="." instance=ExtResource("3_hxc6i")]
 z_index = 20
 
 [node name="DeathPopup" parent="." instance=ExtResource("4_ax46r")]
 z_index = 10
-offset_left = 790.0
-offset_top = 500.0
-offset_right = 790.0
-offset_bottom = 500.0
-scale = Vector2(2, 2)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_2yr4t")]
 position = Vector2(207, 593)
@@ -119,6 +114,12 @@ position = Vector2(1200, 597)
 shape = SubResource("RectangleShape2D_fa2pn")
 
 [node name="Level2Boss" parent="." instance=ExtResource("9_upsbq")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_bl4ha")
+volume_db = -33.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="area_entered" from="PlayerBox/PlayerAreaBottom" to="Player" method="_on_player_area_bottom_area_entered"]
 [connection signal="area_entered" from="PlayerBox/PlayerAreaTop" to="Player" method="_on_player_area_top_area_entered"]

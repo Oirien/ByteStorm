@@ -1,5 +1,6 @@
 extends Node2D
 @onready var _animated_explosion = $AnimatedSprite2D
+@onready var laser_warning = $CPUParticles2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 @onready var ShopNode = get_tree().get_root().get_node("Game").get_node("Shop")
 var health = 50
@@ -9,6 +10,7 @@ var credit_value = 1000
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_animated_explosion.hide()
+	laser_warning.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
