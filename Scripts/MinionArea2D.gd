@@ -20,7 +20,7 @@ func _shooting():
 	var bullet = bullet_scene.instantiate()
 	self.add_child(bullet)
 	bullet.rotation = 0
-	bullet.reparent(get_tree().get_root().get_node("Game"))
+	bullet.reparent(get_tree().get_root().get_node("Game").get_node("level_2"))
 
 func end_of_path():
 	if (get_parent().get_parent().progress_ratio >= 1):
