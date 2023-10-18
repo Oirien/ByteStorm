@@ -105,6 +105,7 @@ func _on_animated_sprite_2d_animation_finished():
 
 func _on_dodge():
 	recently_hit = true
+	$Dash.play()
 	await get_tree().create_timer(.5).timeout
 	recently_hit = false
 	

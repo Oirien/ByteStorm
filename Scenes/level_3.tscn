@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://1eomuap86moc"]
+[gd_scene load_steps=18 format=3 uid="uid://1eomuap86moc"]
 
 [ext_resource type="Script" path="res://Scripts/level_3.gd" id="1_viy06"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="2_d4y0k"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://djtj465kgo1td" path="res://Scenes/level_3_mini_boss.tscn" id="11_6h1sr"]
 [ext_resource type="PackedScene" uid="uid://ctmtq30yif5wv" path="res://Scenes/win_popup.tscn" id="11_25q6x"]
 [ext_resource type="AudioStream" uid="uid://c8x6e5pngslty" path="res://Assets/Sounds/Music/track2.ogg" id="12_07k5i"]
+[ext_resource type="FontFile" uid="uid://cvcff6y4li62g" path="res://Assets/PixelifySans-Regular.ttf" id="13_3ysql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0s5h"]
 size = Vector2(1952.5, 85)
@@ -108,6 +109,17 @@ position = Vector2(1000, 930)
 stream = ExtResource("12_07k5i")
 autoplay = true
 bus = &"Music"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 761.0
+offset_top = 18.0
+offset_right = 1177.0
+offset_bottom = 178.0
+theme_override_fonts/font = ExtResource("13_3ysql")
+theme_override_font_sizes/font_size = 64
+text = "YOUR MISSION
+SURVIVE"
+horizontal_alignment = 1
 
 [connection signal="area_entered" from="PlayerBox/PlayerAreaBottom" to="Player" method="_on_player_area_bottom_area_entered"]
 [connection signal="area_entered" from="PlayerBox/PlayerAreaTop" to="Player" method="_on_player_area_top_area_entered"]

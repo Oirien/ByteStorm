@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddpyn2ps0u3ya"]
+[gd_scene load_steps=16 format=3 uid="uid://ddpyn2ps0u3ya"]
 
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_o6h87"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="2_rfhyh"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://pj8etep5wyc6" path="res://Scenes/Background.tscn" id="7_0hr4m"]
 [ext_resource type="Script" path="res://Scripts/PlayerArea.gd" id="8_b76io"]
 [ext_resource type="PackedScene" uid="uid://dluka0dnutgyw" path="res://Scenes/level_2_boss.tscn" id="9_upsbq"]
+[ext_resource type="FontFile" uid="uid://cvcff6y4li62g" path="res://Assets/PixelifySans-Regular.ttf" id="10_8ct4p"]
 [ext_resource type="AudioStream" uid="uid://bc08nuo42bain" path="res://Assets/Sounds/Music/track3.ogg" id="11_bl4ha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6l7xb"]
@@ -84,6 +85,19 @@ position = Vector2(827, 597)
 shape = SubResource("RectangleShape2D_fa2pn")
 
 [node name="Level2Boss" parent="." instance=ExtResource("9_upsbq")]
+
+[node name="Label" type="Label" parent="."]
+z_index = 999
+z_as_relative = false
+offset_left = 673.0
+offset_top = 35.0
+offset_right = 1269.0
+offset_bottom = 195.0
+theme_override_fonts/font = ExtResource("10_8ct4p")
+theme_override_font_sizes/font_size = 64
+text = "YOUR MISSION
+DESTROY THE ENEMY"
+horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_bl4ha")
