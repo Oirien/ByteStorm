@@ -86,7 +86,7 @@ script = ExtResource("3_ld0tk")
 [node name="PlayerWeapon1" type="AudioStreamPlayer" parent="PlayerWeapon"]
 stream = ExtResource("13_d1qum")
 volume_db = 24.0
-pitch_scale = 0.4
+pitch_scale = 0.1
 bus = &"SFX"
 
 [node name="PlayerWeapon2" type="AudioStreamPlayer" parent="PlayerWeapon"]
