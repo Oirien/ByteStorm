@@ -1,4 +1,5 @@
-[gd_scene load_steps=18 format=3 uid="uid://drdgwesc2q4dy"]
+[gd_scene load_steps=21 format=3 uid="uid://qlhsyo5o4r5w"]
+
 
 [ext_resource type="Texture2D" uid="uid://dg3q8xpuhnc31" path="res://Assets/enemy_6.png" id="1_2q063"]
 [ext_resource type="Script" path="res://Scripts/level_3_boss.gd" id="1_6pyym"]
@@ -9,10 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://bo27nyiahprsj" path="res://Assets/Explosion1/explosion10.png" id="3_r8hk6"]
 [ext_resource type="Texture2D" uid="uid://brqoattmeb56p" path="res://Assets/Explosion1/explosion11.png" id="4_6vtom"]
 [ext_resource type="Texture2D" uid="uid://hff35flchau0" path="res://Assets/Explosion1/explosion12.png" id="5_8qmyi"]
+[ext_resource type="AudioStream" uid="uid://iy6ya0fqld83" path="res://Assets/Sounds/effect_sounds/laser_charging.ogg" id="6_hgn3o"]
 [ext_resource type="Texture2D" uid="uid://btqv82u5jvel7" path="res://Assets/Explosion1/explosion13.png" id="6_qj3h0"]
 [ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="7_nq2cn"]
+[ext_resource type="AudioStream" uid="uid://6j0kg4lysiah" path="res://Assets/Sounds/effect_sounds/laser.ogg" id="7_usw3d"]
 [ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="8_qbi0f"]
 [ext_resource type="Texture2D" uid="uid://csrko03ync7p7" path="res://Assets/purple_ball/purple_ball1.png" id="12_1ji4d"]
+[ext_resource type="AudioStream" uid="uid://cdcd2e1ppwixp" path="res://Assets/Sounds/effect_sounds/enemy_explosion.ogg" id="16_nwc4q"]
 
 [sub_resource type="Curve2D" id="Curve2D_2s22d"]
 _data = {
@@ -82,6 +86,16 @@ script = ExtResource("3_8iqfi")
 
 [node name="AttackStyleTimer" type="Timer" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Level3BossBulletSpawnerNode2D"]
 
+[node name="laserCharging" type="AudioStreamPlayer" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Level3BossBulletSpawnerNode2D"]
+stream = ExtResource("6_hgn3o")
+volume_db = 24.0
+bus = &"SFX"
+
+[node name="laserFiring" type="AudioStreamPlayer" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Level3BossBulletSpawnerNode2D"]
+stream = ExtResource("7_usw3d")
+volume_db = 10.0
+bus = &"SFX"
+
 [node name="Boss3Area2D" type="Area2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
 script = ExtResource("3_k3t3u")
 
@@ -116,6 +130,11 @@ angle_min = 90.0
 angle_max = 90.0
 scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_ldo7k")
+
+[node name="Explosion" type="AudioStreamPlayer" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
+stream = ExtResource("16_nwc4q")
+volume_db = 20.0
+bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="."]
 

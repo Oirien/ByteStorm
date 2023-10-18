@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjsh5uhvujji1"]
+[gd_scene load_steps=12 format=3 uid="uid://bjsh5uhvujji1"]
 
 [ext_resource type="Texture2D" uid="uid://xjg2dr8xf0ij" path="res://Assets/Enemy_1.png" id="1_1y7fu"]
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_rtgy0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://btqv82u5jvel7" path="res://Assets/Explosion1/explosion13.png" id="7_6qr1t"]
 [ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="8_csrgg"]
 [ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="9_ssp56"]
+[ext_resource type="AudioStream" uid="uid://cdcd2e1ppwixp" path="res://Assets/Sounds/effect_sounds/enemy_explosion.ogg" id="10_lmmq4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k5yty"]
 animations = [{
@@ -64,5 +65,10 @@ polygon = PackedVector2Array(-18.4, -7.2, 10.4, -30.4, 26.4, -30.4, 32, -25.6, 4
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_k5yty")
 animation = &"explosion"
+
+[node name="explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_lmmq4")
+volume_db = 20.0
+bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

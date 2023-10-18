@@ -23,6 +23,7 @@ func on_hit(damage):
 	if (health <= 0):
 		PlayerDataNode._add_score(score_value)
 		PlayerDataNode._add_credits(credit_value)
+		$Explosion.play()
 		_animated_explosion.show()
 		_animated_explosion.reparent(self)
 		_animated_explosion.play("explosion")
