@@ -86,11 +86,12 @@ script = ExtResource("3_ld0tk")
 
 [node name="PlayerWeapon1" type="AudioStreamPlayer" parent="PlayerWeapon"]
 stream = ExtResource("13_d1qum")
-volume_db = -20.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="PlayerWeapon2" type="AudioStreamPlayer" parent="PlayerWeapon"]
 stream = ExtResource("14_vk78b")
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="PlayerWeapon3" type="AudioStreamPlayer" parent="PlayerWeapon"]

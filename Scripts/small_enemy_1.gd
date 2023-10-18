@@ -1,5 +1,5 @@
 extends Node2D
-var health=2
+var health=1
 var score_value = 50
 var credit_value = 15
 @onready var _animated_explosion = $AnimatedSprite2D

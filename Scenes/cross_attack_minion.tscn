@@ -16,7 +16,7 @@ collision_mask = 2
 script = ExtResource("2_y7emv")
 
 [node name="Sprite2D" type="Sprite2D" parent="CrossAttack"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_j86n1")
 
 [node name="RayCast2D" type="RayCast2D" parent="CrossAttack/Sprite2D"]
@@ -33,7 +33,7 @@ collision_mask = 2
 script = ExtResource("4_8edps")
 
 [node name="Sprite2D" type="Sprite2D" parent="CrossAttack2"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_j86n1")
 
 [node name="RayCast2D" type="RayCast2D" parent="CrossAttack2/Sprite2D"]
@@ -50,7 +50,7 @@ collision_mask = 2
 script = ExtResource("5_cj70j")
 
 [node name="Sprite2D" type="Sprite2D" parent="CrossAttack3"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_j86n1")
 
 [node name="RayCast2D" type="RayCast2D" parent="CrossAttack3/Sprite2D"]
@@ -67,7 +67,7 @@ collision_mask = 2
 script = ExtResource("6_d10mp")
 
 [node name="Sprite2D" type="Sprite2D" parent="CrossAttack4"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_j86n1")
 
 [node name="RayCast2D" type="RayCast2D" parent="CrossAttack4/Sprite2D"]

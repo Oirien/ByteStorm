@@ -6,7 +6,7 @@ extends Node2D
 @onready var DeathNode = get_tree().get_root().get_node("Game").get_node("level_3").get_node("DeathPopup")
 @onready var Player = get_tree().get_root().get_node("Game").get_node("level_3").get_node("Player")
 
-var health = 5000
+var health = 3000
 var score_value = 5000
 var credit_value = 1000
 

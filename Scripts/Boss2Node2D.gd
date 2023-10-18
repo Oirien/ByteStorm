@@ -5,7 +5,7 @@ extends Node2D
 
 @onready var PlayerNode = get_tree().get_root().get_node("Game").get_node("level_2").get_node("Player")
 
-var health = 150
+var health = 500
 var score_value = 1000
 var credit_value = 250
 
