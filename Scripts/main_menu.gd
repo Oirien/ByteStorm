@@ -28,7 +28,7 @@ func _on_start_pressed():
 		_animated_logo.play("glitch_heavy")
 		await _animated_logo.animation_finished
 
-		var level_1 = preload("res://Scenes/level_3.tscn").instantiate()
+		var level_1 = preload("res://Scenes/level_1.tscn").instantiate()
 
 		get_parent().add_child(level_1)
 		PlayerDataNode._reset()
