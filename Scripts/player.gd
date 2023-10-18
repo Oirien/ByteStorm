@@ -36,6 +36,7 @@ func flash_on_hit():
 
 func on_hit(_damage):
 	if recently_hit == false:
+		$PlayerDamage.play()
 		flash_on_hit()
 		recently_hit = true
 		health -= 1
@@ -69,7 +70,7 @@ func movement(delta):
 			if recently_dodged == false:
 				_on_dodge()
 				_dodge_timer()
-				dodge_speed = 10
+				dodge_speed = 15
 				_dodge_particles.emitting = true
 		if (Input.is_action_pressed("ui_down")):
 			yDirection = speed * dodge_speed

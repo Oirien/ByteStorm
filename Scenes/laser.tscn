@@ -59,6 +59,7 @@ offset_top = -527.0
 offset_bottom = 527.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 rotation = 3.14159

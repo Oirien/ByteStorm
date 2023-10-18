@@ -1,6 +1,7 @@
 extends Node2D
 var bullet_scene = load("res://Scenes/boss_2_bullet_missile_attack.tscn")
 var shooting=false;
+@onready var missile_sound = $missilesound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,4 +36,5 @@ func bullet_pattern1():
 		self.position = get_parent().position
 		await get_tree().create_timer(0.7).timeout
 		spawn_bullet(0)
+		missile_sound.play()
 		shooting = false

@@ -3,6 +3,7 @@ var health=2
 var score_value = 50
 var credit_value = 15
 @onready var _animated_explosion = $AnimatedSprite2D
+@onready var _death_sound = $deathsound
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 @onready var wallarea = get_tree().get_root().get_node("Game").get_child(4).get_node("THE WALL")
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +20,7 @@ func on_hit(damage):
 	if (health <= 0):
 		PlayerDataNode._add_score(score_value)
 		PlayerDataNode._add_credits(credit_value)
+		_death_sound.play()
 		_animated_explosion.show()
 		_animated_explosion.reparent(self)
 		_animated_explosion.play("explosion")

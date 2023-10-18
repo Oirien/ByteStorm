@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://k0khelvllg4d"]
+[gd_scene load_steps=20 format=3 uid="uid://k0khelvllg4d"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3asme"]
 [ext_resource type="Texture2D" uid="uid://drpnxu0qs7j07" path="res://Assets/SHIP1.png" id="1_446r4"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://damddymnigx0" path="res://Assets/Sounds/effect_sounds/player_firing_1.ogg" id="13_d1qum"]
 [ext_resource type="AudioStream" uid="uid://cnc0a2ga76hw2" path="res://Assets/Sounds/effect_sounds/player_firing_2.ogg" id="14_vk78b"]
 [ext_resource type="AudioStream" uid="uid://bygilyef73d1" path="res://Assets/Sounds/effect_sounds/player_firing_3.ogg" id="15_pitgi"]
+[ext_resource type="AudioStream" uid="uid://dcdnncrvwy1rk" path="res://Assets/Sounds/effect_sounds/taking_damage.ogg" id="16_6abgh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4vqu"]
 shader = ExtResource("2_qk1o5")
@@ -85,19 +86,15 @@ script = ExtResource("3_ld0tk")
 
 [node name="PlayerWeapon1" type="AudioStreamPlayer" parent="PlayerWeapon"]
 stream = ExtResource("13_d1qum")
-volume_db = 24.0
-pitch_scale = 0.1
+volume_db = -20.0
 bus = &"SFX"
 
 [node name="PlayerWeapon2" type="AudioStreamPlayer" parent="PlayerWeapon"]
 stream = ExtResource("14_vk78b")
-volume_db = 24.0
-pitch_scale = 0.5
 bus = &"SFX"
 
 [node name="PlayerWeapon3" type="AudioStreamPlayer" parent="PlayerWeapon"]
 stream = ExtResource("15_pitgi")
-volume_db = 24.0
 bus = &"SFX"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -125,6 +122,12 @@ wait_time = 3.0
 [node name="PlayerDeath" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_sjxu8")
 volume_db = 24.0
+bus = &"SFX"
+
+[node name="PlayerDamage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_6abgh")
+volume_db = 20.0
+pitch_scale = 0.5
 bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
