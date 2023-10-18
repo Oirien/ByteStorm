@@ -36,22 +36,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("3_r8hk6")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("4_6vtom")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("5_8qmyi")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("6_qj3h0")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("7_nq2cn")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("8_qbi0f")
 }],
 "loop": false,
@@ -87,12 +87,12 @@ script = ExtResource("3_8iqfi")
 
 [node name="laserCharging" type="AudioStreamPlayer" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Level3BossBulletSpawnerNode2D"]
 stream = ExtResource("6_hgn3o")
-volume_db = 10.0
+volume_db = 24.0
 bus = &"SFX"
 
 [node name="laserFiring" type="AudioStreamPlayer" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D/Level3BossBulletSpawnerNode2D"]
 stream = ExtResource("7_usw3d")
-volume_db = 14.0
+volume_db = 10.0
 bus = &"SFX"
 
 [node name="Boss3Area2D" type="Area2D" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
@@ -108,6 +108,8 @@ z_index = 100
 scale = Vector2(35, 35)
 sprite_frames = SubResource("SpriteFrames_rmw37")
 animation = &"explosion"
+frame = 5
+frame_progress = 1.0
 
 [node name="bulletHost" type="Node" parent="Level3BossPath2D/Level3BossPathFollow2D/Lvel3BossNode2D"]
 

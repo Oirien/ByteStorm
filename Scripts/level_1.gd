@@ -12,24 +12,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if (Input.is_action_just_pressed("ui_pause")):
-		start_pause()
 	if !locker:
 		if get_node_or_null("Player") != null:
 			score_over_time(1)
 
 func on_hit(damage):
 	pass
-
-
-func start_pause():
-	if (paused):
-		pausemenu.hide()
-		Engine.time_scale = 1
-	else:
-		pausemenu.show()
-		Engine.time_scale = 0
-	paused = !paused
 
 func score_over_time(level):
 	locker = true
