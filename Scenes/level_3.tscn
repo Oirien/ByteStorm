@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://pj8etep5wyc6" path="res://Scenes/Background.tscn" id="7_h5ttr"]
 [ext_resource type="Script" path="res://Scripts/PlayerArea.gd" id="9_bagfd"]
 [ext_resource type="PackedScene" uid="uid://qlhsyo5o4r5w" path="res://Scenes/level_3_boss.tscn" id="10_g2vem"]
-[ext_resource type="PackedScene" uid="uid://y41bejyr85x" path="res://Scenes/level_3_mini_boss.tscn" id="11_6h1sr"]
+[ext_resource type="PackedScene" uid="uid://djtj465kgo1td" path="res://Scenes/level_3_mini_boss.tscn" id="11_6h1sr"]
 [ext_resource type="PackedScene" uid="uid://ctmtq30yif5wv" path="res://Scenes/win_popup.tscn" id="11_25q6x"]
 [ext_resource type="AudioStream" uid="uid://c8x6e5pngslty" path="res://Assets/Sounds/Music/track2.ogg" id="12_07k5i"]
 
@@ -103,6 +103,8 @@ position = Vector2(1000, 930)
 [node name="bulletHost" type="Node" parent="."]
 
 [node name="win_popup" parent="." instance=ExtResource("11_25q6x")]
+z_index = 999
+z_as_relative = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_07k5i")

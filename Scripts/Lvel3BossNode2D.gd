@@ -29,12 +29,16 @@ func on_hit(damage):
 		_animated_explosion.show()
 		_animated_explosion.reparent(self)
 		_animated_explosion.play("explosion")
-		var spawner = get_child(0)
-		var sprite = get_child(1)
-		Player.get_node("Area2D").queue_free()
-		spawner.free()
-		sprite.free()
+		var spawner = get_node("Level3BossBulletSpawnerNode2D")
+		var sprite = get_node("Sprite2D")
+		var hitbox = get_node("Boss3Area2D")
+		if Player.get_node("Area2D"):
+			Player.get_node("Area2D").queue_free()
+		hitbox.queue_free()
+		spawner.queue_free()
+		sprite.queue_free()
 
 func _on_animated_sprite_2d_animation_finished():
+	print("I'm an asshole")
 	WinNode.show()
 	DeathNode.hide()

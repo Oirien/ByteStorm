@@ -14,8 +14,9 @@ func _process(_delta):
 	if (Input.is_action_just_pressed("ui_pause")):
 		start_pause()
 	if !locker:
-		if get_node_or_null("Player") != null:
-			score_over_time(4)
+		if get_node("Level3Boss").get_child(0).get_child(0).get_child(0).health > 0:
+			if get_node_or_null("Player") != null:
+				score_over_time(4)
 
 func on_hit(damage):
 	pass

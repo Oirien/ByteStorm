@@ -44,7 +44,7 @@ func _tail_shot(repeats):
 func _laser(delta):
 	shooting = true
 	self.get_parent().get_node("CPUParticles2D").show()
-	$laserCharging.play
+	$laserCharging.play()
 	await get_tree().create_timer(1.6).timeout
 	self.get_parent().get_node("CPUParticles2D").hide()
 	$laserFiring.play()
