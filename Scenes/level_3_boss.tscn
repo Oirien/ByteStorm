@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://qlhsyo5o4r5w"]
+[gd_scene load_steps=18 format=3 uid="uid://drdgwesc2q4dy"]
 
 [ext_resource type="Texture2D" uid="uid://dg3q8xpuhnc31" path="res://Assets/enemy_6.png" id="1_2q063"]
 [ext_resource type="Script" path="res://Scripts/level_3_boss.gd" id="1_6pyym"]

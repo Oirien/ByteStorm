@@ -3,7 +3,7 @@ extends Node2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 var bullet_scene = load("res://Scenes/mini_boss_bullet.tscn")
 var bullet_scene2 = load("res://Scenes/boss_2_bullet.tscn")
-var health = 50
+var health = 5000
 var score_value = 500
 var credit_value = 100
 var shooting:bool = false

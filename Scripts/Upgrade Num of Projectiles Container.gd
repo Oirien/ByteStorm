@@ -48,3 +48,4 @@ func _on_purchase_pressed():
 
 func _reset_upgrade():
 	currentUpgrade = 0
+	$HBoxContainer/VBoxContainer/Purchase.show()

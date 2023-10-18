@@ -30,7 +30,7 @@ func on_hit(damage):
 		_animated_explosion.play("explosion")
 		var spawner = get_child(0)
 		var sprite = get_child(1)
-		Player.get_node("Area_2D").queue_free()
+		Player.get_node("Area2D").queue_free()
 		spawner.free()
 		sprite.free()
 
