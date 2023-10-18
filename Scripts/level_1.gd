@@ -7,6 +7,8 @@ var locker: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	process_mode = Node2D.PROCESS_MODE_PAUSABLE
+	label_splash()
+	
 	pass # Replace with function body.
 
 
@@ -18,7 +20,19 @@ func _process(_delta):
 
 func on_hit(damage):
 	pass
-
+	
+func label_splash():
+	$Label.show()
+	await get_tree().create_timer(2).timeout
+	$Label.hide()
+	await get_tree().create_timer(.2).timeout
+	for flash in range(3):
+		$Label.show()
+		await get_tree().create_timer(.1).timeout
+		$Label.hide()
+		await get_tree().create_timer(.1).timeout
+	
+	
 func score_over_time(level):
 	locker = true
 	PlayerDataNode._add_score(level)

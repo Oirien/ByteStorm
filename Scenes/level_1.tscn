@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b11oh1poawx23"]
+[gd_scene load_steps=18 format=3 uid="uid://b11oh1poawx23"]
 
 [ext_resource type="PackedScene" uid="uid://k0khelvllg4d" path="res://Scenes/player.tscn" id="1_23xv1"]
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_hnats"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://pj8etep5wyc6" path="res://Scenes/Background.tscn" id="6_t0hqh"]
 [ext_resource type="PackedScene" uid="uid://bjsh5uhvujji1" path="res://Scenes/enemy.tscn" id="7_kytv3"]
 [ext_resource type="PackedScene" uid="uid://cwnqgg8l8pob6" path="res://Scenes/small_enemy_spawner.tscn" id="10_7frga"]
+[ext_resource type="FontFile" uid="uid://cvcff6y4li62g" path="res://Assets/PixelifySans-Regular.ttf" id="11_4dxg0"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="11_omqqf"]
 [ext_resource type="AudioStream" uid="uid://bc08nuo42bain" path="res://Assets/Sounds/Music/track3.ogg" id="11_shaba"]
 
@@ -103,6 +104,19 @@ rotates = false
 position = Vector2(0, 0)
 
 [node name="SmallEnemySpawner" parent="." instance=ExtResource("10_7frga")]
+
+[node name="Label" type="Label" parent="."]
+z_index = 999
+z_as_relative = false
+offset_left = 673.0
+offset_top = 35.0
+offset_right = 1269.0
+offset_bottom = 195.0
+theme_override_fonts/font = ExtResource("11_4dxg0")
+theme_override_font_sizes/font_size = 64
+text = "YOUR MISSION
+DESTROY THE ENEMY"
+horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_shaba")
