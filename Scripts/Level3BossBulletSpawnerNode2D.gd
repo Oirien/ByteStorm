@@ -2,6 +2,8 @@ extends Node2D
 var boss_2_bullet = load("res://Scenes/boss_2_bullet.tscn")
 var laser_load = load("res://Scenes/laser.tscn")
 var shooting:bool = false
+var firing_mode:int = 0
+var apocalypse_on:bool=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,37 +12,61 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	Engine.time_scale = 3
+	
 	if allowed_to_shoot(self.global_position.x):
-		_laser()
+		_shoot(delta)
 
 
-func _shoot():
-	pass
+func _shoot(delta):
+	match firing_mode:
+		0:
+			_wings(5)
+			firing_mode = randi_range(0,3)
+		1:
+			_tail_shot(randi_range(4,8))
+			firing_mode = randi_range(0,3)
+		2:
+			_laser(delta)
+			firing_mode = randi_range(0,3)
+		3:
+			_apocalypse(delta)
+			firing_mode = randi_range(0,3)
+			shooting = false
+		_:
+			pass
 
-func _tail_shot():
-	for n in 3:
-		_spawn_spread(n)
-	await get_tree().create_timer(1).timeout
+func _tail_shot(repeats):
+	for i in repeats:
+		for n in 3:
+			_spawn_spread(n)
+		await get_tree().create_timer(1).timeout
 
-func _laser():
+func _laser(delta):
 	shooting = true
 	self.get_parent().get_node("CPUParticles2D").show()
 	await get_tree().create_timer(2).timeout
 	self.get_parent().get_node("CPUParticles2D").hide()
-	_laser_spawn()
-	await get_tree().create_timer(20).timeout
+	await _laser_spawn()
+	await _laser_wipe_top_to_bottom(delta)
+	await _laser_wipe_bottom_to_top(delta)
+	_laser_wipe_top_to_bottom(delta)
+	await _laser_wipe_bottom_to_top(delta)
 	shooting = false
 	
-func _wings():
+func _wings(repeats):
 	shooting = true
-	for n in 5:
-		_wing_shot(n)
-		await get_tree().create_timer(0.3).timeout
+	for i in repeats:
+		for n in 5:
+			_wing_shot(n)
+			await get_tree().create_timer(0.3).timeout
 	shooting = false
 	
-func _apocalypse():
-	pass
+func _apocalypse(delta):
+	apocalypse_on = true
+	_wings(12)
+	_tail_shot(20)
+	await _laser(delta)
+	apocalypse_on = false
 
 func _laser_spawn():
 	var laser = laser_load.instantiate()
@@ -48,13 +74,43 @@ func _laser_spawn():
 	self.add_child(laser)
 	laser.rotate(PI/2)
 	laser.position += Vector2(0, -250)
+	await get_tree().create_timer(5).timeout
+	laser.queue_free()
+
+func _laser_wipe_top_to_bottom(delta):
+	var rotated_by:float = 0.0
+	var laser = laser_load.instantiate()
+	self.add_child(laser)
+	laser.rotate(PI-PI/6)
+	laser.position += Vector2(0, -250)
+	while(laser.rotation > PI/6):
+		laser.rotate(-rotated_by)
+		rotated_by += delta/60
+		await get_tree().create_timer(0.03).timeout
+	laser.queue_free()
 	
-	pass
+func _laser_wipe_bottom_to_top(delta):
+	var rotated_by:float = 0.0
+	var laser = laser_load.instantiate()
+	self.add_child(laser)
+	laser.rotate(PI/6)
+	laser.position += Vector2(0, -250)
+	while(laser.rotation < PI-PI/6):
+		laser.rotate(-rotated_by)
+		rotated_by -= delta/60
+		await get_tree().create_timer(0.03).timeout
+	laser.queue_free()
+
+
+
+
 
 func allowed_to_shoot(xCoord):
 	if(xCoord >1400):
 		return false
 	if shooting:
+		return false
+	if apocalypse_on:
 		return false
 	else:
 		return true

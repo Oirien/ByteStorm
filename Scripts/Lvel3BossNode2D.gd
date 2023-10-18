@@ -3,7 +3,8 @@ extends Node2D
 @onready var laser_warning = $CPUParticles2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
 @onready var ShopNode = get_tree().get_root().get_node("Game").get_node("Shop")
-var health = 50
+
+var health = 5000
 var score_value = 5000
 var credit_value = 1000
 
@@ -11,7 +12,7 @@ var credit_value = 1000
 func _ready():
 	_animated_explosion.hide()
 	laser_warning.hide()
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
