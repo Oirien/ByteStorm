@@ -53,6 +53,7 @@ script = ExtResource("1_e1gnh")
 
 [node name="missilesound" type="AudioStreamPlayer" parent="bulletspawner"]
 stream = ExtResource("3_mhgyv")
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
