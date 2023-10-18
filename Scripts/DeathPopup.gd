@@ -31,3 +31,7 @@ func _on_submit_score_pressed():
 
 func _on_line_edit_text_changed(new_text):
 	player_name = $VBoxContainer/LineEdit.text
+
+
+func _on_http_request_request_completed(result, response_code, headers, body):
+	pass # Replace with function body.
