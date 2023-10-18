@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctmtq30yif5wv"]
+
+[ext_resource type="Script" path="res://Scripts/DeathPopup.gd" id="1_of3uv"]
+[ext_resource type="FontFile" uid="uid://cvcff6y4li62g" path="res://Assets/PixelifySans-Regular.ttf" id="2_y2nw5"]
+[ext_resource type="Script" path="res://Scripts/PlayerStatsDisplay.gd" id="3_qll76"]
+[ext_resource type="Script" path="res://Scripts/HTTPRequest.gd" id="4_ft5od"]
+
+[node name="win_popup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_of3uv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 780.0
+offset_top = 250.0
+offset_right = 995.0
+offset_bottom = 482.0
+scale = Vector2(2, 2)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_y2nw5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]You Won![/center]"
+fit_content = true
+
+[node name="PlayerStatsDisplay" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_y2nw5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("3_qll76")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_y2nw5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Name:[/center]"
+fit_content = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_y2nw5")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Type Your Name"
+max_length = 10
+
+[node name="Submit Score" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_y2nw5")
+theme_override_font_sizes/font_size = 32
+text = "Submit Score"
+
+[node name="Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_y2nw5")
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource("4_ft5od")
+
+[connection signal="text_changed" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Submit Score" to="." method="_on_submit_score_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
