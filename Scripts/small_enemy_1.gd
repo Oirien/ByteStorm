@@ -27,9 +27,9 @@ func on_hit(damage):
 		var spawner = get_child(0)
 		var sprite = get_child(1)
 		var collision_box = get_child(2)
-		spawner.free()
-		sprite.free()
-		collision_box.free()
+		spawner.queue_free()
+		sprite.queue_free()
+		collision_box.queue_free()
 
 
 func _on_animated_sprite_2d_animation_finished():

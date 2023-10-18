@@ -286,7 +286,6 @@ text = "Next Level"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_42egw")
-volume_db = -33.0
 autoplay = true
 bus = &"Music"
 

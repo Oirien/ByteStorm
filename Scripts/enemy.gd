@@ -28,9 +28,9 @@ func on_hit(damage):
 		var spinner = get_child(0)
 		var sprite = get_child(1)
 		var collision_box = get_child(2)
-		spinner.free()
-		sprite.free()
-		collision_box.free()
+		spinner.queue_free()
+		sprite.queue_free()
+		collision_box.queue_free()
 		if PlayerNode.get_node("Area2D"):
 			PlayerNode._kill_collision()
 

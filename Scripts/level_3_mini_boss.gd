@@ -23,8 +23,8 @@ func on_hit(damage):
 		_animated_explosion.show()
 		_animated_explosion.reparent(self)
 		_animated_explosion.play("explosion")
-		var area = get_child(0)
-		area.free()
+		var area = $Area2D
+		area.queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
