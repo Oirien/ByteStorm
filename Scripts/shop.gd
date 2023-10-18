@@ -25,5 +25,8 @@ func _on_next_level_pressed():
 		2:
 			var level_2 = preload("res://Scenes/level_2.tscn").instantiate()
 			get_parent().add_child(level_2)
+		3:
+			var level_3 = preload("res://Scenes/level_3.tscn").instantiate()
+			get_parent().add_child(level_3)
 	self.hide()
 	$AudioStreamPlayer.stop()

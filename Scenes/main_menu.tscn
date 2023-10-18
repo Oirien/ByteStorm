@@ -259,7 +259,6 @@ flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1c0dy")
-volume_db = -33.0
 autoplay = true
 bus = &"Music"
 

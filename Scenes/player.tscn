@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://k0khelvllg4d"]
+[gd_scene load_steps=19 format=3 uid="uid://k0khelvllg4d"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3asme"]
 [ext_resource type="Texture2D" uid="uid://drpnxu0qs7j07" path="res://Assets/SHIP1.png" id="1_446r4"]
@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="8_ihu5h"]
 [ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="9_ja781"]
 [ext_resource type="Shader" path="res://Shaders/player.gdshader" id="10_dilv6"]
+[ext_resource type="AudioStream" uid="uid://ce7sa3vgqle35" path="res://Assets/Sounds/effect_sounds/player_explosion.ogg" id="12_sjxu8"]
+[ext_resource type="AudioStream" uid="uid://damddymnigx0" path="res://Assets/Sounds/effect_sounds/player_firing_1.ogg" id="13_d1qum"]
+[ext_resource type="AudioStream" uid="uid://cnc0a2ga76hw2" path="res://Assets/Sounds/effect_sounds/player_firing_2.ogg" id="14_vk78b"]
+[ext_resource type="AudioStream" uid="uid://bygilyef73d1" path="res://Assets/Sounds/effect_sounds/player_firing_3.ogg" id="15_pitgi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4vqu"]
 shader = ExtResource("2_qk1o5")
@@ -79,6 +83,23 @@ polygon = PackedVector2Array(60, 0, 58, 10, 30, 30, 8, 30, -10, 38, -22, 50, -34
 [node name="PlayerWeapon" type="Node2D" parent="."]
 script = ExtResource("3_ld0tk")
 
+[node name="PlayerWeapon1" type="AudioStreamPlayer" parent="PlayerWeapon"]
+stream = ExtResource("13_d1qum")
+volume_db = 24.0
+pitch_scale = 0.4
+bus = &"SFX"
+
+[node name="PlayerWeapon2" type="AudioStreamPlayer" parent="PlayerWeapon"]
+stream = ExtResource("14_vk78b")
+volume_db = 24.0
+pitch_scale = 0.5
+bus = &"SFX"
+
+[node name="PlayerWeapon3" type="AudioStreamPlayer" parent="PlayerWeapon"]
+stream = ExtResource("15_pitgi")
+volume_db = 24.0
+bus = &"SFX"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true
 scale = Vector2(5, 5)
@@ -100,5 +121,10 @@ color = Color(1, 1, 1, 0.239216)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="PlayerDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_sjxu8")
+volume_db = 24.0
+bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

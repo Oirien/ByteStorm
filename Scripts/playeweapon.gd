@@ -1,6 +1,7 @@
 extends Node2D
 var bullet_scene = load("res://Scenes/player_bullet.tscn")
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
+
 var shooting=false;
 var damage = 1
 
@@ -22,6 +23,7 @@ func _process(_delta):
 				bullet_pattern2()
 			3:
 				bullet_pattern3()
+				$PlayerWeapon3.play()
 
 func spawn_bullet():
 	var bullet = bullet_scene.instantiate()
@@ -35,6 +37,7 @@ func bullet_pattern1():
 	shooting = true
 	self.position = get_parent().position
 	spawn_bullet()
+	$PlayerWeapon1.play()
 	await get_tree().create_timer(0.25).timeout
 	shooting = false
 
@@ -43,10 +46,12 @@ func bullet_pattern2():
 	self.position = get_parent().position
 	self.position.y +=12
 	spawn_bullet()
+	$PlayerWeapon2.play()
 	await get_tree().create_timer(0.125).timeout
 	self.position = get_parent().position
 	self.position.y -=12
 	spawn_bullet()
+	$PlayerWeapon2.play()
 	await get_tree().create_timer(0.125).timeout
 	shooting = false
 

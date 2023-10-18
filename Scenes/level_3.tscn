@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://1eomuap86moc"]
+[gd_scene load_steps=17 format=3 uid="uid://1eomuap86moc"]
 
 [ext_resource type="Script" path="res://Scripts/level_3.gd" id="1_viy06"]
 [ext_resource type="PackedScene" uid="uid://ccuke7yhj4b2o" path="res://Scenes/pause_menu.tscn" id="2_d4y0k"]
@@ -6,23 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://d2ncmdu1tnmm" path="res://Scenes/death_popup.tscn" id="4_y8b2a"]
 [ext_resource type="PackedScene" uid="uid://k0khelvllg4d" path="res://Scenes/player.tscn" id="5_p3mp0"]
 [ext_resource type="Script" path="res://Scripts/THE WALL.gd" id="6_cvqcd"]
-[ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="7_um582"]
-[ext_resource type="Texture2D" uid="uid://38477encum6x" path="res://Assets/cityblock-1.png" id="8_tjoxh"]
+[ext_resource type="PackedScene" uid="uid://pj8etep5wyc6" path="res://Scenes/Background.tscn" id="7_h5ttr"]
 [ext_resource type="Script" path="res://Scripts/PlayerArea.gd" id="9_bagfd"]
 [ext_resource type="PackedScene" uid="uid://qlhsyo5o4r5w" path="res://Scenes/level_3_boss.tscn" id="10_g2vem"]
 [ext_resource type="PackedScene" uid="uid://y41bejyr85x" path="res://Scenes/level_3_mini_boss.tscn" id="11_6h1sr"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_og23x"]
-texture = ExtResource("8_tjoxh")
-texture_region_size = Vector2i(150, 150)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_cnhlb"]
-tile_size = Vector2i(150, 150)
-terrain_set_0/mode = 0
-terrain_set_0/terrain_0/name = "Terrain 0"
-terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
-sources/0 = SubResource("TileSetAtlasSource_og23x")
+[ext_resource type="PackedScene" uid="uid://ctmtq30yif5wv" path="res://Scenes/win_popup.tscn" id="11_25q6x"]
+[ext_resource type="AudioStream" uid="uid://c8x6e5pngslty" path="res://Assets/Sounds/Music/track2.ogg" id="12_07k5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0s5h"]
 size = Vector2(1952.5, 85)
@@ -34,29 +23,19 @@ size = Vector2(1961, 25)
 size = Vector2(28, 1208)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_to2fs"]
-size = Vector2(232, 1215)
+size = Vector2(212, 1215)
 
 [node name="level_3" type="Node2D"]
 script = ExtResource("1_viy06")
 
 [node name="Pause Menu" parent="." instance=ExtResource("2_d4y0k")]
 z_index = 25
-offset_left = 720.0
-offset_top = 346.0
-offset_right = 720.0
-offset_bottom = 346.0
-scale = Vector2(2, 2)
 
 [node name="Control" parent="." instance=ExtResource("3_5bbw4")]
 z_index = 20
 
 [node name="DeathPopup" parent="." instance=ExtResource("4_y8b2a")]
 z_index = 10
-offset_left = 790.0
-offset_top = 500.0
-offset_right = 790.0
-offset_bottom = 500.0
-scale = Vector2(2, 2)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_p3mp0")]
 position = Vector2(207, 593)
@@ -69,27 +48,7 @@ script = ExtResource("6_cvqcd")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="THE WALL"]
 polygon = PackedVector2Array(0, 0, -233, -120, -241, 1329, 2056, 1299, 2054, -144, 0, -120, 4, -1, 1949, -1, 1950, 1200, -2, 1203)
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_offset = Vector2(-10, 0)
-script = ExtResource("7_um582")
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1920, 0)
-
-[node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer"]
-tile_set = SubResource("TileSet_cnhlb")
-cell_quadrant_size = 48
-format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 262145, 0, 0, 196609, 0, 0, 131073, 0, 0, 65537, 0, 0, 1, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 262147, 0, 0, 196611, 0, 0, 131075, 0, 0, 65539, 0, 0, 3, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 262149, 0, 0, 196613, 0, 0, 131077, 0, 0, 65541, 0, 0, 5, 0, 0, 6, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 262151, 0, 0, 196615, 0, 0, 131079, 0, 0, 65543, 0, 0, 7, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 327682, 0, 0, 393218, 0, 0, 458754, 0, 0, 327683, 0, 0, 393219, 0, 0, 458755, 0, 0, 327684, 0, 0, 393220, 0, 0, 458756, 0, 0, 327685, 0, 0, 393221, 0, 0, 458757, 0, 0, 327686, 0, 0, 393222, 0, 0, 458758, 0, 0, 327687, 0, 0, 393223, 0, 0, 458759, 0, 0, 327688, 0, 0, 393224, 0, 0, 458760, 0, 0, 327689, 0, 0, 393225, 0, 0, 458761, 0, 0, 327690, 0, 0, 393226, 0, 0, 458762, 0, 0, 327691, 0, 0, 393227, 0, 0, 458763, 0, 0, 327692, 0, 0, 393228, 0, 0, 458764, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 0, 0, 10, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 0, 0, 11, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 12, 0, 0, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0, 262156, 0, 0)
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1920, 0)
-
-[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer2"]
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.67451)
-metadata/_edit_use_anchors_ = true
+[node name="ParallaxBackground" parent="." instance=ExtResource("7_h5ttr")]
 
 [node name="PlayerBox" type="Node2D" parent="."]
 
@@ -123,7 +82,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBox/PlayerAreaRight" groups=["Player"]]
-position = Vector2(1039, 597)
+position = Vector2(837, 597)
 shape = SubResource("RectangleShape2D_to2fs")
 
 [node name="Level3Boss" parent="." instance=ExtResource("10_g2vem")]
@@ -142,6 +101,13 @@ position = Vector2(1000, 150)
 position = Vector2(1000, 930)
 
 [node name="bulletHost" type="Node" parent="."]
+
+[node name="win_popup" parent="." instance=ExtResource("11_25q6x")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_07k5i")
+autoplay = true
+bus = &"Music"
 
 [connection signal="area_entered" from="PlayerBox/PlayerAreaBottom" to="Player" method="_on_player_area_bottom_area_entered"]
 [connection signal="area_entered" from="PlayerBox/PlayerAreaTop" to="Player" method="_on_player_area_top_area_entered"]

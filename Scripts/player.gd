@@ -45,12 +45,14 @@ func on_hit(_damage):
 		_health_decreased.emit()
 
 	if (health == 0):
+		
 		_kill_collision()
 		_animated_explosion.show()
 		_animated_explosion.reparent(self)
 		_animated_explosion.play("explosion")
-		var sprite = get_child(0)
+		$PlayerDeath.play()
 		sprite.free()
+		
 
 func dash_timer():
 	var timeleft : float = timer.time_left / 3

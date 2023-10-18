@@ -2,7 +2,9 @@ extends Node2D
 @onready var _animated_explosion = $AnimatedSprite2D
 @onready var laser_warning = $CPUParticles2D
 @onready var PlayerDataNode = get_tree().get_root().get_node("Game").get_child(1)
-@onready var ShopNode = get_tree().get_root().get_node("Game").get_node("Shop")
+@onready var WinNode = get_tree().get_root().get_node("Game").get_node("level_3").get_node("win_popup")
+@onready var DeathNode = get_tree().get_root().get_node("Game").get_node("level_3").get_node("DeathPopup")
+@onready var Player = get_tree().get_root().get_node("Game").get_node("level_3").get_node("Player")
 
 var health = 5000
 var score_value = 5000
@@ -28,9 +30,10 @@ func on_hit(damage):
 		_animated_explosion.play("explosion")
 		var spawner = get_child(0)
 		var sprite = get_child(1)
+		Player.get_node("Area_2D").queue_free()
 		spawner.free()
 		sprite.free()
 
 func _on_animated_sprite_2d_animation_finished():
-	ShopNode.show()
-	get_tree().get_root().get_node("Game").get_node("level_3").queue_free()
+	WinNode.show()
+	DeathNode.hide()
