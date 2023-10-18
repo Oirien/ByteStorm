@@ -13,7 +13,6 @@ func _submit_score(player_name, score):
 	}
 	
 	var json = JSON.stringify(data_to_send)
-	print(json)
 	var headers = ["Content-Type: application/json"]
 
 	# Call the request() function on the instance of HTTPRequest
