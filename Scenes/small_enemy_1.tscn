@@ -1,14 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmymqtikqbrc3"]
+[gd_scene load_steps=13 format=3 uid="uid://cmymqtikqbrc3"]
 
 [ext_resource type="Script" path="res://Scripts/small_enemy_1.gd" id="1_7xi0p"]
 [ext_resource type="Script" path="res://Scripts/bulletspawner.gd" id="1_e1gnh"]
 [ext_resource type="Texture2D" uid="uid://knq76xo111ax" path="res://Assets/Enemy_2.png" id="1_ggtqc"]
+[ext_resource type="AudioStream" uid="uid://duvm6a3mx5ndh" path="res://Assets/Sounds/effect_sounds/missile_sound.ogg" id="3_mhgyv"]
 [ext_resource type="Texture2D" uid="uid://bo27nyiahprsj" path="res://Assets/Explosion1/explosion10.png" id="4_ma8yx"]
 [ext_resource type="Texture2D" uid="uid://brqoattmeb56p" path="res://Assets/Explosion1/explosion11.png" id="5_wq24t"]
 [ext_resource type="Texture2D" uid="uid://hff35flchau0" path="res://Assets/Explosion1/explosion12.png" id="6_w4tvn"]
 [ext_resource type="Texture2D" uid="uid://btqv82u5jvel7" path="res://Assets/Explosion1/explosion13.png" id="7_st6de"]
 [ext_resource type="Texture2D" uid="uid://cdprmhusxe8yr" path="res://Assets/Explosion1/explosion14.png" id="8_ih6au"]
 [ext_resource type="Texture2D" uid="uid://cq57ctcpy11bs" path="res://Assets/Explosion1/explosion15.png" id="9_4yixu"]
+[ext_resource type="AudioStream" uid="uid://cdcd2e1ppwixp" path="res://Assets/Sounds/effect_sounds/enemy_explosion.ogg" id="11_al2qb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u5oen"]
 animations = [{
@@ -49,6 +51,10 @@ script = ExtResource("1_7xi0p")
 [node name="bulletspawner" type="Node2D" parent="."]
 script = ExtResource("1_e1gnh")
 
+[node name="missilesound" type="AudioStreamPlayer" parent="bulletspawner"]
+stream = ExtResource("3_mhgyv")
+bus = &"SFX"
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ggtqc")
 
@@ -62,5 +68,9 @@ polygon = PackedVector2Array(0, -26, -23, 9, 0, 23, 23, 10)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u5oen")
 animation = &"explosion"
+
+[node name="deathsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_al2qb")
+bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
