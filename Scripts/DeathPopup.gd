@@ -24,11 +24,11 @@ func _on_submit_score_pressed():
 	if player_name != "":
 		$HTTPRequest._submit_score(player_name, score)
 		self.hide()
-		await get_tree().create_timer(3).timeout
-	var gamescene = get_node("../../")
+
+
+func _on_line_edit_text_changed(new_text):
+	player_name = $VBoxContainer/LineEdit.text
+
+
+func _on_http_request_completed(result, response_code, headers, body):
 	_on_menu_pressed()
-
-
-func _on_text_edit_text_changed():
-	player_name = $VBoxContainer/TextEdit.text
-

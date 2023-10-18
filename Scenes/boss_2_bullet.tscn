@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0tufsc4x8m6j"]
+[gd_scene load_steps=9 format=3 uid="uid://bkyko0385ynyt"]
 
 [ext_resource type="Script" path="res://Scripts/boss_bullet.gd" id="1_3iew7"]
 [ext_resource type="Texture2D" uid="uid://y5l3aec7esng" path="res://Assets/purple_ball/purple_ball0.png" id="2_ysutk"]

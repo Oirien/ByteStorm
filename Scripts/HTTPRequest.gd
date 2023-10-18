@@ -4,6 +4,7 @@ var http_request
 
 func _submit_score(player_name, score):
 	http_request = HTTPRequest.new()
+	http_request.request_completed.connect(get_parent()._on_http_request_completed)
 	add_child(http_request)
 
 	var data_to_send = {
