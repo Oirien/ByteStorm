@@ -9,6 +9,7 @@
 ## About
 
 Bytestorm is a 2d Bullethell Sidescroller built in 2 weeks for a capstone project. If you want to play it yourself you can download it at https://oirien.itch.io/bytestorm or you can compile it yourself by downloading the project files, and opening it in Godot 4 game engine https://godotengine.org/.
+Godot 4 is written is in GDscript which is Python like, to see good examples of this code check the scripts folder here https://github.com/Oirien/ByteStorm/tree/main/Scripts .
 
 The project also included a full stack webapp at the following repository links.
 
