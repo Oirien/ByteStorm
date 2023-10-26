@@ -1,6 +1,9 @@
 # ByteStorm
 
-https://www.youtube.com/watch?v=oaBvS7CCols
+<a href="https://www.youtube.com/watch?v=oaBvS7CCols" target="_blank">
+ <img src="https://i1.ytimg.com/vi/oaBvS7CCols/hqdefault.jpg" alt="Watch the video" width="480" height="360" border="10" />
+</a>
+
 
 ## About
 
