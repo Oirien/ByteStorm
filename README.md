@@ -1,23 +1,14 @@
 # ByteStorm
 
-# MVP
+https://www.youtube.com/watch?v=oaBvS7CCols
 
-+ Have a Dev blog where we can see a series of blogs, or click on a blog to see the full blog post.
-+ Have a cloud hosted database for storing blogposts and leaderboard stats.
-+ Host backend server and frontend client on cloud.
-+ Have a playable bullethell 2d game.
-+ Have the game able to post data to the database.
+## About
 
-### Extensions
+Bytestorm is a 2d Bullethell Sidescroller built in 2 weeks for a capstone project. If you want to paly it yourself you can downlaod it at https://oirien.itch.io/bytestorm or you can compile it yourself by downloading the project files, and opening it in Godot 4.
 
-+ Have multiple levels for the game
-+ Have roguelike elements between levels
-+ Have modular weapon system
-+ Skill system
+The project also included a full stack webapp at the following repository links.
 
-### Super Extensions
-+ Save game system
-+ Endlessmode
-+ wiki
-+ Deploy on steam
-+ Community page
+https://github.com/Oirien/ByteStorm_Backend
+https://github.com/ByteStormDevTeam/ByteStorm_Frontend
+
+These along with the database were all hosted on AWS but have since been taken down.
