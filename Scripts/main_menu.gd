@@ -29,9 +29,8 @@ func _on_start_pressed():
 		await _animated_logo.animation_finished
 
 		var level_1 = preload("res://Scenes/level_1.tscn").instantiate()
-
-		get_parent().add_child(level_1)
 		PlayerDataNode._reset()
+		get_parent().add_child(level_1)
 		self.hide()
 		_animated_logo.apply_scale(Vector2(.5,.5))
 		_animated_logo.play("default")
