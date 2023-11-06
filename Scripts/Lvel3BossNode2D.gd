@@ -39,6 +39,6 @@ func on_hit(damage):
 		sprite.queue_free()
 
 func _on_animated_sprite_2d_animation_finished():
-	print("I'm an asshole")
+	_animated_explosion.hide()
 	WinNode.show()
 	DeathNode.hide()
