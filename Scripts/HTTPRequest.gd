@@ -16,4 +16,5 @@ func _submit_score(player_name, score):
 	var headers = ["Content-Type: application/json"]
 
 	# Call the request() function on the instance of HTTPRequest
-	http_request.request("http://54.74.199.55:8080/api/leaderboard/", headers, HTTPClient.METHOD_POST, json)
+	http_request.set_timeout(2)
+	http_request.request("http://3.253.106.18:8080/api/leaderboard/", headers, HTTPClient.METHOD_POST, json)
